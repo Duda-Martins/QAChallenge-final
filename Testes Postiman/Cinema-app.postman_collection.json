@@ -1,0 +1,1384 @@
+{
+	"info": {
+		"_postman_id": "971d6ec1-bec2-4ca3-a90d-e00118e4409f",
+		"name": "Cinema-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44546137",
+		"_collection_link": "https://mariaeduarda-3437190.postman.co/workspace/Cinema-app~09723624-a822-49c7-894b-4aad93fa9bde/collection/44546137-971d6ec1-bec2-4ca3-a90d-e00118e4409f?action=share&source=collection_link&creator=44546137"
+	},
+	"item": [
+		{
+			"name": "/auth",
+			"item": [
+				{
+					"name": "/register",
+					"item": [
+						{
+							"name": "Criando um usuário",
+							"item": [
+								{
+									"name": "Válido",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Ronaldo\",\r\n  \"email\": \"ronaldo@empresa.com\",\r\n  \"password\": \"senhaqq1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL_BASE}}/auth/register",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "E-mail duplicado",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Ronaldo\",\r\n  \"email\": \"ronaldo@empresa.com\",\r\n  \"password\": \"senhaqq1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL_BASE}}/auth/register",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "E-mail inválido",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Escreve Errado\",\r\n  \"email\": \"escrevierrado.com\",\r\n  \"password\": \"senhaqq1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL_BASE}}/auth/register",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Senha curta",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Escreve pouco\",\r\n  \"email\": \"so@isso.com\",\r\n  \"password\": \"s\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL_BASE}}/auth/register",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Senha longa",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Escreve muito muito mesmo\",\r\n  \"email\": \"muitacoisaeu@escrevo.com\",\r\n  \"password\": \"muitacoisaeuescrevomuitacoisaeuescrevomuitacoisaeuescrevomuitacoisaeuescrevo\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL_BASE}}/auth/register",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/me",
+					"item": [
+						{
+							"name": "Visualizando meu perfil",
+							"item": [
+								{
+									"name": "Válido",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyODc4ZjNkNmE3NTYyMmZiMDY4MSIsImlhdCI6MTc1MDg3MzQ4NCwiZXhwIjoxNzUwOTU5ODg0fQ.FvAokGgLvyCDEHsr5zX2oSfAnVwzoeQf1VRF1UbFqIM",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{URL_BASE}}/auth/me",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"me"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/login",
+					"item": [
+						{
+							"name": "Fazendo login",
+							"item": [
+								{
+									"name": "Válido",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"ronaldo@empresa.com\",\r\n    \"password\": \"senhaqq1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL_BASE}}/auth/login",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Válido ADM",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"exemplo@exemplo.com\",\r\n    \"password\": \"senha1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL_BASE}}/auth/login",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Senha errada",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"ronaldo@empresa.com\",\r\n    \"password\": \"senha\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL_BASE}}/auth/login",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Inexistente",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"nemo@empresa.com\",\r\n    \"password\": \"senhaqq1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL_BASE}}/auth/login",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/profile",
+					"item": [
+						{
+							"name": "Editando um usuário",
+							"item": [
+								{
+									"name": "Sem token",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Ronaldo Fenômeno\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL_BASE}}/auth/profile",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"profile"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Com token",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyODc4ZjNkNmE3NTYyMmZiMDY4MSIsImlhdCI6MTc1MDg3NDc3OCwiZXhwIjoxNzUwOTYxMTc4fQ.pZhQb4AVHazNQaeu7jOQ6MU5cK4qef9bhvWYDizu6oY",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Ronaldo Fenômeno\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL_BASE}}/auth/profile",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"profile"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Senha com token",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyODc4ZjNkNmE3NTYyMmZiMDY4MSIsImlhdCI6MTc1MDg3NTQzOSwiZXhwIjoxNzUwOTYxODM5fQ.m1rupTulF1kf89NDvL8lqp6-AboEulYj4Xo1rweHfw8",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Ronaldo Fenômeno\",\r\n    \"currentPassword\": \"senhaqq1\",\r\n    \"newPassword\": \"senhaqq2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{URL_BASE}}/auth/profile",
+											"host": [
+												"{{URL_BASE}}"
+											],
+											"path": [
+												"auth",
+												"profile"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "/movies",
+			"item": [
+				{
+					"name": "Criando um filme",
+					"item": [
+						{
+							"name": "Válido",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4MTg1MiwiZXhwIjoxNzUwOTY4MjUyfQ.8-ii4WO8ujrsgYKlOLAzwnFGM6Zyz29czcqAk6NBvAk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"string\",\r\n    \"synopsis\": \"string\",\r\n    \"director\": \"string\",\r\n    \"genres\": [\r\n        \"string\"\r\n    ],\r\n    \"duration\": 0,\r\n    \"classification\": \"string\",\r\n    \"poster\": \"string\",\r\n    \"releaseDate\": \"2025-06-25\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/movies",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Faltando campo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4MTg1MiwiZXhwIjoxNzUwOTY4MjUyfQ.8-ii4WO8ujrsgYKlOLAzwnFGM6Zyz29czcqAk6NBvAk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"synopsis\": \"string\",\r\n    \"director\": \"string\",\r\n    \"genres\": [\r\n        \"string\"\r\n    ],\r\n    \"duration\": 0,\r\n    \"classification\": \"string\",\r\n    \"poster\": \"string\",\r\n    \"releaseDate\": \"2025-06-25\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/movies",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Com token de usuário comum",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyODc4ZjNkNmE3NTYyMmZiMDY4MSIsImlhdCI6MTc1MDg4MjQwNSwiZXhwIjoxNzUwOTY4ODA1fQ.ZZHGXDkiJ-4EU4YDY9-nYCwWKlofPf2dna8KB9lQKG8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"string\",\r\n    \"synopsis\": \"string\",\r\n    \"director\": \"string\",\r\n    \"genres\": [\r\n        \"string\"\r\n    ],\r\n    \"duration\": 0,\r\n    \"classification\": \"string\",\r\n    \"poster\": \"string\",\r\n    \"releaseDate\": \"2025-06-25\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/movies",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editando um filme",
+					"item": [
+						{
+							"name": "Válido",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4MTg1MiwiZXhwIjoxNzUwOTY4MjUyfQ.8-ii4WO8ujrsgYKlOLAzwnFGM6Zyz29czcqAk6NBvAk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Filme legal\",\r\n    \"synopsis\": \"Um filme muito legal\",\r\n    \"director\": \"Eu mesma\",\r\n    \"genres\": [\r\n        \"Action\",\r\n        \"Adventure\",\r\n        \"Science Fiction\"\r\n    ],\r\n    \"duration\": 120,\r\n    \"classification\": \"L\",\r\n    \"poster\": \"Uma imagem que eu não sei adicionar\",\r\n    \"releaseDate\": \"2025-06-25\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/movies/685c5652f3d6a75622fb0837",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"movies",
+										"685c5652f3d6a75622fb0837"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Com token de usuário comum",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyODc4ZjNkNmE3NTYyMmZiMDY4MSIsImlhdCI6MTc1MDg4MjQwNSwiZXhwIjoxNzUwOTY4ODA1fQ.ZZHGXDkiJ-4EU4YDY9-nYCwWKlofPf2dna8KB9lQKG8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Filme legal\",\r\n    \"synopsis\": \"Um filme muito legal\",\r\n    \"director\": \"Eu mesma\",\r\n    \"genres\": [\r\n        \"Action\",\r\n        \"Adventure\",\r\n        \"Science Fiction\"\r\n    ],\r\n    \"duration\": 120,\r\n    \"classification\": \"L\",\r\n    \"poster\": \"Uma imagem que eu não sei adicionar\",\r\n    \"releaseDate\": \"2025-06-25\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/movies/685c5652f3d6a75622fb0837",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"movies",
+										"685c5652f3d6a75622fb0837"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Excluindo um filme",
+					"item": [
+						{
+							"name": "Válido",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4MTg1MiwiZXhwIjoxNzUwOTY4MjUyfQ.8-ii4WO8ujrsgYKlOLAzwnFGM6Zyz29czcqAk6NBvAk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL_BASE}}/movies/685c5652f3d6a75622fb0837",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"movies",
+										"685c5652f3d6a75622fb0837"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Com token de usuário comum",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyODc4ZjNkNmE3NTYyMmZiMDY4MSIsImlhdCI6MTc1MDg4MjQwNSwiZXhwIjoxNzUwOTY4ODA1fQ.ZZHGXDkiJ-4EU4YDY9-nYCwWKlofPf2dna8KB9lQKG8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL_BASE}}/movies/685c5652f3d6a75622fb0837",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"movies",
+										"685c5652f3d6a75622fb0837"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "/theaters",
+			"item": [
+				{
+					"name": "Criando um teatro",
+					"item": [
+						{
+							"name": "Válido",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4Mjg2NiwiZXhwIjoxNzUwOTY5MjY2fQ.RbiSO_3DcmiXBki4RmALoRFaqhZaucaiFR_upkICCUM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Meu teatro\",\r\n    \"capacity\": 20,\r\n    \"type\": \"standard\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/theaters",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Faltando um campo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4Mjg2NiwiZXhwIjoxNzUwOTY5MjY2fQ.RbiSO_3DcmiXBki4RmALoRFaqhZaucaiFR_upkICCUM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"capacity\": 20,\r\n    \"type\": \"standard\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/theaters",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Com token de usuário comum",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyODc4ZjNkNmE3NTYyMmZiMDY4MSIsImlhdCI6MTc1MDg4MzI2OSwiZXhwIjoxNzUwOTY5NjY5fQ.UCUFo8JMp9F2jBTagBi_W5BF4KY8xGAmoFWE8-SssSw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Meu teatro\",\r\n    \"capacity\": 20,\r\n    \"type\": \"standard\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/theaters",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editando um teatro",
+					"item": [
+						{
+							"name": "Válido",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4Mjg2NiwiZXhwIjoxNzUwOTY5MjY2fQ.RbiSO_3DcmiXBki4RmALoRFaqhZaucaiFR_upkICCUM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Meu teatro é legal\",\r\n    \"capacity\": 20,\r\n    \"type\": \"standard\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/theaters/685c5a48f3d6a75622fb0847",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"theaters",
+										"685c5a48f3d6a75622fb0847"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Com token de usuário comum",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyODc4ZjNkNmE3NTYyMmZiMDY4MSIsImlhdCI6MTc1MDg4MzI2OSwiZXhwIjoxNzUwOTY5NjY5fQ.UCUFo8JMp9F2jBTagBi_W5BF4KY8xGAmoFWE8-SssSw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Meu teatro é legal\",\r\n    \"capacity\": 20,\r\n    \"type\": \"standard\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/theaters/685c5a48f3d6a75622fb0847",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"theaters",
+										"685c5a48f3d6a75622fb0847"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Excluindo um teatro",
+					"item": [
+						{
+							"name": "Válido",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4Mjg2NiwiZXhwIjoxNzUwOTY5MjY2fQ.RbiSO_3DcmiXBki4RmALoRFaqhZaucaiFR_upkICCUM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/theaters/685c5a48f3d6a75622fb0847",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"theaters",
+										"685c5a48f3d6a75622fb0847"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Com token de usuário comum",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyODc4ZjNkNmE3NTYyMmZiMDY4MSIsImlhdCI6MTc1MDg4MzI2OSwiZXhwIjoxNzUwOTY5NjY5fQ.UCUFo8JMp9F2jBTagBi_W5BF4KY8xGAmoFWE8-SssSw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/theaters/685c5a48f3d6a75622fb0847",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"theaters",
+										"685c5a48f3d6a75622fb0847"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Teatro com sessões ativas",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4Mjg2NiwiZXhwIjoxNzUwOTY5MjY2fQ.RbiSO_3DcmiXBki4RmALoRFaqhZaucaiFR_upkICCUM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/theaters/685af8b2dd66e8849ea14e12",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"theaters",
+										"685af8b2dd66e8849ea14e12"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Buscando teatros",
+					"item": [
+						{
+							"name": "Válido",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/theaters",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"theaters"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "/sessions",
+			"item": [
+				{
+					"name": "Criando uma sessão",
+					"item": [
+						{
+							"name": "Válido",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4NDIyMywiZXhwIjoxNzUwOTcwNjIzfQ.5ABuG3dnzCfA3Paag_5tuIcTVoLOwbTlW6MH-ErZn6E",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"movie\": {\r\n        \"_id\": \"685af8b2dd66e8849ea14e0f\",\r\n        \"title\": \"The Avengers\",\r\n        \"duration\": 143,\r\n        \"poster\": \"avengers.jpg\",\r\n        \"id\": \"685af8b2dd66e8849ea14e0f\"\r\n    },\r\n    \"theater\": {\r\n        \"_id\": \"685af8b2dd66e8849ea14e14\",\r\n        \"name\": \"Theater 3\",\r\n        \"type\": \"IMAX\",\r\n        \"id\": \"685af8b2dd66e8849ea14e14\"\r\n    },\r\n    \"datetime\": \"2025-06-24T15:00:00.000Z\",\r\n    \"fullPrice\": 15,\r\n    \"halfPrice\": 7.5,\r\n    \"seats\": [\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"H\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"H\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"H\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"H\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/sessions",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"sessions"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editando uma sessão",
+					"item": [
+						{
+							"name": "Válido",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4NDIyMywiZXhwIjoxNzUwOTcwNjIzfQ.5ABuG3dnzCfA3Paag_5tuIcTVoLOwbTlW6MH-ErZn6E",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/sessions/685c61e8f3d6a75622fb08f2",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"sessions",
+										"685c61e8f3d6a75622fb08f2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Excluindo uma sessão",
+					"item": [
+						{
+							"name": "Válido Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4NDIyMywiZXhwIjoxNzUwOTcwNjIzfQ.5ABuG3dnzCfA3Paag_5tuIcTVoLOwbTlW6MH-ErZn6E",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"movie\": {\r\n        \"_id\": \"685af8b2dd66e8849ea14e0f\",\r\n        \"title\": \"The Avengers\",\r\n        \"duration\": 143,\r\n        \"poster\": \"avengers.jpg\",\r\n        \"id\": \"685af8b2dd66e8849ea14e0f\"\r\n    },\r\n    \"theater\": {\r\n        \"_id\": \"685af8b2dd66e8849ea14e14\",\r\n        \"name\": \"Theater 3\",\r\n        \"type\": \"IMAX\",\r\n        \"id\": \"685af8b2dd66e8849ea14e14\"\r\n    },\r\n    \"datetime\": \"2025-06-24T15:00:00.000Z\",\r\n    \"fullPrice\": 15,\r\n    \"halfPrice\": 7.5,\r\n    \"seats\": [\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"A\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"B\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"C\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"D\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"F\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 5,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 6,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 7,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"G\",\r\n            \"number\": 8,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"H\",\r\n            \"number\": 1,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"H\",\r\n            \"number\": 2,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"H\",\r\n            \"number\": 3,\r\n            \"status\": \"available\"\r\n        },\r\n        {\r\n            \"row\": \"H\",\r\n            \"number\": 4,\r\n            \"status\": \"available\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/sessions/685c61e8f3d6a75622fb08f2",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"sessions",
+										"685c61e8f3d6a75622fb08f2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Buscando sessões",
+					"item": [
+						{
+							"name": "Válido",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL_BASE}}/sessions",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"sessions"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Limpando os acentos de uma sessão",
+					"item": [
+						{
+							"name": "Válida",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4NTI0MCwiZXhwIjoxNzUwOTcxNjQwfQ.5eSey8CklRL3mUlHrZWrcR2RetvqNRlluOeapVizkME",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{URL_BASE}}/sessions/685af8b2dd66e8849ea14e21/reset-seats",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"sessions",
+										"685af8b2dd66e8849ea14e21",
+										"reset-seats"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Usando o token de um usuário comum",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyODc4ZjNkNmE3NTYyMmZiMDY4MSIsImlhdCI6MTc1MDg4NTM2NiwiZXhwIjoxNzUwOTcxNzY2fQ.DoH8dOaOewb7Ulww4zkgfgdOCX2Kmj2u1-DkxugSF9I",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{URL_BASE}}/sessions/685af8b2dd66e8849ea14e21/reset-seats",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"sessions",
+										"685af8b2dd66e8849ea14e21",
+										"reset-seats"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "/reservations",
+			"item": [
+				{
+					"name": "Buscando reservas",
+					"item": [
+						{
+							"name": "Todas Válida",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4NTI0MCwiZXhwIjoxNzUwOTcxNjQwfQ.5eSey8CklRL3mUlHrZWrcR2RetvqNRlluOeapVizkME",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL_BASE}}/reservations",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editando o status de uma reserva",
+					"item": [
+						{
+							"name": "Válida",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4NjE1OSwiZXhwIjoxNzUwOTcyNTU5fQ.ZAf6z3QKm_ypUI9kd4DV6XlY_ImpObDqSy4cgG0ftaA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"_id\": \"685c49b5f3d6a75622fb071e\",\r\n    \"user\": {\r\n        \"_id\": \"685c2878f3d6a75622fb0681\",\r\n        \"name\": \"Ronaldo Fenômeno\",\r\n        \"email\": \"ronaldo@empresa.com\"\r\n    },\r\n    \"session\": {\r\n        \"_id\": \"685af8bd87f4d2434efe0cfc\",\r\n        \"movie\": {\r\n            \"_id\": \"685af8bc87f4d2434efe0cc3\",\r\n            \"title\": \"Interstellar\",\r\n            \"id\": \"685af8bc87f4d2434efe0cc3\"\r\n        },\r\n        \"theater\": null,\r\n        \"datetime\": \"2025-06-24T15:00:00.000Z\",\r\n        \"fullPrice\": 20,\r\n        \"halfPrice\": 9.5,\r\n        \"seats\": [\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 1,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 2,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 3,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 4,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 5,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 6,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 7,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 8,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 9,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 10,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 11,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 12,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 13,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 14,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"A\",\r\n                \"number\": 15,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 1,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 2,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 3,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 4,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 5,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 6,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 7,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 8,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 9,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 10,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 11,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 12,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 13,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 14,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"B\",\r\n                \"number\": 15,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 1,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 2,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 3,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 4,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 5,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 6,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 7,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 8,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 9,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 10,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 11,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 12,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 13,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 14,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"C\",\r\n                \"number\": 15,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 1,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 2,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 3,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 4,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 5,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 6,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 7,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 8,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 9,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 10,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 11,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 12,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 13,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 14,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"D\",\r\n                \"number\": 15,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 1,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 2,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 3,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 4,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 5,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 6,\r\n                \"status\": \"occupied\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 7,\r\n                \"status\": \"occupied\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 8,\r\n                \"status\": \"occupied\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 9,\r\n                \"status\": \"occupied\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 10,\r\n                \"status\": \"occupied\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 11,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 12,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 13,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 14,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"E\",\r\n                \"number\": 15,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 1,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 2,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 3,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 4,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 5,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 6,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 7,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 8,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 9,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 10,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 11,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 12,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 13,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 14,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"F\",\r\n                \"number\": 15,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 1,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 2,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 3,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 4,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 5,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 6,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 7,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 8,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 9,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 10,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 11,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 12,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 13,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 14,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"G\",\r\n                \"number\": 15,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 1,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 2,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 3,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 4,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 5,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 6,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 7,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 8,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 9,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 10,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 11,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 12,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 13,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 14,\r\n                \"status\": \"available\"\r\n            },\r\n            {\r\n                \"row\": \"H\",\r\n                \"number\": 15,\r\n                \"status\": \"available\"\r\n            }\r\n        ],\r\n        \"createdAt\": \"2025-06-24T19:13:01.373Z\",\r\n        \"__v\": 0,\r\n        \"updatedAt\": \"2025-06-25T19:10:46.080Z\",\r\n        \"id\": \"685af8bd87f4d2434efe0cfc\"\r\n    },\r\n    \"seats\": [\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 6,\r\n            \"type\": \"full\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 7,\r\n            \"type\": \"full\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 8,\r\n            \"type\": \"full\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 9,\r\n            \"type\": \"full\"\r\n        },\r\n        {\r\n            \"row\": \"E\",\r\n            \"number\": 10,\r\n            \"type\": \"full\"\r\n        }\r\n    ],\r\n    \"totalPrice\": 100,\r\n    \"status\": \"cancelled\",\r\n    \"paymentStatus\": \"completed\",\r\n    \"paymentMethod\": \"credit_card\",\r\n    \"paymentDate\": \"2025-06-25T19:10:45.996Z\",\r\n    \"createdAt\": \"2025-06-25T19:10:46.010Z\",\r\n    \"updatedAt\": \"2025-06-25T19:10:46.010Z\",\r\n    \"__v\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/reservations/685c49b5f3d6a75622fb071e",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"reservations",
+										"685c49b5f3d6a75622fb071e"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Excluindo uma reserva",
+					"item": [
+						{
+							"name": "Válida",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWM1MjE4ZjNkNmE3NTYyMmZiMDdmOCIsImlhdCI6MTc1MDg4NjE1OSwiZXhwIjoxNzUwOTcyNTU5fQ.ZAf6z3QKm_ypUI9kd4DV6XlY_ImpObDqSy4cgG0ftaA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_BASE}}/reservations/685c49b5f3d6a75622fb071e",
+									"host": [
+										"{{URL_BASE}}"
+									],
+									"path": [
+										"reservations",
+										"685c49b5f3d6a75622fb071e"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
