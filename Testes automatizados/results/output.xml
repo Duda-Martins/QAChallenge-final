@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.1 (Python 3.13.3 on win32)" generated="2025-06-26T19:44:19.316083" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests">
+<suite id="s1-s1" name="Api" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api">
+<suite id="s1-s1-s1" name="Auth" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\auth">
+<suite id="s1-s1-s1-s1" name="Cadastro" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\auth\cadastro.robot">
+<kw name="Criar Sessão" owner="Base" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-26T19:44:22.980497" level="INFO">Creating Session using : alias=api-cinema, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=api-cinema</arg>
+<arg>url=${API_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-26T19:44:22.977114" elapsed="0.004559"/>
+</kw>
+<status status="PASS" start="2025-06-26T19:44:22.975679" elapsed="0.006564"/>
+</kw>
+<test id="s1-s1-s1-s1-t1" name="CT003 - Registro com e-mail inválido" line="26">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-26T19:44:22.989749" level="INFO">${data} = {'valido': {'name': 'Lili', 'email': 'lili@example.com', 'password': 'senhaqq1'}, 'email-invalido': {'name': 'Natanael', 'email': 'natanael.com', 'password': 'senhaqq1'}, 'senha-invalida': {'name': 'L...</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-26T19:44:22.987852" elapsed="0.002316"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-26T19:44:22.993473" level="INFO">${body} = {'name': 'Natanael', 'email': 'natanael.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-26T19:44:22.990932" elapsed="0.002655"/>
+</kw>
+<arg>cadastro.json</arg>
+<arg>email-invalido</arg>
+<status status="PASS" start="2025-06-26T19:44:22.986549" elapsed="0.007202"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/register" owner="AuthService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-26T19:44:23.043476" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/register 
+ path_url=/api/v1/auth/register 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Natanael", "email": "natanael.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-26T19:44:23.043704" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/register 
+ status=400, reason=Bad Request 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '97', 'ETag': 'W/"61-Krv9gnZpw94ZcTkLQB5OMXVuBok"', 'Date': 'Thu, 26 Jun 2025 22:44:23 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":false,"message":"Validation failed","errors":{"email":"Please provide a valid email"}} 
+ </msg>
+<msg time="2025-06-26T19:44:23.043986" level="INFO">${resposta} = &lt;Response [400]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/register</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-26T19:44:22.999242" elapsed="0.044808"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-26T19:44:23.047261" level="INFO">${RESPOSTA} = {'success': False, 'message': 'Validation failed', 'errors': {'email': 'Please provide a valid email'}}</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-26T19:44:23.044397" elapsed="0.003104"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-26T19:44:23.049199" level="INFO">{'success': False, 'message': 'Validation failed', 'errors': {'email': 'Please provide a valid email'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-26T19:44:23.048036" elapsed="0.001390"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-26T19:44:23.049931" elapsed="0.003267"/>
+</kw>
+<status status="PASS" start="2025-06-26T19:44:22.994285" elapsed="0.059256"/>
+</kw>
+<kw name="Validar resposta Registro de usuário com imput inválido" owner="AuthService">
+<kw name="Validar que o código response" owner="Base">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>${status_sucesso}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-06-26T19:44:23.057139" elapsed="0.000706"/>
+</kw>
+<arg>400</arg>
+<status status="PASS" start="2025-06-26T19:44:23.055741" elapsed="0.002239"/>
+</kw>
+<kw name="Validar que a resposta contém success" owner="Base">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>success</arg>
+<arg>${success}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-26T19:44:23.059016" elapsed="0.000628"/>
+</kw>
+<arg>${False}</arg>
+<status status="PASS" start="2025-06-26T19:44:23.058225" elapsed="0.001557"/>
+</kw>
+<status status="PASS" start="2025-06-26T19:44:23.054273" elapsed="0.005603"/>
+</kw>
+<msg time="2025-06-26T19:44:23.137365" level="INFO">Starting Browser process C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:59449</msg>
+<tag>alta</tag>
+<tag>cadastro</tag>
+<tag>CT003</tag>
+<status status="PASS" start="2025-06-26T19:44:22.982541" elapsed="0.077700"/>
+</test>
+<doc>Testes de cadastro pela API</doc>
+<status status="PASS" start="2025-06-26T19:44:19.398776" elapsed="6.681245"/>
+</suite>
+<status status="PASS" start="2025-06-26T19:44:19.395263" elapsed="6.758403"/>
+</suite>
+<status status="PASS" start="2025-06-26T19:44:19.391401" elapsed="6.765637"/>
+</suite>
+<status status="PASS" start="2025-06-26T19:44:19.320649" elapsed="6.841050"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">alta</stat>
+<stat pass="1" fail="0" skip="0">cadastro</stat>
+<stat pass="1" fail="0" skip="0">CT003</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="1" fail="0" skip="0">Tests</stat>
+<stat name="Api" id="s1-s1" pass="1" fail="0" skip="0">Tests.Api</stat>
+<stat name="Auth" id="s1-s1-s1" pass="1" fail="0" skip="0">Tests.Api.Auth</stat>
+<stat name="Cadastro" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">Tests.Api.Auth.Cadastro</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-06-26T19:44:22.943656" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\common\Validations.resource' is empty.</msg>
+<msg time="2025-06-26T19:44:22.951497" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\FilmeService.resource' is empty.</msg>
+<msg time="2025-06-26T19:44:22.956027" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\ReservaService.resource' is empty.</msg>
+<msg time="2025-06-26T19:44:22.958992" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\TeatroService.resource' is empty.</msg>
+<msg time="2025-06-26T19:44:22.963136" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\UsuarioService.robot' is empty.</msg>
+<msg time="2025-06-26T19:44:22.966051" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\pages\FilmesPage.resource' is empty.</msg>
+<msg time="2025-06-26T19:44:22.970122" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\pages\ReservasPage.resource' is empty.</msg>
+</errors>
+</robot>

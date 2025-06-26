@@ -1,0 +1,1 @@
+# Validations.resource - placeholder
