@@ -24,7 +24,7 @@ Validar resposta Registro de usuário com sucesso
     Validar que a resposta contém   token
 
 Validar resposta de usuário duplicado
-    Validar que o código response    409
+    Validar que o código response    400
     Validar que a resposta contém success    ${False}
 
 Validar resposta Registro de usuário com imput inválido
