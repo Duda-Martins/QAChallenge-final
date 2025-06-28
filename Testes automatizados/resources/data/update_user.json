@@ -1,0 +1,10 @@
+{
+    "update-register": {
+        "name": "Raquel",
+        "email": "raquel@example.com",
+        "password": "senhaqq1"
+    },
+    "update-promover": {
+        "role": "admin"
+    }
+}

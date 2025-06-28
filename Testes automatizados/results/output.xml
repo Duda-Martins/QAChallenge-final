@@ -1,142 +1,2617 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.1 (Python 3.13.3 on win32)" generated="2025-06-26T19:44:19.316083" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.1 (Python 3.13.3 on win32)" generated="2025-06-28T15:10:43.143542" rpa="false" schemaversion="5">
 <suite id="s1" name="Tests" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests">
 <suite id="s1-s1" name="Api" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api">
 <suite id="s1-s1-s1" name="Auth" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\auth">
-<suite id="s1-s1-s1-s1" name="Cadastro" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\auth\cadastro.robot">
+<suite id="s1-s1-s1-s1" name="cadastroUser" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\auth\cadastroUser.robot">
 <kw name="Criar Sessão" owner="Base" type="SETUP">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-06-26T19:44:22.980497" level="INFO">Creating Session using : alias=api-cinema, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-06-28T15:10:47.921862" level="INFO">Creating Session using : alias=api-cinema, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=api-cinema</arg>
 <arg>url=${API_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-06-26T19:44:22.977114" elapsed="0.004559"/>
+<status status="PASS" start="2025-06-28T15:10:47.920225" elapsed="0.002603"/>
 </kw>
-<status status="PASS" start="2025-06-26T19:44:22.975679" elapsed="0.006564"/>
+<status status="PASS" start="2025-06-28T15:10:47.917539" elapsed="0.005603"/>
 </kw>
-<test id="s1-s1-s1-s1-t1" name="CT003 - Registro com e-mail inválido" line="26">
+<test id="s1-s1-s1-s1-t1" name="CT001 - Registro de usuário com sucesso" line="10">
 <kw name="Preparar massa de dados" owner="Base">
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-06-26T19:44:22.989749" level="INFO">${data} = {'valido': {'name': 'Lili', 'email': 'lili@example.com', 'password': 'senhaqq1'}, 'email-invalido': {'name': 'Natanael', 'email': 'natanael.com', 'password': 'senhaqq1'}, 'senha-invalida': {'name': 'L...</msg>
+<msg time="2025-06-28T15:10:47.931577" level="INFO">${data} = {'valido': {'name': 'Lili', 'email': 'lili@example.com', 'password': 'senhaqq1'}, 'email-invalido': {'name': 'Natanael', 'email': 'natanael.com', 'password': 'senhaqq1'}, 'senha-invalida': {'name': 'L...</msg>
 <var>${data}</var>
 <arg>resources/data/${arquivo}</arg>
 <arg>encoding=utf-8</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-06-26T19:44:22.987852" elapsed="0.002316"/>
+<status status="PASS" start="2025-06-28T15:10:47.929541" elapsed="0.002147"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-26T19:44:22.993473" level="INFO">${body} = {'name': 'Natanael', 'email': 'natanael.com', 'password': 'senhaqq1'}</msg>
+<msg time="2025-06-28T15:10:47.964345" level="INFO">${body} = {'name': 'Lili', 'email': 'lili@example.com', 'password': 'senhaqq1'}</msg>
 <arg>${body}</arg>
 <arg>${data}[${cenario}]</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-26T19:44:22.990932" elapsed="0.002655"/>
+<status status="PASS" start="2025-06-28T15:10:47.932094" elapsed="0.032469"/>
 </kw>
 <arg>cadastro.json</arg>
-<arg>email-invalido</arg>
-<status status="PASS" start="2025-06-26T19:44:22.986549" elapsed="0.007202"/>
+<arg>valido</arg>
+<status status="PASS" start="2025-06-28T15:10:47.928233" elapsed="0.036681"/>
 </kw>
-<kw name="Enviar requisição POST para /auth/register" owner="AuthService">
+<kw name="Enviar requisição POST para /auth/register" owner="RegisterService">
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-06-26T19:44:23.043476" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/register 
+<msg time="2025-06-28T15:10:48.439427" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/register 
  path_url=/api/v1/auth/register 
  headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'} 
- body=b'{"name": "Natanael", "email": "natanael.com", "password": "senhaqq1"}' 
+ body=b'{"name": "Lili", "email": "lili@example.com", "password": "senhaqq1"}' 
  </msg>
-<msg time="2025-06-26T19:44:23.043704" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/register 
- status=400, reason=Bad Request 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '97', 'ETag': 'W/"61-Krv9gnZpw94ZcTkLQB5OMXVuBok"', 'Date': 'Thu, 26 Jun 2025 22:44:23 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":false,"message":"Validation failed","errors":{"email":"Please provide a valid email"}} 
+<msg time="2025-06-28T15:10:48.439806" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/register 
+ status=201, reason=Created 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '295', 'ETag': 'W/"127-84gT7aiyPACBDl8JQEEq7He9VQQ"', 'Date': 'Sat, 28 Jun 2025 18:10:48 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68603027ad16ab7e6f0970ab","name":"Lili","email":"lili@example.com","role":"user","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDI3YWQxNmFiN2U2ZjA5NzBhYiIsImlhdCI6MTc1MTEzNDI0OCwiZXhwIjoxNzUxMjIwNjQ4fQ.sx-t_nl0cnC-CTvxMiIeUBe9881PkkYm2ZpXkfRbA94"}} 
  </msg>
-<msg time="2025-06-26T19:44:23.043986" level="INFO">${resposta} = &lt;Response [400]&gt;</msg>
+<msg time="2025-06-28T15:10:48.440132" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
 <var>${resposta}</var>
 <arg>alias=api-cinema</arg>
 <arg>url=/auth/register</arg>
 <arg>json=${body}</arg>
 <arg>expected_status=${STATUS_REQ}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-06-26T19:44:22.999242" elapsed="0.044808"/>
+<status status="PASS" start="2025-06-28T15:10:47.969742" elapsed="0.470482"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-26T19:44:23.047261" level="INFO">${RESPOSTA} = {'success': False, 'message': 'Validation failed', 'errors': {'email': 'Please provide a valid email'}}</msg>
+<msg time="2025-06-28T15:10:48.443093" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '68603027ad16ab7e6f0970ab', 'name': 'Lili', 'email': 'lili@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDI3YWQxNmFiN2...</msg>
 <arg>${RESPOSTA}</arg>
 <arg>${resposta.json()}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-26T19:44:23.044397" elapsed="0.003104"/>
+<status status="PASS" start="2025-06-28T15:10:48.440715" elapsed="0.002561"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-26T19:44:23.049199" level="INFO">{'success': False, 'message': 'Validation failed', 'errors': {'email': 'Please provide a valid email'}}</msg>
+<msg time="2025-06-28T15:10:48.445023" level="INFO">{'success': True, 'data': {'_id': '68603027ad16ab7e6f0970ab', 'name': 'Lili', 'email': 'lili@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDI3YWQxNmFiN2U2ZjA5NzBhYiIsImlhdCI6MTc1MTEzNDI0OCwiZXhwIjoxNzUxMjIwNjQ4fQ.sx-t_nl0cnC-CTvxMiIeUBe9881PkkYm2ZpXkfRbA94'}}</msg>
 <arg>${RESPOSTA}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-26T19:44:23.048036" elapsed="0.001390"/>
+<status status="PASS" start="2025-06-28T15:10:48.443828" elapsed="0.001394"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${RESPOSTA}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-26T19:44:23.049931" elapsed="0.003267"/>
+<status status="PASS" start="2025-06-28T15:10:48.445687" elapsed="0.002890"/>
 </kw>
-<status status="PASS" start="2025-06-26T19:44:22.994285" elapsed="0.059256"/>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:48.452202" level="INFO">${_id} = 68603027ad16ab7e6f0970ab</msg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.450159" elapsed="0.002183"/>
 </kw>
-<kw name="Validar resposta Registro de usuário com imput inválido" owner="AuthService">
-<kw name="Validar que o código response" owner="Base">
+<arg>Set Test Variable</arg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.449096" elapsed="0.003391"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:47.968107" elapsed="0.484523"/>
+</kw>
+<kw name="Validar resposta Registro de usuário com sucesso" owner="RegisterService">
+<kw name="Validar que o código response" owner="Validations">
 <kw name="Status Should Be" owner="RequestsLibrary">
 <arg>${status_sucesso}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" start="2025-06-26T19:44:23.057139" elapsed="0.000706"/>
+<status status="PASS" start="2025-06-28T15:10:48.454858" elapsed="0.000667"/>
 </kw>
-<arg>400</arg>
-<status status="PASS" start="2025-06-26T19:44:23.055741" elapsed="0.002239"/>
+<arg>201</arg>
+<status status="PASS" start="2025-06-28T15:10:48.453956" elapsed="0.001786"/>
 </kw>
-<kw name="Validar que a resposta contém success" owner="Base">
+<kw name="Validar que a resposta contém success" owner="Validations">
 <kw name="Dictionary Should Contain Item" owner="Collections">
 <arg>${RESPOSTA}</arg>
 <arg>success</arg>
 <arg>${success}</arg>
 <doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
-<status status="PASS" start="2025-06-26T19:44:23.059016" elapsed="0.000628"/>
+<status status="PASS" start="2025-06-28T15:10:48.457413" elapsed="0.000903"/>
+</kw>
+<arg>${True}</arg>
+<status status="PASS" start="2025-06-28T15:10:48.456184" elapsed="0.002338"/>
+</kw>
+<kw name="Validar que a resposta contém" owner="Validations">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.459728" elapsed="0.000600"/>
+</kw>
+<arg>_id</arg>
+<status status="PASS" start="2025-06-28T15:10:48.458965" elapsed="0.001519"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.462289" elapsed="0.001038"/>
+</kw>
+<arg>name</arg>
+<arg>${body}[name]</arg>
+<status status="PASS" start="2025-06-28T15:10:48.460993" elapsed="0.003010"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.466112" elapsed="0.001070"/>
+</kw>
+<arg>email</arg>
+<arg>${body}[email]</arg>
+<status status="PASS" start="2025-06-28T15:10:48.464487" elapsed="0.002937"/>
+</kw>
+<kw name="Validar que a resposta contém" owner="Validations">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.469358" elapsed="0.001143"/>
+</kw>
+<arg>token</arg>
+<status status="PASS" start="2025-06-28T15:10:48.467891" elapsed="0.002882"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:48.453126" elapsed="0.017843"/>
+</kw>
+<kw name="Logar usuario admin" owner="Base">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:48.490613" level="INFO">${data} = {'valido-login': {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}}</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.481440" elapsed="0.009319"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:48.495089" level="INFO">${body} = {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.491340" elapsed="0.004055"/>
+</kw>
+<arg>admin_user.json</arg>
+<arg>valido-login</arg>
+<status status="PASS" start="2025-06-28T15:10:48.480106" elapsed="0.015571"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/login" owner="LoginService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:48.656154" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '56', 'Content-Type': 'application/json'} 
+ body=b'{"email": "exemplo@exemplo.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:48.656263" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '302', 'ETag': 'W/"12e-hT7Jbm7Q/vZL6qrp8YSZZLCRcxI"', 'Date': 'Sat, 28 Jun 2025 18:10:48 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68602b75ad16ab7e6f096ff8","name":"Exemplo","email":"exemplo@exemplo.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI0OCwiZXhwIjoxNzUxMjIwNjQ4fQ.lGxNW0-s5PXy-eUq1tKjqPvCLFM_iycE0YeZzTGChcY"}} 
+ </msg>
+<msg time="2025-06-28T15:10:48.656444" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.497870" elapsed="0.158617"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:48.657781" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQ...</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.656744" elapsed="0.001111"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:48.658564" level="INFO">{'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI0OCwiZXhwIjoxNzUxMjIwNjQ4fQ.lGxNW0-s5PXy-eUq1tKjqPvCLFM_iycE0YeZzTGChcY'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.658039" elapsed="0.000609"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.658869" elapsed="0.002166"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:48.665051" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI0OCwiZXhwIjoxNzUxMjIwNjQ4fQ.lGxNW0-s5PXy-eUq1tKjqPvCLFM_iycE0YeZzTGChcY</msg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.662340" elapsed="0.002921"/>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.661466" elapsed="0.004055"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:48.667681" level="INFO">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI0OCwiZXhwIjoxNzUxMjIwNjQ4fQ.lGxNW0-s5PXy-eUq1tKjqPvCLFM_iycE0YeZzTGChcY</msg>
+<arg>${TOKEN}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.666863" elapsed="0.000993"/>
+</kw>
+<arg>Log</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.665927" elapsed="0.002109"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.669226" elapsed="0.000914"/>
+</kw>
+<arg>Log to Console</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.668438" elapsed="0.001900"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:48.496438" elapsed="0.174097"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:48.671986" level="INFO">${TOKEN_ADMIN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI0OCwiZXhwIjoxNzUxMjIwNjQ4fQ.lGxNW0-s5PXy-eUq1tKjqPvCLFM_iycE0YeZzTGChcY</msg>
+<arg>${TOKEN_ADMIN}</arg>
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.670775" elapsed="0.001293"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:48.478569" elapsed="0.193623"/>
+</kw>
+<kw name="Enviar requisição DELETE para /users/_id" owner="UsuarioService">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-28T15:10:48.674267" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI0OCwiZXhwIjoxNzUxMjIwNjQ4fQ.lGxNW0-s5PXy-eUq1tKjqPvCLFM_iycE0YeZzTGChcY'}</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${TOKEN_ADMIN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.673543" elapsed="0.000941"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:48.732046" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/users/68603027ad16ab7e6f0970ab 
+ path_url=/api/v1/users/68603027ad16ab7e6f0970ab 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI0OCwiZXhwIjoxNzUxMjIwNjQ4fQ.lGxNW0-s5PXy-eUq1tKjqPvCLFM_iycE0YeZzTGChcY', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-28T15:10:48.732252" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/users/68603027ad16ab7e6f0970ab 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '41', 'ETag': 'W/"29-acm6zjlFy5zJu9kfItNOkEuApLY"', 'Date': 'Sat, 28 Jun 2025 18:10:48 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"message":"User removed"} 
+ </msg>
+<msg time="2025-06-28T15:10:48.732526" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/users/${_id}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.674699" elapsed="0.057887"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:48.735391" level="INFO">${RESPOSTA_DELETE} = {'success': True, 'message': 'User removed'}</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.732914" elapsed="0.002596"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:48.736519" level="INFO">{'success': True, 'message': 'User removed'}</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.735779" elapsed="0.000830"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:48.737025" elapsed="0.001052"/>
+</kw>
+<arg>${_id}</arg>
+<status status="PASS" start="2025-06-28T15:10:48.672719" elapsed="0.065531"/>
+</kw>
+<msg time="2025-06-28T15:10:48.824013" level="INFO">Starting Browser process C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:59835</msg>
+<tag>alta</tag>
+<tag>cadastro</tag>
+<tag>CT001</tag>
+<status status="PASS" start="2025-06-28T15:10:47.923335" elapsed="0.815418"/>
+</test>
+<test id="s1-s1-s1-s1-t2" name="CT002 - Registro com e-mail duplicado" line="18">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:52.957450" level="INFO">${data} = {'valido': {'name': 'Lili', 'email': 'lili@example.com', 'password': 'senhaqq1'}, 'email-invalido': {'name': 'Natanael', 'email': 'natanael.com', 'password': 'senhaqq1'}, 'senha-invalida': {'name': 'L...</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:52.955393" elapsed="0.002178"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:52.960603" level="INFO">${body} = {'name': 'Lili', 'email': 'lili@example.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:52.958121" elapsed="0.002680"/>
+</kw>
+<arg>cadastro.json</arg>
+<arg>valido</arg>
+<status status="PASS" start="2025-06-28T15:10:52.954001" elapsed="0.007050"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/register" owner="RegisterService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:53.224258" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/register 
+ path_url=/api/v1/auth/register 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Lili", "email": "lili@example.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:53.224463" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/register 
+ status=201, reason=Created 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '295', 'ETag': 'W/"127-JfX5fFka/Xwctd26LNi9BTnT0lE"', 'Date': 'Sat, 28 Jun 2025 18:10:53 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"6860302cad16ab7e6f0970b2","name":"Lili","email":"lili@example.com","role":"user","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJjYWQxNmFiN2U2ZjA5NzBiMiIsImlhdCI6MTc1MTEzNDI1MywiZXhwIjoxNzUxMjIwNjUzfQ.uj1DOky-awc2LyXlCNBtosBNDUVAHh7tGigmmH0ji5I"}} 
+ </msg>
+<msg time="2025-06-28T15:10:53.224854" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/register</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:52.963189" elapsed="0.261775"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:53.227605" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '6860302cad16ab7e6f0970b2', 'name': 'Lili', 'email': 'lili@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJjYWQxNmFiN2...</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.225468" elapsed="0.002352"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:53.229117" level="INFO">{'success': True, 'data': {'_id': '6860302cad16ab7e6f0970b2', 'name': 'Lili', 'email': 'lili@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJjYWQxNmFiN2U2ZjA5NzBiMiIsImlhdCI6MTc1MTEzNDI1MywiZXhwIjoxNzUxMjIwNjUzfQ.uj1DOky-awc2LyXlCNBtosBNDUVAHh7tGigmmH0ji5I'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.228297" elapsed="0.000979"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.229715" elapsed="0.006010"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:53.239740" level="INFO">${_id} = 6860302cad16ab7e6f0970b2</msg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.237169" elapsed="0.002813"/>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.236259" elapsed="0.004056"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:52.961825" elapsed="0.278807"/>
+</kw>
+<kw name="Validar resposta Registro de usuário com sucesso" owner="RegisterService">
+<kw name="Validar que o código response" owner="Validations">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>${status_sucesso}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.263077" elapsed="0.000925"/>
+</kw>
+<arg>201</arg>
+<status status="PASS" start="2025-06-28T15:10:53.261666" elapsed="0.002755"/>
+</kw>
+<kw name="Validar que a resposta contém success" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>success</arg>
+<arg>${success}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.267116" elapsed="0.001592"/>
+</kw>
+<arg>${True}</arg>
+<status status="PASS" start="2025-06-28T15:10:53.264938" elapsed="0.004085"/>
+</kw>
+<kw name="Validar que a resposta contém" owner="Validations">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.270859" elapsed="0.000821"/>
+</kw>
+<arg>_id</arg>
+<status status="PASS" start="2025-06-28T15:10:53.269510" elapsed="0.002402"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.273550" elapsed="0.000885"/>
+</kw>
+<arg>name</arg>
+<arg>${body}[name]</arg>
+<status status="PASS" start="2025-06-28T15:10:53.272317" elapsed="0.002333"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.276340" elapsed="0.000962"/>
+</kw>
+<arg>email</arg>
+<arg>${body}[email]</arg>
+<status status="PASS" start="2025-06-28T15:10:53.275053" elapsed="0.002477"/>
+</kw>
+<kw name="Validar que a resposta contém" owner="Validations">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.279396" elapsed="0.001268"/>
+</kw>
+<arg>token</arg>
+<status status="PASS" start="2025-06-28T15:10:53.277980" elapsed="0.003020"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:53.259758" elapsed="0.021433"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/register" owner="RegisterService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:53.318270" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/register 
+ path_url=/api/v1/auth/register 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Lili", "email": "lili@example.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:53.318443" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/register 
+ status=400, reason=Bad Request 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '49', 'ETag': 'W/"31-WKEMg8zALB1Ko0WjUHi/6RBGHVc"', 'Date': 'Sat, 28 Jun 2025 18:10:53 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":false,"message":"User already exists"} 
+ </msg>
+<msg time="2025-06-28T15:10:53.318793" level="INFO">${resposta} = &lt;Response [400]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/register</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.291696" elapsed="0.027193"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:53.321944" level="INFO">${RESPOSTA} = {'success': False, 'message': 'User already exists'}</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.319918" elapsed="0.002229"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:53.323514" level="INFO">{'success': False, 'message': 'User already exists'}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.322610" elapsed="0.001085"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.324191" elapsed="0.006503"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:53.334863" level="FAIL">Dictionary '${RESPOSTA}' has no key 'data'.</msg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="FAIL" start="2025-06-28T15:10:53.332227" elapsed="0.002918">Dictionary '${RESPOSTA}' has no key 'data'.</status>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.331258" elapsed="0.004161"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:53.290254" elapsed="0.045375"/>
+</kw>
+<kw name="Limpar usuário" owner="data_base">
+<msg time="2025-06-28T15:10:53.612744" level="INFO">removing user by lili@example.com</msg>
+<arg>${body}[email]</arg>
+<status status="PASS" start="2025-06-28T15:10:53.343072" elapsed="0.269856"/>
+</kw>
+<kw name="Validar resposta de Registro de usuário duplicado" owner="RegisterService">
+<kw name="Validar que o código response" owner="Validations">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>${status_sucesso}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.622917" elapsed="0.000875"/>
+</kw>
+<arg>400</arg>
+<status status="PASS" start="2025-06-28T15:10:53.620486" elapsed="0.003514"/>
+</kw>
+<kw name="Validar que a resposta contém success" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>success</arg>
+<arg>${success}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.625799" elapsed="0.000895"/>
 </kw>
 <arg>${False}</arg>
-<status status="PASS" start="2025-06-26T19:44:23.058225" elapsed="0.001557"/>
+<status status="PASS" start="2025-06-28T15:10:53.624411" elapsed="0.002493"/>
 </kw>
-<status status="PASS" start="2025-06-26T19:44:23.054273" elapsed="0.005603"/>
+<status status="PASS" start="2025-06-28T15:10:53.618969" elapsed="0.008091"/>
 </kw>
-<msg time="2025-06-26T19:44:23.137365" level="INFO">Starting Browser process C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:59449</msg>
+<tag>alta</tag>
+<tag>cadastro</tag>
+<tag>CT002</tag>
+<status status="PASS" start="2025-06-28T15:10:52.949155" elapsed="0.682264"/>
+</test>
+<test id="s1-s1-s1-s1-t3" name="CT003 - Registro com e-mail inválido" line="27">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:53.755430" level="INFO">${data} = {'valido': {'name': 'Lili', 'email': 'lili@example.com', 'password': 'senhaqq1'}, 'email-invalido': {'name': 'Natanael', 'email': 'natanael.com', 'password': 'senhaqq1'}, 'senha-invalida': {'name': 'L...</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.753450" elapsed="0.002077"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:53.759086" level="INFO">${body} = {'name': 'Natanael', 'email': 'natanael.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.756014" elapsed="0.003384"/>
+</kw>
+<arg>cadastro.json</arg>
+<arg>email-invalido</arg>
+<status status="PASS" start="2025-06-28T15:10:53.752023" elapsed="0.007609"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/register" owner="RegisterService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:53.810850" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/register 
+ path_url=/api/v1/auth/register 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Natanael", "email": "natanael.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:53.811066" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/register 
+ status=400, reason=Bad Request 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '97', 'ETag': 'W/"61-Krv9gnZpw94ZcTkLQB5OMXVuBok"', 'Date': 'Sat, 28 Jun 2025 18:10:53 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":false,"message":"Validation failed","errors":{"email":"Please provide a valid email"}} 
+ </msg>
+<msg time="2025-06-28T15:10:53.811457" level="INFO">${resposta} = &lt;Response [400]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/register</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.761760" elapsed="0.049793"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:53.814399" level="INFO">${RESPOSTA} = {'success': False, 'message': 'Validation failed', 'errors': {'email': 'Please provide a valid email'}}</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.812124" elapsed="0.002457"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:53.816580" level="INFO">{'success': False, 'message': 'Validation failed', 'errors': {'email': 'Please provide a valid email'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.815269" elapsed="0.001517"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.817257" elapsed="0.004438"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:53.826682" level="FAIL">Dictionary '${RESPOSTA}' has no key 'data'.</msg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="FAIL" start="2025-06-28T15:10:53.823950" elapsed="0.003105">Dictionary '${RESPOSTA}' has no key 'data'.</status>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.822757" elapsed="0.004665"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:53.760556" elapsed="0.067093"/>
+</kw>
+<kw name="Validar resposta Registro de usuário com imput inválido" owner="RegisterService">
+<kw name="Validar que o código response" owner="Validations">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>${status_sucesso}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.831141" elapsed="0.002249"/>
+</kw>
+<arg>400</arg>
+<status status="PASS" start="2025-06-28T15:10:53.829828" elapsed="0.003883"/>
+</kw>
+<kw name="Validar que a resposta contém success" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>success</arg>
+<arg>${success}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:53.835642" elapsed="0.002486"/>
+</kw>
+<arg>${False}</arg>
+<status status="PASS" start="2025-06-28T15:10:53.834236" elapsed="0.004155"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:53.828390" elapsed="0.010186"/>
+</kw>
 <tag>alta</tag>
 <tag>cadastro</tag>
 <tag>CT003</tag>
-<status status="PASS" start="2025-06-26T19:44:22.982541" elapsed="0.077700"/>
+<status status="PASS" start="2025-06-28T15:10:53.744156" elapsed="0.097707"/>
+</test>
+<test id="s1-s1-s1-s1-t4" name="CT004 - Registro com senha inválida" line="33">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:54.007143" level="INFO">${data} = {'valido': {'name': 'Lili', 'email': 'lili@example.com', 'password': 'senhaqq1'}, 'email-invalido': {'name': 'Natanael', 'email': 'natanael.com', 'password': 'senhaqq1'}, 'senha-invalida': {'name': 'L...</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.005097" elapsed="0.002196"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.010899" level="INFO">${body} = {'name': 'Leonardo', 'email': 'leonardo@example.com', 'password': 's'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.007894" elapsed="0.003192"/>
+</kw>
+<arg>cadastro.json</arg>
+<arg>senha-invalida</arg>
+<status status="PASS" start="2025-06-28T15:10:54.003547" elapsed="0.007792"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/register" owner="RegisterService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:54.095274" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/register 
+ path_url=/api/v1/auth/register 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '70', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Leonardo", "email": "leonardo@example.com", "password": "s"}' 
+ </msg>
+<msg time="2025-06-28T15:10:54.095473" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/register 
+ status=400, reason=Bad Request 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '115', 'ETag': 'W/"73-2kjRr4xheMpIIlrrmnuX+9CkBCA"', 'Date': 'Sat, 28 Jun 2025 18:10:54 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":false,"message":"Validation failed","errors":{"password":"Password must be at least 6 characters long"}} 
+ </msg>
+<msg time="2025-06-28T15:10:54.095782" level="INFO">${resposta} = &lt;Response [400]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/register</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.013420" elapsed="0.082446"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.099241" level="INFO">${RESPOSTA} = {'success': False, 'message': 'Validation failed', 'errors': {'password': 'Password must be at least 6 characters long'}}</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.096346" elapsed="0.003078"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.101020" level="INFO">{'success': False, 'message': 'Validation failed', 'errors': {'password': 'Password must be at least 6 characters long'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.100009" elapsed="0.001234"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.101870" elapsed="0.022899"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.128890" level="FAIL">Dictionary '${RESPOSTA}' has no key 'data'.</msg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="FAIL" start="2025-06-28T15:10:54.126632" elapsed="0.002397">Dictionary '${RESPOSTA}' has no key 'data'.</status>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.125350" elapsed="0.003911"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:54.012139" elapsed="0.117320"/>
+</kw>
+<kw name="Validar resposta Registro de usuário com imput inválido" owner="RegisterService">
+<kw name="Validar que o código response" owner="Validations">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>${status_sucesso}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.134687" elapsed="0.001143"/>
+</kw>
+<arg>400</arg>
+<status status="PASS" start="2025-06-28T15:10:54.133042" elapsed="0.003042"/>
+</kw>
+<kw name="Validar que a resposta contém success" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>success</arg>
+<arg>${success}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.137934" elapsed="0.001099"/>
+</kw>
+<arg>${False}</arg>
+<status status="PASS" start="2025-06-28T15:10:54.136629" elapsed="0.002634"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:54.130944" elapsed="0.008476"/>
+</kw>
+<tag>alta</tag>
+<tag>cadastro</tag>
+<tag>CT004</tag>
+<status status="PASS" start="2025-06-28T15:10:53.995528" elapsed="0.148084"/>
 </test>
 <doc>Testes de cadastro pela API</doc>
-<status status="PASS" start="2025-06-26T19:44:19.398776" elapsed="6.681245"/>
+<status status="PASS" start="2025-06-28T15:10:43.263642" elapsed="11.024058"/>
 </suite>
-<status status="PASS" start="2025-06-26T19:44:19.395263" elapsed="6.758403"/>
+<suite id="s1-s1-s1-s2" name="Login" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\auth\login.robot">
+<kw name="Criar Sessão" owner="Base" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:54.481130" level="INFO">Creating Session using : alias=api-cinema, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=api-cinema</arg>
+<arg>url=${API_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-28T15:10:54.480190" elapsed="0.001753"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:54.479051" elapsed="0.003159"/>
+</kw>
+<test id="s1-s1-s1-s2-t1" name="CT005 - Login com sucesso" line="9">
+<kw name="Logar usuario admin" owner="Base">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:54.497322" level="INFO">${data} = {'valido-login': {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}}</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.495164" elapsed="0.002295"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.502517" level="INFO">${body} = {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.498055" elapsed="0.004717"/>
+</kw>
+<arg>admin_user.json</arg>
+<arg>valido-login</arg>
+<status status="PASS" start="2025-06-28T15:10:54.493807" elapsed="0.009294"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/login" owner="LoginService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:54.710927" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '56', 'Content-Type': 'application/json'} 
+ body=b'{"email": "exemplo@exemplo.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:54.711068" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '302', 'ETag': 'W/"12e-SVPG3P57cekVGqTyqEQUpc/DFPg"', 'Date': 'Sat, 28 Jun 2025 18:10:54 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68602b75ad16ab7e6f096ff8","name":"Exemplo","email":"exemplo@exemplo.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NCwiZXhwIjoxNzUxMjIwNjU0fQ.jxKz2S4hgy_FxXr5qbeCE-N84ZgaPGXJYdM3pNX31y4"}} 
+ </msg>
+<msg time="2025-06-28T15:10:54.711300" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.506019" elapsed="0.205366"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.713563" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQ...</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.711886" elapsed="0.001814"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.714880" level="INFO">{'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NCwiZXhwIjoxNzUxMjIwNjU0fQ.jxKz2S4hgy_FxXr5qbeCE-N84ZgaPGXJYdM3pNX31y4'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.714162" elapsed="0.000852"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.715325" elapsed="0.001942"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.721782" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NCwiZXhwIjoxNzUxMjIwNjU0fQ.jxKz2S4hgy_FxXr5qbeCE-N84ZgaPGXJYdM3pNX31y4</msg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.718659" elapsed="0.003318"/>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.717686" elapsed="0.004693"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.724630" level="INFO">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NCwiZXhwIjoxNzUxMjIwNjU0fQ.jxKz2S4hgy_FxXr5qbeCE-N84ZgaPGXJYdM3pNX31y4</msg>
+<arg>${TOKEN}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.723914" elapsed="0.000891"/>
+</kw>
+<arg>Log</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.722916" elapsed="0.002119"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.726540" elapsed="0.001214"/>
+</kw>
+<arg>Log to Console</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.725564" elapsed="0.002408"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:54.503716" elapsed="0.224488"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.731577" level="INFO">${TOKEN_ADMIN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NCwiZXhwIjoxNzUxMjIwNjU0fQ.jxKz2S4hgy_FxXr5qbeCE-N84ZgaPGXJYdM3pNX31y4</msg>
+<arg>${TOKEN_ADMIN}</arg>
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.728637" elapsed="0.003140"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:54.492415" elapsed="0.239656"/>
+</kw>
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:54.736817" level="INFO">${data} = {'valido-cadastro-login': {'name': 'Pepsi', 'email': 'pepsi@example.com', 'password': 'senhaqq1'}, 'valido-login': {'email': 'pepsi@example.com', 'password': 'senhaqq1'}, 'senha-errada-login': {'email...</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.734545" elapsed="0.002381"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.738315" level="INFO">${body} = {'name': 'Pepsi', 'email': 'pepsi@example.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.737366" elapsed="0.001082"/>
+</kw>
+<arg>login.json</arg>
+<arg>valido-cadastro-login</arg>
+<status status="PASS" start="2025-06-28T15:10:54.732910" elapsed="0.005747"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/register" owner="RegisterService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:54.952762" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/register 
+ path_url=/api/v1/auth/register 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '71', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Pepsi", "email": "pepsi@example.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:54.952869" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/register 
+ status=201, reason=Created 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '297', 'ETag': 'W/"129-PNejRDA7BNdjxhbsWNBwTfHL94U"', 'Date': 'Sat, 28 Jun 2025 18:10:54 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"6860302ead16ab7e6f0970bb","name":"Pepsi","email":"pepsi@example.com","role":"user","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJlYWQxNmFiN2U2ZjA5NzBiYiIsImlhdCI6MTc1MTEzNDI1NCwiZXhwIjoxNzUxMjIwNjU0fQ.oxoZz2opbKSpcW9i__0N41lZzIp1ZHEIGx9X5gUZ4nQ"}} 
+ </msg>
+<msg time="2025-06-28T15:10:54.953144" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/register</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.742592" elapsed="0.210628"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.955394" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '6860302ead16ab7e6f0970bb', 'name': 'Pepsi', 'email': 'pepsi@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJlYWQxNmFi...</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.953701" elapsed="0.001832"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.956589" level="INFO">{'success': True, 'data': {'_id': '6860302ead16ab7e6f0970bb', 'name': 'Pepsi', 'email': 'pepsi@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJlYWQxNmFiN2U2ZjA5NzBiYiIsImlhdCI6MTc1MTEzNDI1NCwiZXhwIjoxNzUxMjIwNjU0fQ.oxoZz2opbKSpcW9i__0N41lZzIp1ZHEIGx9X5gUZ4nQ'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.955895" elapsed="0.000826"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.957048" elapsed="0.001120"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.960134" level="INFO">${_id} = 6860302ead16ab7e6f0970bb</msg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.959152" elapsed="0.001061"/>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.958565" elapsed="0.001754"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:54.741074" elapsed="0.219344"/>
+</kw>
+<kw name="Validar resposta Registro de usuário com sucesso" owner="RegisterService">
+<kw name="Validar que o código response" owner="Validations">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>${status_sucesso}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.962250" elapsed="0.000493"/>
+</kw>
+<arg>201</arg>
+<status status="PASS" start="2025-06-28T15:10:54.961568" elapsed="0.001295"/>
+</kw>
+<kw name="Validar que a resposta contém success" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>success</arg>
+<arg>${success}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.963790" elapsed="0.000528"/>
+</kw>
+<arg>${True}</arg>
+<status status="PASS" start="2025-06-28T15:10:54.963083" elapsed="0.001361"/>
+</kw>
+<kw name="Validar que a resposta contém" owner="Validations">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.965477" elapsed="0.000531"/>
+</kw>
+<arg>_id</arg>
+<status status="PASS" start="2025-06-28T15:10:54.964776" elapsed="0.001349"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.967029" elapsed="0.000522"/>
+</kw>
+<arg>name</arg>
+<arg>${body}[name]</arg>
+<status status="PASS" start="2025-06-28T15:10:54.966339" elapsed="0.001326"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.968551" elapsed="0.000786"/>
+</kw>
+<arg>email</arg>
+<arg>${body}[email]</arg>
+<status status="PASS" start="2025-06-28T15:10:54.967870" elapsed="0.001754"/>
+</kw>
+<kw name="Validar que a resposta contém" owner="Validations">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.971367" elapsed="0.000630"/>
+</kw>
+<arg>token</arg>
+<status status="PASS" start="2025-06-28T15:10:54.970081" elapsed="0.002057"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:54.960821" elapsed="0.011424"/>
+</kw>
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:54.974759" level="INFO">${data} = {'valido-cadastro-login': {'name': 'Pepsi', 'email': 'pepsi@example.com', 'password': 'senhaqq1'}, 'valido-login': {'email': 'pepsi@example.com', 'password': 'senhaqq1'}, 'senha-errada-login': {'email...</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.973551" elapsed="0.001260"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:54.975554" level="INFO">${body} = {'email': 'pepsi@example.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.975026" elapsed="0.000599"/>
+</kw>
+<arg>login.json</arg>
+<arg>valido-login</arg>
+<status status="PASS" start="2025-06-28T15:10:54.972671" elapsed="0.003060"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/login" owner="LoginService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:55.137404" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '54', 'Content-Type': 'application/json'} 
+ body=b'{"email": "pepsi@example.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:55.137522" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '297', 'ETag': 'W/"129-YU+5oHuynVSAYObSOcyVAoBvoHQ"', 'Date': 'Sat, 28 Jun 2025 18:10:55 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"6860302ead16ab7e6f0970bb","name":"Pepsi","email":"pepsi@example.com","role":"user","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJlYWQxNmFiN2U2ZjA5NzBiYiIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.lCxQQFOPM_V25tcTNVSCYkpNmJrLet2PnTMk5NBWDzg"}} 
+ </msg>
+<msg time="2025-06-28T15:10:55.137712" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:54.976751" elapsed="0.161008"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.139045" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '6860302ead16ab7e6f0970bb', 'name': 'Pepsi', 'email': 'pepsi@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJlYWQxNmFi...</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.138013" elapsed="0.001113"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.139816" level="INFO">{'success': True, 'data': {'_id': '6860302ead16ab7e6f0970bb', 'name': 'Pepsi', 'email': 'pepsi@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJlYWQxNmFiN2U2ZjA5NzBiYiIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.lCxQQFOPM_V25tcTNVSCYkpNmJrLet2PnTMk5NBWDzg'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.139340" elapsed="0.000556"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.140092" elapsed="0.001096"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.142536" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJlYWQxNmFiN2U2ZjA5NzBiYiIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.lCxQQFOPM_V25tcTNVSCYkpNmJrLet2PnTMk5NBWDzg</msg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.142051" elapsed="0.000557"/>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.141523" elapsed="0.001184"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.143712" level="INFO">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJlYWQxNmFiN2U2ZjA5NzBiYiIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.lCxQQFOPM_V25tcTNVSCYkpNmJrLet2PnTMk5NBWDzg</msg>
+<arg>${TOKEN}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.143315" elapsed="0.000469"/>
+</kw>
+<arg>Log</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.142880" elapsed="0.000994"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.144645" elapsed="0.001117"/>
+</kw>
+<arg>Log to Console</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.144043" elapsed="0.001952"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:54.976101" elapsed="0.170127"/>
+</kw>
+<kw name="Validar resposta Login de usuário com sucesso" owner="LoginService">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:55.152067" level="INFO">${data} = {'valido-cadastro-login': {'name': 'Pepsi', 'email': 'pepsi@example.com', 'password': 'senhaqq1'}, 'valido-login': {'email': 'pepsi@example.com', 'password': 'senhaqq1'}, 'senha-errada-login': {'email...</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.150131" elapsed="0.002042"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.153793" level="INFO">${body} = {'name': 'Pepsi', 'email': 'pepsi@example.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.152665" elapsed="0.001294"/>
+</kw>
+<arg>login.json</arg>
+<arg>valido-cadastro-login</arg>
+<status status="PASS" start="2025-06-28T15:10:55.148708" elapsed="0.005472"/>
+</kw>
+<kw name="Validar que o código response" owner="Validations">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>${status_sucesso}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.156088" elapsed="0.000913"/>
+</kw>
+<arg>200</arg>
+<status status="PASS" start="2025-06-28T15:10:55.154659" elapsed="0.002574"/>
+</kw>
+<kw name="Validar que a resposta contém success" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>success</arg>
+<arg>${success}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.159215" elapsed="0.000994"/>
+</kw>
+<arg>${True}</arg>
+<status status="PASS" start="2025-06-28T15:10:55.157733" elapsed="0.002765"/>
+</kw>
+<kw name="Validar que a resposta contém" owner="Validations">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.162310" elapsed="0.001162"/>
+</kw>
+<arg>_id</arg>
+<status status="PASS" start="2025-06-28T15:10:55.160957" elapsed="0.002754"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.165794" elapsed="0.002812"/>
+</kw>
+<arg>name</arg>
+<arg>${body}[name]</arg>
+<status status="PASS" start="2025-06-28T15:10:55.164122" elapsed="0.004799"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.172624" elapsed="0.001440"/>
+</kw>
+<arg>email</arg>
+<arg>${body}[email]</arg>
+<status status="PASS" start="2025-06-28T15:10:55.169476" elapsed="0.004824"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.176037" elapsed="0.000697"/>
+</kw>
+<arg>role</arg>
+<arg>user</arg>
+<status status="PASS" start="2025-06-28T15:10:55.174824" elapsed="0.002043"/>
+</kw>
+<kw name="Validar que a resposta contém" owner="Validations">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.178038" elapsed="0.000578"/>
+</kw>
+<arg>token</arg>
+<status status="PASS" start="2025-06-28T15:10:55.177109" elapsed="0.001635"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:55.147050" elapsed="0.031796"/>
+</kw>
+<kw name="Enviar requisição DELETE para /users/_id" owner="UsuarioService">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.184240" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NCwiZXhwIjoxNzUxMjIwNjU0fQ.jxKz2S4hgy_FxXr5qbeCE-N84ZgaPGXJYdM3pNX31y4'}</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${TOKEN_ADMIN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.182126" elapsed="0.002427"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:55.235791" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/users/6860302ead16ab7e6f0970bb 
+ path_url=/api/v1/users/6860302ead16ab7e6f0970bb 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NCwiZXhwIjoxNzUxMjIwNjU0fQ.jxKz2S4hgy_FxXr5qbeCE-N84ZgaPGXJYdM3pNX31y4', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-28T15:10:55.235966" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/users/6860302ead16ab7e6f0970bb 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '41', 'ETag': 'W/"29-acm6zjlFy5zJu9kfItNOkEuApLY"', 'Date': 'Sat, 28 Jun 2025 18:10:55 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"message":"User removed"} 
+ </msg>
+<msg time="2025-06-28T15:10:55.236249" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/users/${_id}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.186689" elapsed="0.049627"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.240381" level="INFO">${RESPOSTA_DELETE} = {'success': True, 'message': 'User removed'}</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.236851" elapsed="0.003689"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.243516" level="INFO">{'success': True, 'message': 'User removed'}</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.241411" elapsed="0.002442"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.244503" elapsed="0.004572"/>
+</kw>
+<arg>${RESPOSTA}[data][_id]</arg>
+<status status="PASS" start="2025-06-28T15:10:55.179621" elapsed="0.070014"/>
+</kw>
+<tag>alta</tag>
+<tag>CT005</tag>
+<tag>login</tag>
+<status status="PASS" start="2025-06-28T15:10:54.482435" elapsed="0.768052"/>
+</test>
+<test id="s1-s1-s1-s2-t2" name="CT006 - Login com senha incorreta" line="20">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:55.362521" level="INFO">${data} = {'valido-cadastro-login': {'name': 'Pepsi', 'email': 'pepsi@example.com', 'password': 'senhaqq1'}, 'valido-login': {'email': 'pepsi@example.com', 'password': 'senhaqq1'}, 'senha-errada-login': {'email...</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.360660" elapsed="0.002114"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.366128" level="INFO">${body} = {'name': 'Pepsi', 'email': 'pepsi@example.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.363417" elapsed="0.002917"/>
+</kw>
+<arg>login.json</arg>
+<arg>valido-cadastro-login</arg>
+<status status="PASS" start="2025-06-28T15:10:55.359400" elapsed="0.007228"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/register" owner="RegisterService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:55.549354" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/register 
+ path_url=/api/v1/auth/register 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '71', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Pepsi", "email": "pepsi@example.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:55.549479" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/register 
+ status=201, reason=Created 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '297', 'ETag': 'W/"129-Bi9Uny1twygEfZ1gdUcXjCISi4U"', 'Date': 'Sat, 28 Jun 2025 18:10:55 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"6860302fad16ab7e6f0970c2","name":"Pepsi","email":"pepsi@example.com","role":"user","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJmYWQxNmFiN2U2ZjA5NzBjMiIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.EzLyKrdfqjV-slBfl0elAhN9OattomFQnv1WR8GmJr8"}} 
+ </msg>
+<msg time="2025-06-28T15:10:55.549730" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/register</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.368697" elapsed="0.181130"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.552095" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '6860302fad16ab7e6f0970c2', 'name': 'Pepsi', 'email': 'pepsi@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJmYWQxNmFi...</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.550350" elapsed="0.001877"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.553358" level="INFO">{'success': True, 'data': {'_id': '6860302fad16ab7e6f0970c2', 'name': 'Pepsi', 'email': 'pepsi@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDJmYWQxNmFiN2U2ZjA5NzBjMiIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.EzLyKrdfqjV-slBfl0elAhN9OattomFQnv1WR8GmJr8'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.552639" elapsed="0.000855"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.553883" elapsed="0.001422"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.557485" level="INFO">${_id} = 6860302fad16ab7e6f0970c2</msg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.556200" elapsed="0.001371"/>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.555653" elapsed="0.002033"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:55.367490" elapsed="0.190312"/>
+</kw>
+<kw name="Validar resposta Registro de usuário com sucesso" owner="RegisterService">
+<kw name="Validar que o código response" owner="Validations">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>${status_sucesso}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.559475" elapsed="0.000459"/>
+</kw>
+<arg>201</arg>
+<status status="PASS" start="2025-06-28T15:10:55.558867" elapsed="0.001174"/>
+</kw>
+<kw name="Validar que a resposta contém success" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>success</arg>
+<arg>${success}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.560843" elapsed="0.000482"/>
+</kw>
+<arg>${True}</arg>
+<status status="PASS" start="2025-06-28T15:10:55.560235" elapsed="0.001203"/>
+</kw>
+<kw name="Validar que a resposta contém" owner="Validations">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.562362" elapsed="0.000887"/>
+</kw>
+<arg>_id</arg>
+<status status="PASS" start="2025-06-28T15:10:55.561628" elapsed="0.001854"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.565345" elapsed="0.001151"/>
+</kw>
+<arg>name</arg>
+<arg>${body}[name]</arg>
+<status status="PASS" start="2025-06-28T15:10:55.563918" elapsed="0.002758"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.567810" elapsed="0.000681"/>
+</kw>
+<arg>email</arg>
+<arg>${body}[email]</arg>
+<status status="PASS" start="2025-06-28T15:10:55.566985" elapsed="0.001639"/>
+</kw>
+<kw name="Validar que a resposta contém" owner="Validations">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.569567" elapsed="0.000599"/>
+</kw>
+<arg>token</arg>
+<status status="PASS" start="2025-06-28T15:10:55.568869" elapsed="0.001433"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:55.558197" elapsed="0.012210"/>
+</kw>
+<kw name="Logar usuario admin" owner="Base">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:55.574696" level="INFO">${data} = {'valido-login': {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}}</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.572792" elapsed="0.002011"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.575983" level="INFO">${body} = {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.575265" elapsed="0.000792"/>
+</kw>
+<arg>admin_user.json</arg>
+<arg>valido-login</arg>
+<status status="PASS" start="2025-06-28T15:10:55.571636" elapsed="0.004646"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/login" owner="LoginService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:55.746463" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '56', 'Content-Type': 'application/json'} 
+ body=b'{"email": "exemplo@exemplo.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:55.746572" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '302', 'ETag': 'W/"12e-hY0abN2Q4SMhGWjQ3++VHQ0Jj90"', 'Date': 'Sat, 28 Jun 2025 18:10:55 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68602b75ad16ab7e6f096ff8","name":"Exemplo","email":"exemplo@exemplo.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.wtKlKyBT8ZYwMHGI84YwwydI4wANuMaYH1vrFaSMz50"}} 
+ </msg>
+<msg time="2025-06-28T15:10:55.746750" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.577244" elapsed="0.169548"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.748010" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQ...</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.747041" elapsed="0.001043"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.748662" level="INFO">{'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.wtKlKyBT8ZYwMHGI84YwwydI4wANuMaYH1vrFaSMz50'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.748259" elapsed="0.000475"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.748901" elapsed="0.000818"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.751521" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.wtKlKyBT8ZYwMHGI84YwwydI4wANuMaYH1vrFaSMz50</msg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.750478" elapsed="0.001117"/>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.750020" elapsed="0.001670"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.752662" level="INFO">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.wtKlKyBT8ZYwMHGI84YwwydI4wANuMaYH1vrFaSMz50</msg>
+<arg>${TOKEN}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.752280" elapsed="0.000453"/>
+</kw>
+<arg>Log</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.751860" elapsed="0.000959"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.753418" elapsed="0.000633"/>
+</kw>
+<arg>Log to Console</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.753002" elapsed="0.001243"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:55.576563" elapsed="0.177891"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.756846" level="INFO">${TOKEN_ADMIN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.wtKlKyBT8ZYwMHGI84YwwydI4wANuMaYH1vrFaSMz50</msg>
+<arg>${TOKEN_ADMIN}</arg>
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.754815" elapsed="0.002130"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:55.570835" elapsed="0.186247"/>
+</kw>
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:55.760023" level="INFO">${data} = {'valido-cadastro-login': {'name': 'Pepsi', 'email': 'pepsi@example.com', 'password': 'senhaqq1'}, 'valido-login': {'email': 'pepsi@example.com', 'password': 'senhaqq1'}, 'senha-errada-login': {'email...</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.758353" elapsed="0.001769"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.761458" level="INFO">${body} = {'email': 'pepsi@example.com', 'password': 'errada'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.760548" elapsed="0.001019"/>
+</kw>
+<arg>login.json</arg>
+<arg>senha-errada-login</arg>
+<status status="PASS" start="2025-06-28T15:10:55.757504" elapsed="0.004276"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/login" owner="LoginService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:55.905601" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '52', 'Content-Type': 'application/json'} 
+ body=b'{"email": "pepsi@example.com", "password": "errada"}' 
+ </msg>
+<msg time="2025-06-28T15:10:55.905725" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+ status=401, reason=Unauthorized 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '55', 'ETag': 'W/"37-5uDpJTljPBecOPs/j7OXFdPRcmQ"', 'Date': 'Sat, 28 Jun 2025 18:10:55 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":false,"message":"Invalid email or password"} 
+ </msg>
+<msg time="2025-06-28T15:10:55.906074" level="INFO">${resposta} = &lt;Response [401]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.763367" elapsed="0.142758"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.907405" level="INFO">${RESPOSTA} = {'success': False, 'message': 'Invalid email or password'}</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.906403" elapsed="0.001080"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.908161" level="INFO">{'success': False, 'message': 'Invalid email or password'}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.907699" elapsed="0.000535"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.908430" elapsed="0.000715"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.911230" level="FAIL">Dictionary '${RESPOSTA}' has no key 'data'.</msg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="FAIL" start="2025-06-28T15:10:55.910008" elapsed="0.001289">Dictionary '${RESPOSTA}' has no key 'data'.</status>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.909509" elapsed="0.001900"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.912599" level="INFO">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.wtKlKyBT8ZYwMHGI84YwwydI4wANuMaYH1vrFaSMz50</msg>
+<arg>${TOKEN}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.912086" elapsed="0.000644"/>
+</kw>
+<arg>Log</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.911595" elapsed="0.001309"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.913790" elapsed="0.001070"/>
+</kw>
+<arg>Log to Console</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.913287" elapsed="0.001794"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:55.762541" elapsed="0.152745"/>
+</kw>
+<kw name="Enviar requisição DELETE para /users/_id" owner="UsuarioService">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.919593" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.wtKlKyBT8ZYwMHGI84YwwydI4wANuMaYH1vrFaSMz50'}</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${TOKEN_ADMIN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.917929" elapsed="0.001758"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:55.973555" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/users/6860302fad16ab7e6f0970c2 
+ path_url=/api/v1/users/6860302fad16ab7e6f0970c2 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NSwiZXhwIjoxNzUxMjIwNjU1fQ.wtKlKyBT8ZYwMHGI84YwwydI4wANuMaYH1vrFaSMz50', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-28T15:10:55.973674" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/users/6860302fad16ab7e6f0970c2 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '41', 'ETag': 'W/"29-acm6zjlFy5zJu9kfItNOkEuApLY"', 'Date': 'Sat, 28 Jun 2025 18:10:55 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"message":"User removed"} 
+ </msg>
+<msg time="2025-06-28T15:10:55.973849" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/users/${_id}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.920107" elapsed="0.053783"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.975604" level="INFO">${RESPOSTA_DELETE} = {'success': True, 'message': 'User removed'}</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.974134" elapsed="0.001543"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:55.976273" level="INFO">{'success': True, 'message': 'User removed'}</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.975854" elapsed="0.000604"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.976702" elapsed="0.000690"/>
+</kw>
+<arg>${_id}</arg>
+<status status="PASS" start="2025-06-28T15:10:55.916025" elapsed="0.061553"/>
+</kw>
+<kw name="Validar resposta Login de usuário com senha errada" owner="LoginService">
+<kw name="Validar que a resposta contém success" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>success</arg>
+<arg>${success}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:55.980773" elapsed="0.001157"/>
+</kw>
+<arg>${False}</arg>
+<status status="PASS" start="2025-06-28T15:10:55.979266" elapsed="0.003260"/>
+</kw>
+<kw name="Validar que a resposta contém mensagem" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<msg time="2025-06-28T15:10:55.984871" level="FAIL">Value of dictionary key 'message' does not match: Invalid email or password != Invalid credentials</msg>
+<arg>${RESPOSTA}</arg>
+<arg>message</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="FAIL" start="2025-06-28T15:10:55.984254" elapsed="0.000845">Value of dictionary key 'message' does not match: Invalid email or password != Invalid credentials</status>
+</kw>
+<arg>Invalid credentials</arg>
+<status status="FAIL" start="2025-06-28T15:10:55.983281" elapsed="0.002016">Value of dictionary key 'message' does not match: Invalid email or password != Invalid credentials</status>
+</kw>
+<kw name="Validar que o código response" owner="Validations">
+<arg>400</arg>
+<status status="NOT RUN" start="2025-06-28T15:10:55.985535" elapsed="0.000303"/>
+</kw>
+<status status="FAIL" start="2025-06-28T15:10:55.978026" elapsed="0.007963">Value of dictionary key 'message' does not match: Invalid email or password != Invalid credentials</status>
+</kw>
+<tag>alta</tag>
+<tag>CT006</tag>
+<tag>login</tag>
+<status status="FAIL" start="2025-06-28T15:10:55.352665" elapsed="0.633855">Value of dictionary key 'message' does not match: Invalid email or password != Invalid credentials</status>
+</test>
+<test id="s1-s1-s1-s2-t3" name="CT007 - Login com email não cadastrado" line="31">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:56.079030" level="INFO">${data} = {'valido-cadastro-login': {'name': 'Pepsi', 'email': 'pepsi@example.com', 'password': 'senhaqq1'}, 'valido-login': {'email': 'pepsi@example.com', 'password': 'senhaqq1'}, 'senha-errada-login': {'email...</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.077296" elapsed="0.001874"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.082988" level="INFO">${body} = {'email': 'nemo@example.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.079842" elapsed="0.003416"/>
+</kw>
+<arg>login.json</arg>
+<arg>nao-existe-login</arg>
+<status status="PASS" start="2025-06-28T15:10:56.076451" elapsed="0.007185"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/login" owner="LoginService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:56.107103" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '53', 'Content-Type': 'application/json'} 
+ body=b'{"email": "nemo@example.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:56.107284" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+ status=401, reason=Unauthorized 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '55', 'ETag': 'W/"37-5uDpJTljPBecOPs/j7OXFdPRcmQ"', 'Date': 'Sat, 28 Jun 2025 18:10:56 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":false,"message":"Invalid email or password"} 
+ </msg>
+<msg time="2025-06-28T15:10:56.107594" level="INFO">${resposta} = &lt;Response [401]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.087916" elapsed="0.019773"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.110336" level="INFO">${RESPOSTA} = {'success': False, 'message': 'Invalid email or password'}</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.108200" elapsed="0.002419"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.113114" level="INFO">{'success': False, 'message': 'Invalid email or password'}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.111200" elapsed="0.002077"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.113848" elapsed="0.002409"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.120612" level="FAIL">Dictionary '${RESPOSTA}' has no key 'data'.</msg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="FAIL" start="2025-06-28T15:10:56.117656" elapsed="0.003124">Dictionary '${RESPOSTA}' has no key 'data'.</status>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.116717" elapsed="0.004322"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.127514" level="FAIL">Variable '${TOKEN}' not found.</msg>
+<arg>${TOKEN}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="FAIL" start="2025-06-28T15:10:56.123493" elapsed="0.004165">Variable '${TOKEN}' not found.</status>
+</kw>
+<arg>Log</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.121505" elapsed="0.006384"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.132149" level="FAIL">Variable '${TOKEN}' not found.</msg>
+<arg>${TOKEN}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="FAIL" start="2025-06-28T15:10:56.129726" elapsed="0.002571">Variable '${TOKEN}' not found.</status>
+</kw>
+<arg>Log to Console</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.128683" elapsed="0.003955"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:56.086467" elapsed="0.046424"/>
+</kw>
+<kw name="Validar resposta Login de usuário inexistente" owner="LoginService">
+<kw name="Validar que a resposta contém success" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>success</arg>
+<arg>${success}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.136984" elapsed="0.002959"/>
+</kw>
+<arg>${False}</arg>
+<status status="PASS" start="2025-06-28T15:10:56.134996" elapsed="0.005292"/>
+</kw>
+<kw name="Validar que a resposta contém mensagem" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<msg time="2025-06-28T15:10:56.144144" level="FAIL">Value of dictionary key 'message' does not match: Invalid email or password != Invalid credentials</msg>
+<arg>${RESPOSTA}</arg>
+<arg>message</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="FAIL" start="2025-06-28T15:10:56.142947" elapsed="0.001449">Value of dictionary key 'message' does not match: Invalid email or password != Invalid credentials</status>
+</kw>
+<arg>Invalid credentials</arg>
+<status status="FAIL" start="2025-06-28T15:10:56.140770" elapsed="0.004016">Value of dictionary key 'message' does not match: Invalid email or password != Invalid credentials</status>
+</kw>
+<kw name="Validar que o código response" owner="Validations">
+<arg>400</arg>
+<status status="NOT RUN" start="2025-06-28T15:10:56.145757" elapsed="0.001055"/>
+</kw>
+<status status="FAIL" start="2025-06-28T15:10:56.133610" elapsed="0.014872">Value of dictionary key 'message' does not match: Invalid email or password != Invalid credentials</status>
+</kw>
+<tag>CT007</tag>
+<tag>login</tag>
+<tag>media</tag>
+<status status="FAIL" start="2025-06-28T15:10:56.071643" elapsed="0.082647">Value of dictionary key 'message' does not match: Invalid email or password != Invalid credentials</status>
+</test>
+<doc>Testes de login pela API</doc>
+<status status="FAIL" start="2025-06-28T15:10:54.423352" elapsed="1.834881"/>
 </suite>
-<status status="PASS" start="2025-06-26T19:44:19.391401" elapsed="6.765637"/>
+<status status="FAIL" start="2025-06-28T15:10:43.257665" elapsed="13.070102"/>
 </suite>
-<status status="PASS" start="2025-06-26T19:44:19.320649" elapsed="6.841050"/>
+<suite id="s1-s1-s2" name="Users" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\users">
+<suite id="s1-s1-s2-s1" name="deleteUser" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\users\deleteUser.robot">
+<kw name="Criar Sessão" owner="Base" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:56.387806" level="INFO">Creating Session using : alias=api-cinema, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=api-cinema</arg>
+<arg>url=${API_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-28T15:10:56.387271" elapsed="0.000756"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:56.386612" elapsed="0.001555"/>
+</kw>
+<test id="s1-s1-s2-s1-t1" name="CT037 - Excluir usuário sem reservas como admin" line="9">
+<kw name="Logar usuario admin" owner="Base">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:56.394921" level="INFO">${data} = {'valido-login': {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}}</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.393353" elapsed="0.001664"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.399998" level="INFO">${body} = {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.395899" elapsed="0.004277"/>
+</kw>
+<arg>admin_user.json</arg>
+<arg>valido-login</arg>
+<status status="PASS" start="2025-06-28T15:10:56.392726" elapsed="0.007683"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/login" owner="LoginService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:56.605686" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '56', 'Content-Type': 'application/json'} 
+ body=b'{"email": "exemplo@exemplo.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:56.605912" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '302', 'ETag': 'W/"12e-yHaWL/knoBzc0lP3BiSVpNn9nD0"', 'Date': 'Sat, 28 Jun 2025 18:10:56 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68602b75ad16ab7e6f096ff8","name":"Exemplo","email":"exemplo@exemplo.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NiwiZXhwIjoxNzUxMjIwNjU2fQ.fK3LNqJiDs4tRCHrSP9J9hhfwZ41K5v8xITiIAbb-do"}} 
+ </msg>
+<msg time="2025-06-28T15:10:56.606306" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.402075" elapsed="0.204332"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.609002" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQ...</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.606932" elapsed="0.002291"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.610568" level="INFO">{'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NiwiZXhwIjoxNzUxMjIwNjU2fQ.fK3LNqJiDs4tRCHrSP9J9hhfwZ41K5v8xITiIAbb-do'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.609747" elapsed="0.001010"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.611244" elapsed="0.007495"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.623285" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NiwiZXhwIjoxNzUxMjIwNjU2fQ.fK3LNqJiDs4tRCHrSP9J9hhfwZ41K5v8xITiIAbb-do</msg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.620258" elapsed="0.003265"/>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.619305" elapsed="0.004460"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.626004" level="INFO">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NiwiZXhwIjoxNzUxMjIwNjU2fQ.fK3LNqJiDs4tRCHrSP9J9hhfwZ41K5v8xITiIAbb-do</msg>
+<arg>${TOKEN}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.625196" elapsed="0.000981"/>
+</kw>
+<arg>Log</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.624227" elapsed="0.002200"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.627835" elapsed="0.002351"/>
+</kw>
+<arg>Log to Console</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.626900" elapsed="0.003503"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:56.400898" elapsed="0.229687"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.634113" level="INFO">${TOKEN_ADMIN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NiwiZXhwIjoxNzUxMjIwNjU2fQ.fK3LNqJiDs4tRCHrSP9J9hhfwZ41K5v8xITiIAbb-do</msg>
+<arg>${TOKEN_ADMIN}</arg>
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.630933" elapsed="0.003381"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:56.392012" elapsed="0.242789"/>
+</kw>
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:56.641940" level="INFO">${data} = {'delete-register': {'name': 'Ligeiro', 'email': 'ligeiro@example.com', 'password': 'senhaqq1'}}</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.639830" elapsed="0.002246"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.643895" level="INFO">${body} = {'name': 'Ligeiro', 'email': 'ligeiro@example.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.642879" elapsed="0.001183"/>
+</kw>
+<arg>delete_user.json</arg>
+<arg>delete-register</arg>
+<status status="PASS" start="2025-06-28T15:10:56.638486" elapsed="0.005910"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/register" owner="RegisterService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:56.866546" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/register 
+ path_url=/api/v1/auth/register 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '75', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Ligeiro", "email": "ligeiro@example.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:56.866662" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/register 
+ status=201, reason=Created 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '301', 'ETag': 'W/"12d-OoI1Ig5Os2LVee2PyX1+ZXHbxwQ"', 'Date': 'Sat, 28 Jun 2025 18:10:56 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68603030ad16ab7e6f0970cc","name":"Ligeiro","email":"ligeiro@example.com","role":"user","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDMwYWQxNmFiN2U2ZjA5NzBjYyIsImlhdCI6MTc1MTEzNDI1NiwiZXhwIjoxNzUxMjIwNjU2fQ.ARtY3LZbBPxylXdporzz_os5jqU4KOMRBb5zVJYYYp4"}} 
+ </msg>
+<msg time="2025-06-28T15:10:56.866842" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/register</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.653720" elapsed="0.213166"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.868090" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '68603030ad16ab7e6f0970cc', 'name': 'Ligeiro', 'email': 'ligeiro@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDMwYWQx...</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.867128" elapsed="0.001036"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.868747" level="INFO">{'success': True, 'data': {'_id': '68603030ad16ab7e6f0970cc', 'name': 'Ligeiro', 'email': 'ligeiro@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDMwYWQxNmFiN2U2ZjA5NzBjYyIsImlhdCI6MTc1MTEzNDI1NiwiZXhwIjoxNzUxMjIwNjU2fQ.ARtY3LZbBPxylXdporzz_os5jqU4KOMRBb5zVJYYYp4'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.868345" elapsed="0.000473"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.868988" elapsed="0.000819"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.871455" level="INFO">${_id} = 68603030ad16ab7e6f0970cc</msg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.870536" elapsed="0.000991"/>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.870063" elapsed="0.001560"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:56.651979" elapsed="0.219744"/>
+</kw>
+<kw name="Enviar requisição DELETE para /users/_id" owner="UsuarioService">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.873280" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NiwiZXhwIjoxNzUxMjIwNjU2fQ.fK3LNqJiDs4tRCHrSP9J9hhfwZ41K5v8xITiIAbb-do'}</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${TOKEN_ADMIN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.872725" elapsed="0.000602"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:56.922587" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/users/68603030ad16ab7e6f0970cc 
+ path_url=/api/v1/users/68603030ad16ab7e6f0970cc 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NiwiZXhwIjoxNzUxMjIwNjU2fQ.fK3LNqJiDs4tRCHrSP9J9hhfwZ41K5v8xITiIAbb-do', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-28T15:10:56.922697" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/users/68603030ad16ab7e6f0970cc 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '41', 'ETag': 'W/"29-acm6zjlFy5zJu9kfItNOkEuApLY"', 'Date': 'Sat, 28 Jun 2025 18:10:56 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"message":"User removed"} 
+ </msg>
+<msg time="2025-06-28T15:10:56.922868" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/users/${_id}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.873505" elapsed="0.049405"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.924648" level="INFO">${RESPOSTA_DELETE} = {'success': True, 'message': 'User removed'}</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.923149" elapsed="0.001571"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:56.925319" level="INFO">{'success': True, 'message': 'User removed'}</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.924899" elapsed="0.000488"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.925556" elapsed="0.000639"/>
+</kw>
+<arg>${_id}</arg>
+<status status="PASS" start="2025-06-28T15:10:56.872067" elapsed="0.054307"/>
+</kw>
+<kw name="Validar resposta Delete de usuário com sucesso" owner="UsuarioService">
+<kw name="Validar que o código response" owner="Validations">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>${status_sucesso}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.930326" elapsed="0.000907"/>
+</kw>
+<arg>200</arg>
+<status status="PASS" start="2025-06-28T15:10:56.928278" elapsed="0.003126"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA_DELETE}</arg>
+<arg>success</arg>
+<arg>${True}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:56.931761" elapsed="0.000585"/>
+</kw>
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<msg time="2025-06-28T15:10:56.933110" level="FAIL">Value of dictionary key 'message' does not match: User removed != User deleted successfully</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<arg>message</arg>
+<arg>User deleted successfully</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="FAIL" start="2025-06-28T15:10:56.932557" elapsed="0.000661">Value of dictionary key 'message' does not match: User removed != User deleted successfully</status>
+</kw>
+<status status="FAIL" start="2025-06-28T15:10:56.927080" elapsed="0.006309">Value of dictionary key 'message' does not match: User removed != User deleted successfully</status>
+</kw>
+<tag>CT037</tag>
+<tag>deleteUser</tag>
+<tag>media</tag>
+<status status="FAIL" start="2025-06-28T15:10:56.388282" elapsed="0.545442">Value of dictionary key 'message' does not match: User removed != User deleted successfully</status>
+</test>
+<doc>Testes de deleção de usuário pela API.</doc>
+<status status="FAIL" start="2025-06-28T15:10:56.334651" elapsed="0.655076"/>
+</suite>
+<suite id="s1-s1-s2-s2" name="updateUser" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\users\updateUser.robot">
+<kw name="Criar Sessão" owner="Base" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:57.150454" level="INFO">Creating Session using : alias=api-cinema, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=api-cinema</arg>
+<arg>url=${API_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-28T15:10:57.149565" elapsed="0.001262"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:57.148492" elapsed="0.002564"/>
+</kw>
+<test id="s1-s1-s2-s2-t1" name="CT036 - Editar dados de um usuário para promovê-lo à admin" line="9">
+<kw name="Logar usuario admin" owner="Base">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:57.161598" level="INFO">${data} = {'valido-login': {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}}</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.159262" elapsed="0.002456"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.164926" level="INFO">${body} = {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.162236" elapsed="0.002958"/>
+</kw>
+<arg>admin_user.json</arg>
+<arg>valido-login</arg>
+<status status="PASS" start="2025-06-28T15:10:57.158088" elapsed="0.007388"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/login" owner="LoginService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:57.364279" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '56', 'Content-Type': 'application/json'} 
+ body=b'{"email": "exemplo@exemplo.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:57.364479" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '302', 'ETag': 'W/"12e-bqu9bxDPm9uk1kY0vV97g6es+Io"', 'Date': 'Sat, 28 Jun 2025 18:10:57 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68602b75ad16ab7e6f096ff8","name":"Exemplo","email":"exemplo@exemplo.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NywiZXhwIjoxNzUxMjIwNjU3fQ.a_UXp30JqAgotij-3qoZbCJRHiG3Lqip4EsWC0KyMA8"}} 
+ </msg>
+<msg time="2025-06-28T15:10:57.364813" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.167636" elapsed="0.197269"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.367254" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQ...</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.365373" elapsed="0.002044"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.368657" level="INFO">{'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NywiZXhwIjoxNzUxMjIwNjU3fQ.a_UXp30JqAgotij-3qoZbCJRHiG3Lqip4EsWC0KyMA8'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.367868" elapsed="0.000943"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.369201" elapsed="0.001946"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.377783" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NywiZXhwIjoxNzUxMjIwNjU3fQ.a_UXp30JqAgotij-3qoZbCJRHiG3Lqip4EsWC0KyMA8</msg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.373040" elapsed="0.004937"/>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${TOKEN}</arg>
+<arg>${RESPOSTA}[data][token]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.371634" elapsed="0.006572"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.380446" level="INFO">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NywiZXhwIjoxNzUxMjIwNjU3fQ.a_UXp30JqAgotij-3qoZbCJRHiG3Lqip4EsWC0KyMA8</msg>
+<arg>${TOKEN}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.379755" elapsed="0.000831"/>
+</kw>
+<arg>Log</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.378612" elapsed="0.002137"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${TOKEN}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.381898" elapsed="0.015926"/>
+</kw>
+<arg>Log to Console</arg>
+<arg>${TOKEN}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.381099" elapsed="0.017126"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:57.166091" elapsed="0.232347"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.401403" level="INFO">${TOKEN_ADMIN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NywiZXhwIjoxNzUxMjIwNjU3fQ.a_UXp30JqAgotij-3qoZbCJRHiG3Lqip4EsWC0KyMA8</msg>
+<arg>${TOKEN_ADMIN}</arg>
+<arg>${TOKEN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.398842" elapsed="0.002733"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:57.156894" elapsed="0.244950"/>
+</kw>
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:57.417588" level="INFO">${data} = {'update-register': {'name': 'Raquel', 'email': 'raquel@example.com', 'password': 'senhaqq1'}, 'update-promover': {'role': 'admin'}}</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.415417" elapsed="0.002269"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.418989" level="INFO">${body} = {'name': 'Raquel', 'email': 'raquel@example.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.418115" elapsed="0.000973"/>
+</kw>
+<arg>update_user.json</arg>
+<arg>update-register</arg>
+<status status="PASS" start="2025-06-28T15:10:57.413884" elapsed="0.005372"/>
+</kw>
+<kw name="Enviar requisição POST para /auth/register" owner="RegisterService">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:57.619050" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/register 
+ path_url=/api/v1/auth/register 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '73', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Raquel", "email": "raquel@example.com", "password": "senhaqq1"}' 
+ </msg>
+<msg time="2025-06-28T15:10:57.619163" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/register 
+ status=201, reason=Created 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '299', 'ETag': 'W/"12b-fRCEhoTJmrff1yWTv/fjNcEKcKo"', 'Date': 'Sat, 28 Jun 2025 18:10:57 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68603031ad16ab7e6f0970d3","name":"Raquel","email":"raquel@example.com","role":"user","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDMxYWQxNmFiN2U2ZjA5NzBkMyIsImlhdCI6MTc1MTEzNDI1NywiZXhwIjoxNzUxMjIwNjU3fQ.qDGDD6Aa09wbHCU3tb2Q2XQgv_-3CV7CfoQgg0l4X30"}} 
+ </msg>
+<msg time="2025-06-28T15:10:57.619432" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/auth/register</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.420716" elapsed="0.198803"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.621655" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '68603031ad16ab7e6f0970d3', 'name': 'Raquel', 'email': 'raquel@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDMxYWQxNm...</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.619943" elapsed="0.001890"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.622906" level="INFO">{'success': True, 'data': {'_id': '68603031ad16ab7e6f0970d3', 'name': 'Raquel', 'email': 'raquel@example.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAzMDMxYWQxNmFiN2U2ZjA5NzBkMyIsImlhdCI6MTc1MTEzNDI1NywiZXhwIjoxNzUxMjIwNjU3fQ.qDGDD6Aa09wbHCU3tb2Q2XQgv_-3CV7CfoQgg0l4X30'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.622164" elapsed="0.000895"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.623486" elapsed="0.002570"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.629821" level="INFO">${_id} = 68603031ad16ab7e6f0970d3</msg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.627526" elapsed="0.002452"/>
+</kw>
+<arg>Set Test Variable</arg>
+<arg>${_id}</arg>
+<arg>${RESPOSTA}[data][_id]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.626577" elapsed="0.003614"/>
+</kw>
+<status status="PASS" start="2025-06-28T15:10:57.419922" elapsed="0.210479"/>
+</kw>
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:57.634332" level="INFO">${data} = {'update-register': {'name': 'Raquel', 'email': 'raquel@example.com', 'password': 'senhaqq1'}, 'update-promover': {'role': 'admin'}}</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.632516" elapsed="0.001910"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.635692" level="INFO">${body} = {'role': 'admin'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.634834" elapsed="0.000968"/>
+</kw>
+<arg>update_user.json</arg>
+<arg>update-promover</arg>
+<status status="PASS" start="2025-06-28T15:10:57.631162" elapsed="0.004826"/>
+</kw>
+<kw name="Enviar requisição PUT para /users/_id" owner="UsuarioService">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.642123" level="INFO">${_id} = 68603031ad16ab7e6f0970d3</msg>
+<arg>${_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.640989" elapsed="0.001408"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.643899" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NywiZXhwIjoxNzUxMjIwNjU3fQ.a_UXp30JqAgotij-3qoZbCJRHiG3Lqip4EsWC0KyMA8'}</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.642835" elapsed="0.001158"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:57.707641" level="INFO">PUT Request : url=http://localhost:3000/api/v1/users/68603031ad16ab7e6f0970d3 
+ path_url=/api/v1/users/68603031ad16ab7e6f0970d3 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NywiZXhwIjoxNzUxMjIwNjU3fQ.a_UXp30JqAgotij-3qoZbCJRHiG3Lqip4EsWC0KyMA8', 'Content-Length': '17', 'Content-Type': 'application/json'} 
+ body=b'{"role": "admin"}' 
+ </msg>
+<msg time="2025-06-28T15:10:57.707982" level="INFO">PUT Response : url=http://localhost:3000/api/v1/users/68603031ad16ab7e6f0970d3 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '118', 'ETag': 'W/"76-DQsTr6SezH0DTIytcpxSTN/aoDY"', 'Date': 'Sat, 28 Jun 2025 18:10:57 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68603031ad16ab7e6f0970d3","name":"Raquel","email":"raquel@example.com","role":"admin"}} 
+ </msg>
+<msg time="2025-06-28T15:10:57.708296" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/users/${_id}</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.644384" elapsed="0.063991"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.711119" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '68603031ad16ab7e6f0970d3', 'name': 'Raquel', 'email': 'raquel@example.com', 'role': 'admin'}}</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.709082" elapsed="0.002248"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.713088" level="INFO">{'success': True, 'data': {'_id': '68603031ad16ab7e6f0970d3', 'name': 'Raquel', 'email': 'raquel@example.com', 'role': 'admin'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.712088" elapsed="0.001210"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.713890" elapsed="0.013814"/>
+</kw>
+<arg>${RESPOSTA}[data][_id]</arg>
+<status status="PASS" start="2025-06-28T15:10:57.639385" elapsed="0.088704"/>
+</kw>
+<kw name="Enviar requisição DELETE para /users/_id" owner="UsuarioService">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.732399" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NywiZXhwIjoxNzUxMjIwNjU3fQ.a_UXp30JqAgotij-3qoZbCJRHiG3Lqip4EsWC0KyMA8'}</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${TOKEN_ADMIN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.731369" elapsed="0.001124"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-06-28T15:10:57.794990" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/users/68603031ad16ab7e6f0970d3 
+ path_url=/api/v1/users/68603031ad16ab7e6f0970d3 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTEzNDI1NywiZXhwIjoxNzUxMjIwNjU3fQ.a_UXp30JqAgotij-3qoZbCJRHiG3Lqip4EsWC0KyMA8', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-28T15:10:57.795181" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/users/68603031ad16ab7e6f0970d3 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '41', 'ETag': 'W/"29-acm6zjlFy5zJu9kfItNOkEuApLY"', 'Date': 'Sat, 28 Jun 2025 18:10:57 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"message":"User removed"} 
+ </msg>
+<msg time="2025-06-28T15:10:57.795499" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/users/${_id}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.732901" elapsed="0.062684"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.800783" level="INFO">${RESPOSTA_DELETE} = {'success': True, 'message': 'User removed'}</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.796063" elapsed="0.004945"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.803428" level="INFO">{'success': True, 'message': 'User removed'}</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.802111" elapsed="0.001541"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.804225" elapsed="0.002743"/>
+</kw>
+<arg>${RESPOSTA}[data][_id]</arg>
+<status status="PASS" start="2025-06-28T15:10:57.729867" elapsed="0.077430"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.810426" level="INFO">{'success': True, 'data': {'_id': '68603031ad16ab7e6f0970d3', 'name': 'Raquel', 'email': 'raquel@example.com', 'role': 'admin'}}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.809564" elapsed="0.000993"/>
+</kw>
+<kw name="Validar resposta Update de usuário com sucesso" owner="UsuarioService">
+<kw name="Preparar massa de dados" owner="Base">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-06-28T15:10:57.843920" level="INFO">${data} = {'update-register': {'name': 'Raquel', 'email': 'raquel@example.com', 'password': 'senhaqq1'}, 'update-promover': {'role': 'admin'}}</msg>
+<var>${data}</var>
+<arg>resources/data/${arquivo}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.841227" elapsed="0.002836"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.846037" level="INFO">${body} = {'name': 'Raquel', 'email': 'raquel@example.com', 'password': 'senhaqq1'}</msg>
+<arg>${body}</arg>
+<arg>${data}[${cenario}]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.844598" elapsed="0.001597"/>
+</kw>
+<arg>update_user.json</arg>
+<arg>update-register</arg>
+<status status="PASS" start="2025-06-28T15:10:57.839693" elapsed="0.006823"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-28T15:10:57.850408" level="INFO">${register} = {'name': 'Raquel', 'email': 'raquel@example.com', 'password': 'senhaqq1'}</msg>
+<arg>${register}</arg>
+<arg>${body}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.847017" elapsed="0.003552"/>
+</kw>
+<kw name="Validar que o código response" owner="Validations">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>${status_sucesso}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.853537" elapsed="0.001086"/>
+</kw>
+<arg>200</arg>
+<status status="PASS" start="2025-06-28T15:10:57.851082" elapsed="0.003835"/>
+</kw>
+<kw name="Validar que a resposta contém success" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}</arg>
+<arg>success</arg>
+<arg>${success}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.857806" elapsed="0.001703"/>
+</kw>
+<arg>${True}</arg>
+<status status="PASS" start="2025-06-28T15:10:57.855489" elapsed="0.004313"/>
+</kw>
+<kw name="Validar que a resposta contém" owner="Validations">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.862454" elapsed="0.001090"/>
+</kw>
+<arg>_id</arg>
+<status status="PASS" start="2025-06-28T15:10:57.860576" elapsed="0.003217"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.865829" elapsed="0.001128"/>
+</kw>
+<arg>name</arg>
+<arg>${register}[name]</arg>
+<status status="PASS" start="2025-06-28T15:10:57.864283" elapsed="0.002955"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.869667" elapsed="0.001105"/>
+</kw>
+<arg>email</arg>
+<arg>${register}[email]</arg>
+<status status="PASS" start="2025-06-28T15:10:57.867970" elapsed="0.003073"/>
+</kw>
+<kw name="Validar que a resposta contém dado" owner="Validations">
+<kw name="Dictionary Should Contain Item" owner="Collections">
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<arg>${dado}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" start="2025-06-28T15:10:57.877872" elapsed="0.001227"/>
+</kw>
+<arg>role</arg>
+<arg>admin</arg>
+<status status="PASS" start="2025-06-28T15:10:57.871543" elapsed="0.007874"/>
+</kw>
+<kw name="Validar que a resposta contém" owner="Validations">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<msg time="2025-06-28T15:10:57.883846" level="FAIL">Dictionary does not contain key 'createdAt'.</msg>
+<arg>${RESPOSTA}[data]</arg>
+<arg>${key}</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="FAIL" start="2025-06-28T15:10:57.882680" elapsed="0.001391">Dictionary does not contain key 'createdAt'.</status>
+</kw>
+<arg>createdAt</arg>
+<status status="FAIL" start="2025-06-28T15:10:57.880234" elapsed="0.004216">Dictionary does not contain key 'createdAt'.</status>
+</kw>
+<status status="FAIL" start="2025-06-28T15:10:57.837988" elapsed="0.046887">Dictionary does not contain key 'createdAt'.</status>
+</kw>
+<tag>alta</tag>
+<tag>CT036</tag>
+<tag>updateUser</tag>
+<status status="FAIL" start="2025-06-28T15:10:57.151236" elapsed="0.737690">Dictionary does not contain key 'createdAt'.</status>
+</test>
+<doc>Testes de deleção de usuário pela API.</doc>
+<status status="FAIL" start="2025-06-28T15:10:57.082566" elapsed="0.946051"/>
+</suite>
+<status status="FAIL" start="2025-06-28T15:10:56.331141" elapsed="1.886226"/>
+</suite>
+<status status="FAIL" start="2025-06-28T15:10:43.250484" elapsed="14.969559"/>
+</suite>
+<status status="FAIL" start="2025-06-28T15:10:43.146923" elapsed="15.076828"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="5" fail="4" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">alta</stat>
-<stat pass="1" fail="0" skip="0">cadastro</stat>
+<stat pass="5" fail="2" skip="0">alta</stat>
+<stat pass="4" fail="0" skip="0">cadastro</stat>
+<stat pass="1" fail="0" skip="0">CT001</stat>
+<stat pass="1" fail="0" skip="0">CT002</stat>
 <stat pass="1" fail="0" skip="0">CT003</stat>
+<stat pass="1" fail="0" skip="0">CT004</stat>
+<stat pass="1" fail="0" skip="0">CT005</stat>
+<stat pass="0" fail="1" skip="0">CT006</stat>
+<stat pass="0" fail="1" skip="0">CT007</stat>
+<stat pass="0" fail="1" skip="0">CT036</stat>
+<stat pass="0" fail="1" skip="0">CT037</stat>
+<stat pass="0" fail="1" skip="0">deleteUser</stat>
+<stat pass="1" fail="2" skip="0">login</stat>
+<stat pass="0" fail="2" skip="0">media</stat>
+<stat pass="0" fail="1" skip="0">updateUser</stat>
 </tag>
 <suite>
-<stat name="Tests" id="s1" pass="1" fail="0" skip="0">Tests</stat>
-<stat name="Api" id="s1-s1" pass="1" fail="0" skip="0">Tests.Api</stat>
-<stat name="Auth" id="s1-s1-s1" pass="1" fail="0" skip="0">Tests.Api.Auth</stat>
-<stat name="Cadastro" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">Tests.Api.Auth.Cadastro</stat>
+<stat name="Tests" id="s1" pass="5" fail="4" skip="0">Tests</stat>
+<stat name="Api" id="s1-s1" pass="5" fail="4" skip="0">Tests.Api</stat>
+<stat name="Auth" id="s1-s1-s1" pass="5" fail="2" skip="0">Tests.Api.Auth</stat>
+<stat name="cadastroUser" id="s1-s1-s1-s1" pass="4" fail="0" skip="0">Tests.Api.Auth.cadastroUser</stat>
+<stat name="Login" id="s1-s1-s1-s2" pass="1" fail="2" skip="0">Tests.Api.Auth.Login</stat>
+<stat name="Users" id="s1-s1-s2" pass="0" fail="2" skip="0">Tests.Api.Users</stat>
+<stat name="deleteUser" id="s1-s1-s2-s1" pass="0" fail="1" skip="0">Tests.Api.Users.deleteUser</stat>
+<stat name="updateUser" id="s1-s1-s2-s2" pass="0" fail="1" skip="0">Tests.Api.Users.updateUser</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-06-26T19:44:22.943656" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\common\Validations.resource' is empty.</msg>
-<msg time="2025-06-26T19:44:22.951497" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\FilmeService.resource' is empty.</msg>
-<msg time="2025-06-26T19:44:22.956027" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\ReservaService.resource' is empty.</msg>
-<msg time="2025-06-26T19:44:22.958992" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\TeatroService.resource' is empty.</msg>
-<msg time="2025-06-26T19:44:22.963136" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\UsuarioService.robot' is empty.</msg>
-<msg time="2025-06-26T19:44:22.966051" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\pages\FilmesPage.resource' is empty.</msg>
-<msg time="2025-06-26T19:44:22.970122" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\pages\ReservasPage.resource' is empty.</msg>
+<msg time="2025-06-28T15:10:47.883935" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\FilmeService.resource' is empty.</msg>
+<msg time="2025-06-28T15:10:47.888445" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\ReservaService.resource' is empty.</msg>
+<msg time="2025-06-28T15:10:47.892408" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\TeatroService.resource' is empty.</msg>
+<msg time="2025-06-28T15:10:47.907261" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\pages\FilmesPage.resource' is empty.</msg>
+<msg time="2025-06-28T15:10:47.911575" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\pages\ReservasPage.resource' is empty.</msg>
 </errors>
 </robot>

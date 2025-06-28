@@ -14,6 +14,7 @@ Enviar requisição POST para /auth/register
     Set Test Variable    ${RESPOSTA}    ${resposta.json()}
     Log    ${RESPOSTA}
     Log to Console    ${RESPOSTA}
+    Run Keyword And Ignore Error    Set Test Variable    ${_id}    ${RESPOSTA}[data][_id]
 
 Validar resposta Registro de usuário com sucesso
     Validar que o código response    201
@@ -23,7 +24,7 @@ Validar resposta Registro de usuário com sucesso
     Validar que a resposta contém dado    email    ${body}[email]
     Validar que a resposta contém   token
 
-Validar resposta de usuário duplicado
+Validar resposta de Registro de usuário duplicado
     Validar que o código response    400
     Validar que a resposta contém success    ${False}
 

@@ -1,0 +1,19 @@
+{
+    "valido-cadastro-login": {
+        "name": "Pepsi",
+        "email": "pepsi@example.com",
+        "password": "senhaqq1"
+    },
+    "valido-login": {
+        "email": "pepsi@example.com",
+        "password": "senhaqq1"
+    },
+    "senha-errada-login": {
+        "email": "pepsi@example.com",
+        "password": "errada"
+    },
+    "nao-existe-login": {
+        "email": "nemo@example.com",
+        "password": "senhaqq1"
+    }
+}

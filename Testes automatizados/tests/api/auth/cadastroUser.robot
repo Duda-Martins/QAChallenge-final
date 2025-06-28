@@ -12,7 +12,8 @@ CT001 - Registro de usuário com sucesso
     Preparar massa de dados    cadastro.json    valido
     Enviar requisição POST para /auth/register
     Validar resposta Registro de usuário com sucesso
-    Limpar usuário    ${body}[email]
+    Logar usuario admin
+    Enviar requisição DELETE para /users/_id    ${_id}
 
 CT002 - Registro com e-mail duplicado
     [Tags]    CT002    cadastro    alta
@@ -20,8 +21,8 @@ CT002 - Registro com e-mail duplicado
     Enviar requisição POST para /auth/register
     Validar resposta Registro de usuário com sucesso
     Enviar requisição POST para /auth/register
-    Limpar usuário    ${body}[email]
-    Validar resposta de usuário duplicado
+    Limpar usuário   ${body}[email]
+    Validar resposta de Registro de usuário duplicado
 
 CT003 - Registro com e-mail inválido
     [Tags]    CT003    cadastro    alta

@@ -1,5 +1,5 @@
-{"level":30,"time":"2025-06-26T22:44:25.472Z","pid":13636,"hostname":"DESK-ROD","msg":"Listening on 127.0.0.1:59449"}
-(node:13636) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+{"level":30,"time":"2025-06-28T18:10:52.645Z","pid":8640,"hostname":"DESK-ROD","msg":"Listening on 127.0.0.1:59835"}
+(node:8640) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 ================= Original suppressed error =================
 Error: Browser has been closed.
@@ -14,8 +14,10 @@ Error: Browser has been closed.
     at endReadableNT (node:internal/streams/readable:1698:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
 =============================================================
-{"level":30,"time":"2025-06-26T22:44:26.065Z","pid":13636,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-26T22:44:26.065Z","pid":13636,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:52.946Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:52.946Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:52.951Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:52.951Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
 ================= Original suppressed error =================
 Error: Browser has been closed.
     at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
@@ -29,7 +31,192 @@ Error: Browser has been closed.
     at endReadableNT (node:internal/streams/readable:1698:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
 =============================================================
-{"level":30,"time":"2025-06-26T22:44:26.139Z","pid":13636,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-26T22:44:26.139Z","pid":13636,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-26T22:44:27.031Z","pid":13636,"hostname":"DESK-ROD","msg":"Start of node method closeAllBrowsers"}
-{"level":30,"time":"2025-06-26T22:44:27.031Z","pid":13636,"hostname":"DESK-ROD","msg":"End of node method closeAllBrowsers"}
+{"level":30,"time":"2025-06-28T18:10:53.740Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:53.740Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:53.748Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:53.749Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13122:59)
+    at PlaywrightServer.setTimeout (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13370:57)
+    at Object.onReceiveHalfClose (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-06-28T18:10:53.987Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:53.988Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:54.000Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:54.000Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13122:59)
+    at PlaywrightServer.setTimeout (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13370:57)
+    at Object.onReceiveHalfClose (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-06-28T18:10:54.283Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:54.283Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13122:59)
+    at PlaywrightServer.setTimeout (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13370:57)
+    at Object.onReceiveHalfClose (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-06-28T18:10:54.418Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:54.418Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:54.476Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:54.476Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:54.489Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:54.489Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13122:59)
+    at PlaywrightServer.setTimeout (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13370:57)
+    at Object.onReceiveHalfClose (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-06-28T18:10:55.348Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:55.348Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:55.357Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:55.357Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13122:59)
+    at PlaywrightServer.setTimeout (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13370:57)
+    at Object.onReceiveHalfClose (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-06-28T18:10:56.062Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:56.062Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:56.074Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:56.075Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13122:59)
+    at PlaywrightServer.setTimeout (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13370:57)
+    at Object.onReceiveHalfClose (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-06-28T18:10:56.255Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:56.255Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13122:59)
+    at PlaywrightServer.setTimeout (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13370:57)
+    at Object.onReceiveHalfClose (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-06-28T18:10:56.324Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:56.324Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:56.385Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:56.385Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:56.390Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:56.390Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13122:59)
+    at PlaywrightServer.setTimeout (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13370:57)
+    at Object.onReceiveHalfClose (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-06-28T18:10:56.987Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:56.987Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13122:59)
+    at PlaywrightServer.setTimeout (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13370:57)
+    at Object.onReceiveHalfClose (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-06-28T18:10:57.070Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:57.070Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:57.146Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:57.146Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:57.154Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:57.155Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13122:59)
+    at PlaywrightServer.setTimeout (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13370:57)
+    at Object.onReceiveHalfClose (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-06-28T18:10:58.018Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:58.019Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13122:59)
+    at PlaywrightServer.setTimeout (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:13370:57)
+    at Object.onReceiveHalfClose (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-06-28T18:10:58.212Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:58.212Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-28T18:10:59.634Z","pid":8640,"hostname":"DESK-ROD","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2025-06-28T18:10:59.635Z","pid":8640,"hostname":"DESK-ROD","msg":"End of node method closeAllBrowsers"}
