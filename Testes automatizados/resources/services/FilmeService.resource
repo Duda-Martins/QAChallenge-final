@@ -6,7 +6,8 @@ Resource    ../common/Base.resource
 *** Keywords ***
 
 Enviar requisição POST para /movies
-    ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN_ADMIN}
+    [Arguments]    ${TOKEN}
+    ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN}
 
     ${resposta}  POST On Session
         ...          alias=api-cinema
@@ -19,7 +20,7 @@ Enviar requisição POST para /movies
     Log    ${RESPOSTA}
     Log to Console    ${RESPOSTA}
 
-    Set Suite Variable    ${_id}    ${RESPOSTA}[data][_id]
+    Run Keyword And Ignore Error    Set Suite Variable    ${_id}    ${RESPOSTA}[data][_id]
 
 Validar resposta de Registro de filme com sucesso
     Set Suite Variable    ${filme}    ${body}
@@ -37,9 +38,9 @@ Validar resposta de Registro de filme com sucesso
     Validar que a resposta contém   createdAt
 
 Enviar requisição PUT para /movies/_id
-    [Arguments]    ${_id}
+    [Arguments]    ${_id}    ${TOKEN}
 
-    ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN_ADMIN}
+    ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN}
 
     ${resposta}  PUT On Session
         ...          alias=api-cinema
@@ -67,9 +68,9 @@ Validar resposta de Edição de filme com sucesso
     Validar que a resposta contém   createdAt
 
 Enviar requisição DELETE para /movies/_id
-    [Arguments]    ${_id}
+    [Arguments]    ${_id}    ${TOKEN}
 
-    ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN_ADMIN}
+    ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN}
 
     ${resposta}  DELETE On Session
         ...          alias=api-cinema
@@ -84,3 +85,7 @@ Enviar requisição DELETE para /movies/_id
 Validar resposta de Exclusão de filme com sucesso
     Validar que o código response    200
     Validar que a resposta contém mensagem    Movie removed
+
+Validar resposta de Registro de filme inválido
+    Validar que o código response    400
+    Validar que a resposta contém success    ${False}

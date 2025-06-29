@@ -29,3 +29,7 @@ Validar que a resposta contém os gêneros informados
     FOR    ${genero}    IN    @{lista}
         Should Contain    ${RESPOSTA}[data][genres]    ${genero}
     END
+
+Validar resposta rota não autorizada para usuário comum
+    Validar que o código response    403
+    Validar que a resposta contém success    ${False}

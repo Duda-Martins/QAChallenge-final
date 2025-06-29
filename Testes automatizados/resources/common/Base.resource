@@ -43,6 +43,14 @@ Logar usuario admin
     Enviar requisição POST para /auth/login
     Set Test Variable    ${TOKEN_ADMIN}    ${TOKEN}
 
+Logar usuario comum
+    Preparar massa de dados    login.json    valido-cadastro-login
+    Enviar requisição POST para /auth/register
+    Preparar massa de dados    login.json    valido-login
+    Enviar requisição POST para /auth/login
+    Set Test Variable    ${TOKEN_COMUM}    ${TOKEN}
+    Set Test Variable    ${_id_usuario}    ${RESPOSTA}[data][_id]
+
     # # ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN}
 
     # ${resposta}  POST On Session

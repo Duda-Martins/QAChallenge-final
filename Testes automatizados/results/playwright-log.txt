@@ -1,5 +1,5 @@
-{"level":30,"time":"2025-06-29T18:14:48.374Z","pid":20524,"hostname":"DESK-ROD","msg":"Listening on 127.0.0.1:58892"}
-(node:20524) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+{"level":30,"time":"2025-06-29T23:37:23.715Z","pid":23028,"hostname":"DESK-ROD","msg":"Listening on 127.0.0.1:50928"}
+(node:23028) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
 (Use `node --trace-deprecation ...` to show where the warning was created)
 ================= Original suppressed error =================
 Error: Browser has been closed.
@@ -14,10 +14,10 @@ Error: Browser has been closed.
     at endReadableNT (node:internal/streams/readable:1698:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
 =============================================================
-{"level":30,"time":"2025-06-29T18:14:48.881Z","pid":20524,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-29T18:14:48.882Z","pid":20524,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-29T18:14:48.887Z","pid":20524,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-29T18:14:48.887Z","pid":20524,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-29T23:37:24.308Z","pid":23028,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-29T23:37:24.309Z","pid":23028,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-29T23:37:24.345Z","pid":23028,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-29T23:37:24.345Z","pid":23028,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
 ================= Original suppressed error =================
 Error: Browser has been closed.
     at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
@@ -31,10 +31,10 @@ Error: Browser has been closed.
     at endReadableNT (node:internal/streams/readable:1698:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
 =============================================================
-{"level":30,"time":"2025-06-29T18:14:49.228Z","pid":20524,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-29T18:14:49.229Z","pid":20524,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-29T18:14:49.236Z","pid":20524,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-29T18:14:49.236Z","pid":20524,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-29T23:37:24.986Z","pid":23028,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-29T23:37:24.987Z","pid":23028,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-29T23:37:25.002Z","pid":23028,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-29T23:37:25.002Z","pid":23028,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
 ================= Original suppressed error =================
 Error: Browser has been closed.
     at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
@@ -48,8 +48,8 @@ Error: Browser has been closed.
     at endReadableNT (node:internal/streams/readable:1698:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
 =============================================================
-{"level":30,"time":"2025-06-29T18:14:49.520Z","pid":20524,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-29T18:14:49.520Z","pid":20524,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-29T23:37:26.209Z","pid":23028,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-29T23:37:26.210Z","pid":23028,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
 ================= Original suppressed error =================
 Error: Browser has been closed.
     at PlaywrightState.getActiveBrowser (C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js:12226:15)
@@ -63,7 +63,7 @@ Error: Browser has been closed.
     at endReadableNT (node:internal/streams/readable:1698:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
 =============================================================
-{"level":30,"time":"2025-06-29T18:14:49.577Z","pid":20524,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-29T18:14:49.577Z","pid":20524,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2025-06-29T18:14:50.254Z","pid":20524,"hostname":"DESK-ROD","msg":"Start of node method closeAllBrowsers"}
-{"level":30,"time":"2025-06-29T18:14:50.255Z","pid":20524,"hostname":"DESK-ROD","msg":"End of node method closeAllBrowsers"}
+{"level":30,"time":"2025-06-29T23:37:26.294Z","pid":23028,"hostname":"DESK-ROD","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-29T23:37:26.294Z","pid":23028,"hostname":"DESK-ROD","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-06-29T23:37:27.233Z","pid":23028,"hostname":"DESK-ROD","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2025-06-29T23:37:27.233Z","pid":23028,"hostname":"DESK-ROD","msg":"End of node method closeAllBrowsers"}
