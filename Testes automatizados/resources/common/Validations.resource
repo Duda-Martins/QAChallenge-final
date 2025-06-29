@@ -23,3 +23,9 @@ Validar que a resposta contém dado
 Validar que a resposta contém mensagem
     [Arguments]    ${dado}
     Dictionary Should Contain Item    ${RESPOSTA}    message    ${dado}
+
+Validar que a resposta contém os gêneros informados
+    [Arguments]    @{lista}
+    FOR    ${genero}    IN    @{lista}
+        Should Contain    ${RESPOSTA}[data][genres]    ${genero}
+    END

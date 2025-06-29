@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Keywords para o servisso de cadastro de usuário na API.
+Documentation    Keywords para o serviço de cadastro de usuário na API.
 
 Resource    ../common/Base.resource
 

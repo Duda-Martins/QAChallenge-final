@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Testes de cadastro pela API
+Documentation    Testes de cadastro de usuário pela API
 
 Resource    ../../../resources/common/Base.resource
 

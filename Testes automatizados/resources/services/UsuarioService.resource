@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Keywords para o servisso de gerenciamento de usuários na API.
+Documentation    Keywords para o serviço de gerenciamento de usuários na API.
 
 Resource    ../common/Base.resource
 
