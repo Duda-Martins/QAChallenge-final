@@ -40,3 +40,10 @@ CT026 - Bloqueio de CRUD de teatro por usuário comum
     Logar usuario admin
     Enviar requisição DELETE para /users/_id    ${_id_usuario}
 
+CT027 - Bloqueio ao tentar excluir teatro com sessões ativas
+    [Tags]    CT027    teatro    media
+    Logar usuario admin
+    Criar filme, teatro e sessão
+    Enviar requisição DELETE para /theaters/_id    ${_id_teatro}    ${TOKEN_ADMIN}
+    Excluir filme, sessão e teatro
+    Validar resposta de Exclusão de teatro com sessões ativas

@@ -1,215 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.1 (Python 3.13.3 on win32)" generated="2025-06-30T13:39:47.283030" rpa="false" schemaversion="5">
-<suite id="s1" name="Sessions" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\sessions">
-<suite id="s1-s1" name="Sessions" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\sessions\sessions.robot">
+<robot generator="Robot 7.3.1 (Python 3.13.3 on win32)" generated="2025-06-30T13:59:39.637637" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests">
+<suite id="s1-s1" name="Api" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api">
+<suite id="s1-s1-s1" name="Theaters" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\theaters">
+<suite id="s1-s1-s1-s1" name="Teatros" source="C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\tests\api\theaters\teatros.robot">
 <kw name="Criar Sessão" owner="Base" type="SETUP">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-06-30T13:39:52.042901" level="INFO">Creating Session using : alias=api-cinema, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-06-30T13:59:43.885393" level="INFO">Creating Session using : alias=api-cinema, url=http://localhost:3000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>alias=api-cinema</arg>
 <arg>url=${API_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-06-30T13:39:52.037529" elapsed="0.006180"/>
+<status status="PASS" start="2025-06-30T13:59:43.883140" elapsed="0.002794"/>
 </kw>
-<status status="PASS" start="2025-06-30T13:39:52.027879" elapsed="0.016282"/>
+<status status="PASS" start="2025-06-30T13:59:43.874778" elapsed="0.011507"/>
 </kw>
-<test id="s1-s1-t1" name="CT028 - Criar nova sessão de filme por Admin" line="9">
+<test id="s1-s1-s1-s1-t1" name="CT027 - Bloqueio ao tentar excluir teatro com sessões ativas" line="43">
 <kw name="Logar usuario admin" owner="Base">
 <kw name="Preparar massa de dados" owner="Base">
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-06-30T13:39:52.078248" level="INFO">${data} = {'valido-login': {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}}</msg>
+<msg time="2025-06-30T13:59:43.891251" level="INFO">${data} = {'valido-login': {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}}</msg>
 <var>${data}</var>
 <arg>resources/data/${arquivo}</arg>
 <arg>encoding=utf-8</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.076056" elapsed="0.002589"/>
+<status status="PASS" start="2025-06-30T13:59:43.889967" elapsed="0.001341"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.083193" level="INFO">${body} = {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}</msg>
+<msg time="2025-06-30T13:59:43.892607" level="INFO">${body} = {'email': 'exemplo@exemplo.com', 'password': 'senhaqq1'}</msg>
 <arg>${body}</arg>
 <arg>${data}[${cenario}]</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.080069" elapsed="0.003394"/>
+<status status="PASS" start="2025-06-30T13:59:43.891522" elapsed="0.001259"/>
 </kw>
 <arg>admin_user.json</arg>
 <arg>valido-login</arg>
-<status status="PASS" start="2025-06-30T13:39:52.073731" elapsed="0.010195"/>
+<status status="PASS" start="2025-06-30T13:59:43.889240" elapsed="0.006605"/>
 </kw>
 <kw name="Enviar requisição POST para /auth/login" owner="LoginService">
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-06-30T13:39:52.345612" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+<msg time="2025-06-30T13:59:44.104707" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
  path_url=/api/v1/auth/login 
  headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '56', 'Content-Type': 'application/json'} 
  body=b'{"email": "exemplo@exemplo.com", "password": "senhaqq1"}' 
  </msg>
-<msg time="2025-06-30T13:39:52.346265" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+<msg time="2025-06-30T13:59:44.105007" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '302', 'ETag': 'W/"12e-fHMt0nsBCEb/1LaaAKosF4Nyxhg"', 'Date': 'Mon, 30 Jun 2025 16:39:52 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"data":{"_id":"68602b75ad16ab7e6f096ff8","name":"Exemplo","email":"exemplo@exemplo.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '302', 'ETag': 'W/"12e-hwNH2Nj0osSvKlVlTLTT0UHeMO8"', 'Date': 'Mon, 30 Jun 2025 16:59:44 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"68602b75ad16ab7e6f096ff8","name":"Exemplo","email":"exemplo@exemplo.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE"}} 
  </msg>
-<msg time="2025-06-30T13:39:52.346476" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<msg time="2025-06-30T13:59:44.105367" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
 <var>${resposta}</var>
 <arg>alias=api-cinema</arg>
 <arg>url=/auth/login</arg>
 <arg>json=${body}</arg>
 <arg>expected_status=${STATUS_REQ}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.085927" elapsed="0.260595"/>
+<status status="PASS" start="2025-06-30T13:59:43.903068" elapsed="0.202394"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.347754" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQ...</msg>
+<msg time="2025-06-30T13:59:44.108030" level="INFO">${RESPOSTA} = {'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQ...</msg>
 <arg>${RESPOSTA}</arg>
 <arg>${resposta.json()}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.346775" elapsed="0.001110"/>
+<status status="PASS" start="2025-06-30T13:59:44.105996" elapsed="0.002201"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.348636" level="INFO">{'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ'}}</msg>
+<msg time="2025-06-30T13:59:44.109911" level="INFO">{'success': True, 'data': {'_id': '68602b75ad16ab7e6f096ff8', 'name': 'Exemplo', 'email': 'exemplo@exemplo.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE'}}</msg>
 <arg>${RESPOSTA}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.348164" elapsed="0.000602"/>
+<status status="PASS" start="2025-06-30T13:59:44.108751" elapsed="0.001328"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${RESPOSTA}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.349065" elapsed="0.002106"/>
+<status status="PASS" start="2025-06-30T13:59:44.110802" elapsed="0.003253"/>
 </kw>
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.355290" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ</msg>
+<msg time="2025-06-30T13:59:44.116481" level="INFO">${TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE</msg>
 <arg>${TOKEN}</arg>
 <arg>${RESPOSTA}[data][token]</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.352825" elapsed="0.002602"/>
+<status status="PASS" start="2025-06-30T13:59:44.115181" elapsed="0.001402"/>
 </kw>
 <arg>Set Test Variable</arg>
 <arg>${TOKEN}</arg>
 <arg>${RESPOSTA}[data][token]</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.351718" elapsed="0.003900"/>
+<status status="PASS" start="2025-06-30T13:59:44.114459" elapsed="0.002323"/>
 </kw>
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.357376" level="INFO">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ</msg>
+<msg time="2025-06-30T13:59:44.118763" level="INFO">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE</msg>
 <arg>${TOKEN}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.356781" elapsed="0.000715"/>
+<status status="PASS" start="2025-06-30T13:59:44.118082" elapsed="0.000817"/>
 </kw>
 <arg>Log</arg>
 <arg>${TOKEN}</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.356024" elapsed="0.001635"/>
+<status status="PASS" start="2025-06-30T13:59:44.117235" elapsed="0.001837"/>
 </kw>
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${TOKEN}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.358651" elapsed="0.000901"/>
+<status status="PASS" start="2025-06-30T13:59:44.120257" elapsed="0.003242"/>
 </kw>
 <arg>Log to Console</arg>
 <arg>${TOKEN}</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.357996" elapsed="0.001730"/>
+<status status="PASS" start="2025-06-30T13:59:44.119454" elapsed="0.004308"/>
 </kw>
-<status status="PASS" start="2025-06-30T13:39:52.084580" elapsed="0.275350"/>
+<status status="PASS" start="2025-06-30T13:59:43.900347" elapsed="0.223644"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.362700" level="INFO">${TOKEN_ADMIN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ</msg>
+<msg time="2025-06-30T13:59:44.128017" level="INFO">${TOKEN_ADMIN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE</msg>
 <arg>${TOKEN_ADMIN}</arg>
 <arg>${TOKEN}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.360294" elapsed="0.002567"/>
+<status status="PASS" start="2025-06-30T13:59:44.124425" elapsed="0.003794"/>
 </kw>
-<status status="PASS" start="2025-06-30T13:39:52.059147" elapsed="0.303922"/>
+<status status="PASS" start="2025-06-30T13:59:43.888174" elapsed="0.240705"/>
 </kw>
-<kw name="Enviar requisição DELETE para /sessions/_id" owner="SessionsService">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.367764" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${TOKEN_ADMIN}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.366401" elapsed="0.001864"/>
-</kw>
-<kw name="DELETE On Session" owner="RequestsLibrary">
-<msg time="2025-06-30T13:39:52.465204" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/sessions/6862bd0b44798893da3ba5a5 
- path_url=/api/v1/sessions/6862bd0b44798893da3ba5a5 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ', 'Content-Length': '0'} 
- body=None 
- </msg>
-<msg time="2025-06-30T13:39:52.465412" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/sessions/6862bd0b44798893da3ba5a5 
- status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '44', 'ETag': 'W/"2c-NP/wO3eQyrmT4lAA509rsTHxBtA"', 'Date': 'Mon, 30 Jun 2025 16:39:52 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"message":"Session removed"} 
- </msg>
-<msg time="2025-06-30T13:39:52.465812" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
-<var>${resposta}</var>
-<arg>alias=api-cinema</arg>
-<arg>url=/sessions/${_id}</arg>
-<arg>expected_status=${STATUS_REQ}</arg>
-<arg>headers=${headers}</arg>
-<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.368782" elapsed="0.097145"/>
-</kw>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.468569" level="INFO">${RESPOSTA_DELETE} = {'success': True, 'message': 'Session removed'}</msg>
-<arg>${RESPOSTA_DELETE}</arg>
-<arg>${resposta.json()}</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.466554" elapsed="0.002101"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.469338" level="INFO">{'success': True, 'message': 'Session removed'}</msg>
-<arg>${RESPOSTA_DELETE}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.468875" elapsed="0.000538"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${RESPOSTA_DELETE}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.469615" elapsed="0.000838"/>
-</kw>
-<arg>6862bd0b44798893da3ba5a5</arg>
-<status status="PASS" start="2025-06-30T13:39:52.364627" elapsed="0.106056"/>
-</kw>
+<kw name="Criar filme, teatro e sessão" owner="TeatroService">
 <kw name="Preparar massa de dados" owner="Base">
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-06-30T13:39:52.474716" level="INFO">${data} = {'cadastro-valido': {'title': 'How to Train Your Dragon', 'synopsis': "A young Viking named Hiccup aspires to follow his tribe's tradition of becoming a dragon slayer. But after finally capturing his ...</msg>
+<msg time="2025-06-30T13:59:44.135038" level="INFO">${data} = {'cadastro-valido': {'title': 'How to Train Your Dragon', 'synopsis': "A young Viking named Hiccup aspires to follow his tribe's tradition of becoming a dragon slayer. But after finally capturing his ...</msg>
 <var>${data}</var>
 <arg>resources/data/${arquivo}</arg>
 <arg>encoding=utf-8</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.472853" elapsed="0.001961"/>
+<status status="PASS" start="2025-06-30T13:59:44.132763" elapsed="0.002402"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.476267" level="INFO">${body} = {'title': 'How to Train Your Dragon', 'synopsis': "A young Viking named Hiccup aspires to follow his tribe's tradition of becoming a dragon slayer. But after finally capturing his first dragon, he fin...</msg>
+<msg time="2025-06-30T13:59:44.136847" level="INFO">${body} = {'title': 'How to Train Your Dragon', 'synopsis': "A young Viking named Hiccup aspires to follow his tribe's tradition of becoming a dragon slayer. But after finally capturing his first dragon, he fin...</msg>
 <arg>${body}</arg>
 <arg>${data}[${cenario}]</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.475264" elapsed="0.001131"/>
+<status status="PASS" start="2025-06-30T13:59:44.135675" elapsed="0.001370"/>
 </kw>
 <arg>movies.json</arg>
 <arg>cadastro-valido</arg>
-<status status="PASS" start="2025-06-30T13:39:52.471418" elapsed="0.005129"/>
+<status status="PASS" start="2025-06-30T13:59:44.131248" elapsed="0.006037"/>
 </kw>
 <kw name="Enviar requisição POST para /movies" owner="FilmeService">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.478787" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ'}</msg>
+<msg time="2025-06-30T13:59:44.140487" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE'}</msg>
 <var>${headers}</var>
 <arg>Authorization=Bearer ${TOKEN}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.478026" elapsed="0.000814"/>
+<status status="PASS" start="2025-06-30T13:59:44.139368" elapsed="0.001209"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-06-30T13:39:52.520293" level="INFO">POST Request : url=http://localhost:3000/api/v1/movies 
+<msg time="2025-06-30T13:59:44.205449" level="INFO">POST Request : url=http://localhost:3000/api/v1/movies 
  path_url=/api/v1/movies 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ', 'Content-Length': '465', 'Content-Type': 'application/json'} 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE', 'Content-Length': '465', 'Content-Type': 'application/json'} 
  body=b'{"title": "How to Train Your Dragon", "synopsis": "A young Viking named Hiccup aspires to follow his tribe\'s tradition of becoming a dragon slayer. But after finally capturing his first dragon, he finds that he no longer wants to kill it and instead befriends the creature.", "director": "Dean DeBlois, Chris Sanders", "genres": ["Animation", "Adventure", "Fantasy"], "duration": 98, "classification": "PG", "poster": "your_dragon.jpg", "releaseDate": "2010-03-26"}' 
  </msg>
-<msg time="2025-06-30T13:39:52.520480" level="INFO">POST Response : url=http://localhost:3000/api/v1/movies 
+<msg time="2025-06-30T13:59:44.205677" level="INFO">POST Response : url=http://localhost:3000/api/v1/movies 
  status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '637', 'ETag': 'W/"27d-Ys8e9IA00v3pX+0oQtv1X3xB9vc"', 'Date': 'Mon, 30 Jun 2025 16:39:52 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"data":{"title":"How to Train Your Dragon","synopsis":"A young Viking named Hiccup aspires to follow his tribe's tradition of becoming a dragon slayer. But after finally capturing his first dragon, he finds that he no longer wants to kill it and instead befriends the creature.","director":"Dean DeBlois, Chris Sanders","genres":["Animation","Adventure","Fantasy"],"duration":98,"classification":"PG","poster":"your_dragon.jpg","releaseDate":"2010-03-26T00:00:00.000Z","_id":"6862bdd844798893da3ba5b4","createdAt":"2025-06-30T16:39:52.489Z","updatedAt":"2025-06-30T16:39:52.489Z","__v":0,"id":"6862bdd844798893da3ba5b4"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '637', 'ETag': 'W/"27d-6sFu0ZeBwIFHB7eFx0L1xMhKilw"', 'Date': 'Mon, 30 Jun 2025 16:59:44 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"title":"How to Train Your Dragon","synopsis":"A young Viking named Hiccup aspires to follow his tribe's tradition of becoming a dragon slayer. But after finally capturing his first dragon, he finds that he no longer wants to kill it and instead befriends the creature.","director":"Dean DeBlois, Chris Sanders","genres":["Animation","Adventure","Fantasy"],"duration":98,"classification":"PG","poster":"your_dragon.jpg","releaseDate":"2010-03-26T00:00:00.000Z","_id":"6862c28044798893da3ba658","createdAt":"2025-06-30T16:59:44.172Z","updatedAt":"2025-06-30T16:59:44.172Z","__v":0,"id":"6862c28044798893da3ba658"}} 
  </msg>
-<msg time="2025-06-30T13:39:52.520789" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
+<msg time="2025-06-30T13:59:44.206046" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
 <var>${resposta}</var>
 <arg>alias=api-cinema</arg>
 <arg>url=/movies</arg>
@@ -217,93 +171,93 @@
 <arg>expected_status=${STATUS_REQ}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.479054" elapsed="0.041842"/>
+<status status="PASS" start="2025-06-30T13:59:44.144400" elapsed="0.061747"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.523677" level="INFO">${RESPOSTA} = {'success': True, 'data': {'title': 'How to Train Your Dragon', 'synopsis': "A young Viking named Hiccup aspires to follow his tribe's tradition of becoming a dragon slayer. But after finally capturin...</msg>
+<msg time="2025-06-30T13:59:44.209208" level="INFO">${RESPOSTA} = {'success': True, 'data': {'title': 'How to Train Your Dragon', 'synopsis': "A young Viking named Hiccup aspires to follow his tribe's tradition of becoming a dragon slayer. But after finally capturin...</msg>
 <arg>${RESPOSTA}</arg>
 <arg>${resposta.json()}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.521537" elapsed="0.002270"/>
+<status status="PASS" start="2025-06-30T13:59:44.206713" elapsed="0.002773"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.525112" level="INFO">{'success': True, 'data': {'title': 'How to Train Your Dragon', 'synopsis': "A young Viking named Hiccup aspires to follow his tribe's tradition of becoming a dragon slayer. But after finally capturing his first dragon, he finds that he no longer wants to kill it and instead befriends the creature.", 'director': 'Dean DeBlois, Chris Sanders', 'genres': ['Animation', 'Adventure', 'Fantasy'], 'duration': 98, 'classification': 'PG', 'poster': 'your_dragon.jpg', 'releaseDate': '2010-03-26T00:00:00.000Z', '_id': '6862bdd844798893da3ba5b4', 'createdAt': '2025-06-30T16:39:52.489Z', 'updatedAt': '2025-06-30T16:39:52.489Z', '__v': 0, 'id': '6862bdd844798893da3ba5b4'}}</msg>
+<msg time="2025-06-30T13:59:44.211937" level="INFO">{'success': True, 'data': {'title': 'How to Train Your Dragon', 'synopsis': "A young Viking named Hiccup aspires to follow his tribe's tradition of becoming a dragon slayer. But after finally capturing his first dragon, he finds that he no longer wants to kill it and instead befriends the creature.", 'director': 'Dean DeBlois, Chris Sanders', 'genres': ['Animation', 'Adventure', 'Fantasy'], 'duration': 98, 'classification': 'PG', 'poster': 'your_dragon.jpg', 'releaseDate': '2010-03-26T00:00:00.000Z', '_id': '6862c28044798893da3ba658', 'createdAt': '2025-06-30T16:59:44.172Z', 'updatedAt': '2025-06-30T16:59:44.172Z', '__v': 0, 'id': '6862c28044798893da3ba658'}}</msg>
 <arg>${RESPOSTA}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.524337" elapsed="0.001238"/>
+<status status="PASS" start="2025-06-30T13:59:44.210106" elapsed="0.002162"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${RESPOSTA}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.526115" elapsed="0.002835"/>
+<status status="PASS" start="2025-06-30T13:59:44.212884" elapsed="0.003929"/>
 </kw>
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.532944" level="INFO">${_id} = 6862bdd844798893da3ba5b4</msg>
+<msg time="2025-06-30T13:59:44.222324" level="INFO">${_id} = 6862c28044798893da3ba658</msg>
 <arg>${_id}</arg>
 <arg>${RESPOSTA}[data][_id]</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.530892" elapsed="0.002170"/>
+<status status="PASS" start="2025-06-30T13:59:44.218453" elapsed="0.004069"/>
 </kw>
 <arg>Set Suite Variable</arg>
 <arg>${_id}</arg>
 <arg>${RESPOSTA}[data][_id]</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.529765" elapsed="0.003433"/>
+<status status="PASS" start="2025-06-30T13:59:44.217406" elapsed="0.005357"/>
 </kw>
 <arg>${TOKEN_ADMIN}</arg>
-<status status="PASS" start="2025-06-30T13:39:52.477139" elapsed="0.056206"/>
+<status status="PASS" start="2025-06-30T13:59:44.137893" elapsed="0.085109"/>
 </kw>
 <kw name="Pegar id filme" owner="SessionsService">
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.537037" level="INFO">${_id_filme} = 6862bdd844798893da3ba5b4</msg>
+<msg time="2025-06-30T13:59:44.229454" level="INFO">${_id_filme} = 6862c28044798893da3ba658</msg>
 <arg>${_id_filme}</arg>
 <arg>${RESPOSTA}[data][_id]</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.534722" elapsed="0.002481"/>
+<status status="PASS" start="2025-06-30T13:59:44.225043" elapsed="0.004590"/>
 </kw>
-<status status="PASS" start="2025-06-30T13:39:52.533798" elapsed="0.003622"/>
+<status status="PASS" start="2025-06-30T13:59:44.223491" elapsed="0.006389"/>
 </kw>
 <kw name="Preparar massa de dados" owner="Base">
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-06-30T13:39:52.540877" level="INFO">${data} = {'cadastro-valido': {'name': 'Teatro lindo', 'capacity': 200, 'type': 'IMAX'}, 'edicao-valida': {'capacity': 400}, 'cadastro-invalido': {'capacity': 200, 'type': 'IMAX'}, 'cadastro-usuario-comum': {'n...</msg>
+<msg time="2025-06-30T13:59:44.234395" level="INFO">${data} = {'cadastro-valido': {'name': 'Teatro lindo', 'capacity': 200, 'type': 'IMAX'}, 'edicao-valida': {'capacity': 400}, 'cadastro-invalido': {'capacity': 200, 'type': 'IMAX'}, 'cadastro-usuario-comum': {'n...</msg>
 <var>${data}</var>
 <arg>resources/data/${arquivo}</arg>
 <arg>encoding=utf-8</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.538954" elapsed="0.002003"/>
+<status status="PASS" start="2025-06-30T13:59:44.232045" elapsed="0.002459"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.542022" level="INFO">${body} = {'name': 'Teatro lindo', 'capacity': 200, 'type': 'IMAX'}</msg>
+<msg time="2025-06-30T13:59:44.236229" level="INFO">${body} = {'name': 'Teatro lindo', 'capacity': 200, 'type': 'IMAX'}</msg>
 <arg>${body}</arg>
 <arg>${data}[${cenario}]</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.541289" elapsed="0.000832"/>
+<status status="PASS" start="2025-06-30T13:59:44.235183" elapsed="0.001171"/>
 </kw>
 <arg>theaters.json</arg>
 <arg>cadastro-valido</arg>
-<status status="PASS" start="2025-06-30T13:39:52.538019" elapsed="0.004293"/>
+<status status="PASS" start="2025-06-30T13:59:44.230452" elapsed="0.006101"/>
 </kw>
 <kw name="Enviar requisição POST para /theaters" owner="TeatroService">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.546532" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ'}</msg>
+<msg time="2025-06-30T13:59:44.239568" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE'}</msg>
 <var>${headers}</var>
 <arg>Authorization=Bearer ${TOKEN}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.545244" elapsed="0.001393"/>
+<status status="PASS" start="2025-06-30T13:59:44.238557" elapsed="0.001108"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-06-30T13:39:52.593384" level="INFO">POST Request : url=http://localhost:3000/api/v1/theaters 
+<msg time="2025-06-30T13:59:44.289502" level="INFO">POST Request : url=http://localhost:3000/api/v1/theaters 
  path_url=/api/v1/theaters 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ', 'Content-Length': '57', 'Content-Type': 'application/json'} 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE', 'Content-Length': '57', 'Content-Type': 'application/json'} 
  body=b'{"name": "Teatro lindo", "capacity": 200, "type": "IMAX"}' 
  </msg>
-<msg time="2025-06-30T13:39:52.594089" level="INFO">POST Response : url=http://localhost:3000/api/v1/theaters 
+<msg time="2025-06-30T13:59:44.289685" level="INFO">POST Response : url=http://localhost:3000/api/v1/theaters 
  status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '227', 'ETag': 'W/"e3-h1IEnpdbQ9R7rv7crjgAij+hnGE"', 'Date': 'Mon, 30 Jun 2025 16:39:52 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"data":{"name":"Teatro lindo","capacity":200,"type":"IMAX","_id":"6862bdd844798893da3ba5b7","createdAt":"2025-06-30T16:39:52.565Z","updatedAt":"2025-06-30T16:39:52.565Z","__v":0,"id":"6862bdd844798893da3ba5b7"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '227', 'ETag': 'W/"e3-EDs0+x3Rw/7N573+xWFJTxEd3QA"', 'Date': 'Mon, 30 Jun 2025 16:59:44 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"name":"Teatro lindo","capacity":200,"type":"IMAX","_id":"6862c28044798893da3ba65b","createdAt":"2025-06-30T16:59:44.265Z","updatedAt":"2025-06-30T16:59:44.265Z","__v":0,"id":"6862c28044798893da3ba65b"}} 
  </msg>
-<msg time="2025-06-30T13:39:52.594705" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
+<msg time="2025-06-30T13:59:44.289987" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
 <var>${resposta}</var>
 <arg>alias=api-cinema</arg>
 <arg>url=/theaters</arg>
@@ -311,110 +265,110 @@
 <arg>expected_status=${STATUS_REQ}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.547084" elapsed="0.047755"/>
+<status status="PASS" start="2025-06-30T13:59:44.240052" elapsed="0.050018"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.599463" level="INFO">${RESPOSTA} = {'success': True, 'data': {'name': 'Teatro lindo', 'capacity': 200, 'type': 'IMAX', '_id': '6862bdd844798893da3ba5b7', 'createdAt': '2025-06-30T16:39:52.565Z', 'updatedAt': '2025-06-30T16:39:52.565Z',...</msg>
+<msg time="2025-06-30T13:59:44.292808" level="INFO">${RESPOSTA} = {'success': True, 'data': {'name': 'Teatro lindo', 'capacity': 200, 'type': 'IMAX', '_id': '6862c28044798893da3ba65b', 'createdAt': '2025-06-30T16:59:44.265Z', 'updatedAt': '2025-06-30T16:59:44.265Z',...</msg>
 <arg>${RESPOSTA}</arg>
 <arg>${resposta.json()}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.595439" elapsed="0.004266"/>
+<status status="PASS" start="2025-06-30T13:59:44.290549" elapsed="0.002446"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.601722" level="INFO">{'success': True, 'data': {'name': 'Teatro lindo', 'capacity': 200, 'type': 'IMAX', '_id': '6862bdd844798893da3ba5b7', 'createdAt': '2025-06-30T16:39:52.565Z', 'updatedAt': '2025-06-30T16:39:52.565Z', '__v': 0, 'id': '6862bdd844798893da3ba5b7'}}</msg>
+<msg time="2025-06-30T13:59:44.294923" level="INFO">{'success': True, 'data': {'name': 'Teatro lindo', 'capacity': 200, 'type': 'IMAX', '_id': '6862c28044798893da3ba65b', 'createdAt': '2025-06-30T16:59:44.265Z', 'updatedAt': '2025-06-30T16:59:44.265Z', '__v': 0, 'id': '6862c28044798893da3ba65b'}}</msg>
 <arg>${RESPOSTA}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.600843" elapsed="0.001022"/>
+<status status="PASS" start="2025-06-30T13:59:44.293776" elapsed="0.001320"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${RESPOSTA}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.602249" elapsed="0.011268"/>
+<status status="PASS" start="2025-06-30T13:59:44.295611" elapsed="0.004695"/>
 </kw>
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.616071" level="INFO">${_id} = 6862bdd844798893da3ba5b7</msg>
+<msg time="2025-06-30T13:59:44.303332" level="INFO">${_id} = 6862c28044798893da3ba65b</msg>
 <arg>${_id}</arg>
 <arg>${RESPOSTA}[data][_id]</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.615086" elapsed="0.001131"/>
+<status status="PASS" start="2025-06-30T13:59:44.302162" elapsed="0.001339"/>
 </kw>
 <arg>Set Suite Variable</arg>
 <arg>${_id}</arg>
 <arg>${RESPOSTA}[data][_id]</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.614039" elapsed="0.002398"/>
+<status status="PASS" start="2025-06-30T13:59:44.300930" elapsed="0.002799"/>
 </kw>
 <arg>${TOKEN_ADMIN}</arg>
-<status status="PASS" start="2025-06-30T13:39:52.543386" elapsed="0.073259"/>
+<status status="PASS" start="2025-06-30T13:59:44.237053" elapsed="0.067600"/>
 </kw>
 <kw name="Pegar id teatro" owner="SessionsService">
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.621532" level="INFO">${_id_teatro} = 6862bdd844798893da3ba5b7</msg>
+<msg time="2025-06-30T13:59:44.310534" level="INFO">${_id_teatro} = 6862c28044798893da3ba65b</msg>
 <arg>${_id_teatro}</arg>
 <arg>${RESPOSTA}[data][_id]</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.618783" elapsed="0.003019"/>
+<status status="PASS" start="2025-06-30T13:59:44.307373" elapsed="0.003350"/>
 </kw>
-<status status="PASS" start="2025-06-30T13:39:52.617386" elapsed="0.004694"/>
+<status status="PASS" start="2025-06-30T13:59:44.305514" elapsed="0.005596"/>
 </kw>
 <kw name="Preparar massa de dados" owner="Base">
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-06-30T13:39:52.629427" level="INFO">${data} = {'cadastro-valido': {'movie': '', 'theater': '', 'datetime': '2025-06-28T16:00:00.000Z', 'fullPrice': 24, 'halfPrice': 12}}</msg>
+<msg time="2025-06-30T13:59:44.316664" level="INFO">${data} = {'cadastro-valido': {'movie': '', 'theater': '', 'datetime': '2025-06-28T16:00:00.000Z', 'fullPrice': 24, 'halfPrice': 12}}</msg>
 <var>${data}</var>
 <arg>resources/data/${arquivo}</arg>
 <arg>encoding=utf-8</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.625810" elapsed="0.003751"/>
+<status status="PASS" start="2025-06-30T13:59:44.314261" elapsed="0.002537"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.631643" level="INFO">${body} = {'movie': '', 'theater': '', 'datetime': '2025-06-28T16:00:00.000Z', 'fullPrice': 24, 'halfPrice': 12}</msg>
+<msg time="2025-06-30T13:59:44.318701" level="INFO">${body} = {'movie': '', 'theater': '', 'datetime': '2025-06-28T16:00:00.000Z', 'fullPrice': 24, 'halfPrice': 12}</msg>
 <arg>${body}</arg>
 <arg>${data}[${cenario}]</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.630375" elapsed="0.001466"/>
+<status status="PASS" start="2025-06-30T13:59:44.317381" elapsed="0.001499"/>
 </kw>
 <arg>sessions.json</arg>
 <arg>cadastro-valido</arg>
-<status status="PASS" start="2025-06-30T13:39:52.624034" elapsed="0.008124"/>
+<status status="PASS" start="2025-06-30T13:59:44.312186" elapsed="0.007003"/>
 </kw>
 <kw name="Adicionar ids" owner="SessionsService">
 <kw name="Set To Dictionary" owner="Collections">
 <arg>${body}</arg>
 <arg>movie=${_id_filme}</arg>
 <doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.635078" elapsed="0.001111"/>
+<status status="PASS" start="2025-06-30T13:59:44.321718" elapsed="0.001076"/>
 </kw>
 <kw name="Set To Dictionary" owner="Collections">
 <arg>${body}</arg>
 <arg>theater=${_id_teatro}</arg>
 <doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.636756" elapsed="0.001298"/>
+<status status="PASS" start="2025-06-30T13:59:44.323271" elapsed="0.000998"/>
 </kw>
 <arg>${_id_filme}</arg>
 <arg>${_id_teatro}</arg>
-<status status="PASS" start="2025-06-30T13:39:52.633178" elapsed="0.005138"/>
+<status status="PASS" start="2025-06-30T13:59:44.319782" elapsed="0.004762"/>
 </kw>
 <kw name="Enviar requisição POST para /sessions" owner="SessionsService">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.641857" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ'}</msg>
+<msg time="2025-06-30T13:59:44.332255" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE'}</msg>
 <var>${headers}</var>
 <arg>Authorization=Bearer ${TOKEN_ADMIN}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.640803" elapsed="0.001144"/>
+<status status="PASS" start="2025-06-30T13:59:44.330054" elapsed="0.002337"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-06-30T13:39:52.826326" level="INFO">POST Request : url=http://localhost:3000/api/v1/sessions 
+<msg time="2025-06-30T13:59:44.540415" level="INFO">POST Request : url=http://localhost:3000/api/v1/sessions 
  path_url=/api/v1/sessions 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ', 'Content-Length': '150', 'Content-Type': 'application/json'} 
- body=b'{"movie": "6862bdd844798893da3ba5b4", "theater": "6862bdd844798893da3ba5b7", "datetime": "2025-06-28T16:00:00.000Z", "fullPrice": 24, "halfPrice": 12}' 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE', 'Content-Length': '150', 'Content-Type': 'application/json'} 
+ body=b'{"movie": "6862c28044798893da3ba658", "theater": "6862c28044798893da3ba65b", "datetime": "2025-06-28T16:00:00.000Z", "fullPrice": 24, "halfPrice": 12}' 
  </msg>
-<msg time="2025-06-30T13:39:52.826455" level="INFO">POST Response : url=http://localhost:3000/api/v1/sessions 
+<msg time="2025-06-30T13:59:44.540848" level="INFO">POST Response : url=http://localhost:3000/api/v1/sessions 
  status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '9254', 'ETag': 'W/"2426-vzHdUVhEAH1jVvabQ8GkMMWcSUQ"', 'Date': 'Mon, 30 Jun 2025 16:39:52 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"data":{"movie":"6862bdd844798893da3ba5b4","theater":"6862bdd844798893da3ba5b7","datetime":"2025-06-28T16:00:00.000Z","fullPrice":24,"halfPrice":12,"seats":[{"row":"A","number":1,"status":"available"},{"row":"A","number":2,"status":"available"},{"row":"A","number":3,"status":"available"},{"row":"A","number":4,"status":"available"},{"row":"A","number":5,"status":"available"},{"row":"A","number":6,"status":"available"},{"row":"A","number":7,"status":"available"},{"row":"A","number":8,"status":"available"},{"row":"A","number":9,"status":"available"},{"row":"A","number":10,"status":"available"},{"row":"A","number":11,"status":"available"},{"row":"A","number":12,"status":"available"},{"row":"A","number":13,"status":"available"},{"row":"A","number":14,"status":"available"},{"row":"A","number":15,"status":"available"},{"row":"A","number":16,"status":"available"},{"row":"A","number":17,"status":"available"},{"row":"A","number":18,"status":"available"},{"row":"A","number":19,"status":"available"},{"row":"A","number":20,"status":"available"},{"row":"A","number":21,"status":"available"},{"row":"A","number":22,"status":"available"},{"row":"A","number":23,"status":"available"},{"row":"A","number":24,"status":"available"},{"row":"A","number":25,"status":"available"},{"row":"B","number":1,"status":"available"},{"row":"B","number":2,"status":"available"},{"row":"B","number":3,"status":"available"},{"row":"B","number":4,"status":"available"},{"row":"B","number":5,"status":"available"},{"row":"B","number":6,"status":"available"},{"row":"B","number":7,"status":"available"},{"row":"B","number":8,"status":"available"},{"row":"B","number":9,"status":"available"},{"row":"B","number":10,"status":"available"},{"row":"B","number":11,"status":"available"},{"row":"B","number":12,"status":"available"},{"row":"B","number":13,"status":"available"},{"row":"B","number":14,"status":"available"},{"row":"B","number":15,"status":"available"},{"row":"B","number":16,"status":"available"},{"row":"B","number":17,"status":"available"},{"row":"B","number":18,"status":"available"},{"row":"B","number":19,"status":"available"},{"row":"B","number":20,"status":"available"},{"row":"B","number":21,"status":"available"},{"row":"B","number":22,"status":"available"},{"row":"B","number":23,"status":"available"},{"row":"B","number":24,"status":"available"},{"row":"B","number":25,"status":"available"},{"row":"C","number":1,"status":"available"},{"row":"C","number":2,"status":"available"},{"row":"C","number":3,"status":"available"},{"row":"C","number":4,"status":"available"},{"row":"C","number":5,"status":"available"},{"row":"C","number":6,"status":"available"},{"row":"C","number":7,"status":"available"},{"row":"C","number":8,"status":"available"},{"row":"C","number":9,"status":"available"},{"row":"C","number":10,"status":"available"},{"row":"C","number":11,"status":"available"},{"row":"C","number":12,"status":"available"},{"row":"C","number":13,"status":"available"},{"row":"C","number":14,"status":"available"},{"row":"C","number":15,"status":"available"},{"row":"C","number":16,"status":"available"},{"row":"C","number":17,"status":"available"},{"row":"C","number":18,"status":"available"},{"row":"C","number":19,"status":"available"},{"row":"C","number":20,"status":"available"},{"row":"C","number":21,"status":"available"},{"row":"C","number":22,"status":"available"},{"row":"C","number":23,"status":"available"},{"row":"C","number":24,"status":"available"},{"row":"C","number":25,"status":"available"},{"row":"D","number":1,"status":"available"},{"row":"D","number":2,"status":"available"},{"row":"D","number":3,"status":"available"},{"row":"D","number":4,"status":"available"},{"row":"D","number":5,"status":"available"},{"row":"D","number":6,"status":"available"},{"row":"D","number":7,"status":"available"},{"row":"D","number":8,"status":"available"},{"row":"D","number":9,"status":"available"},{"row":"D","number":10,"status":"available"},{"row":"D","number":11,"status":"available"},{"row":"D","number":12,"status":"available"},{"row":"D","number":13,"status":"available"},{"row":"D","number":14,"status":"available"},{"row":"D","number":15,"status":"available"},{"row":"D","number":16,"status":"available"},{"row":"D","number":17,"status":"available"},{"row":"D","number":18,"status":"available"},{"row":"D","number":19,"status":"available"},{"row":"D","number":20,"status":"available"},{"row":"D","number":21,"status":"available"},{"row":"D","number":22,"status":"available"},{"row":"D","number":23,"status":"available"},{"row":"D","number":24,"status":"available"},{"row":"D","number":25,"status":"available"},{"row":"E","number":1,"status":"available"},{"row":"E","number":2,"status":"available"},{"row":"E","number":3,"status":"available"},{"row":"E","number":4,"status":"available"},{"row":"E","number":5,"status":"available"},{"row":"E","number":6,"status":"available"},{"row":"E","number":7,"status":"available"},{"row":"E","number":8,"status":"available"},{"row":"E","number":9,"status":"available"},{"row":"E","number":10,"status":"available"},{"row":"E","number":11,"status":"available"},{"row":"E","number":12,"status":"available"},{"row":"E","number":13,"status":"available"},{"row":"E","number":14,"status":"available"},{"row":"E","number":15,"status":"available"},{"row":"E","number":16,"status":"available"},{"row":"E","number":17,"status":"available"},{"row":"E","number":18,"status":"available"},{"row":"E","number":19,"status":"available"},{"row":"E","number":20,"status":"available"},{"row":"E","number":21,"status":"available"},{"row":"E","number":22,"status":"available"},{"row":"E","number":23,"status":"available"},{"row":"E","number":24,"status":"available"},{"row":"E","number":25,"status":"available"},{"row":"F","number":1,"status":"available"},{"row":"F","number":2,"status":"available"},{"row":"F","number":3,"status":"available"},{"row":"F","number":4,"status":"available"},{"row":"F","number":5,"status":"available"},{"row":"F","number":6,"status":"available"},{"row":"F","number":7,"status":"available"},{"row":"F","number":8,"status":"available"},{"row":"F","number":9,"status":"available"},{"row":"F","number":10,"status":"available"},{"row":"F","number":11,"status":"available"},{"row":"F","number":12,"status":"available"},{"row":"F","number":13,"status":"available"},{"row":"F","number":14,"status":"available"},{"row":"F","number":15,"status":"available"},{"row":"F","number":16,"status":"available"},{"row":"F","number":17,"status":"available"},{"row":"F","number":18,"status":"available"},{"row":"F","number":19,"status":"available"},{"row":"F","number":20,"status":"available"},{"row":"F","number":21,"status":"available"},{"row":"F","number":22,"status":"available"},{"row":"F","number":23,"status":"available"},{"row":"F","number":24,"status":"available"},{"row":"F","number":25,"status":"available"},{"row":"G","number":1,"status":"available"},{"row":"G","number":2,"status":"available"},{"row":"G","number":3,"status":"available"},{"row":"G","number":4,"status":"available"},{"row":"G","number":5,"status":"available"},{"row":"G","number":6,"status":"available"},{"row":"G","number":7,"status":"available"},{"row":"G","number":8,"status":"available"},{"row":"G","number":9,"status":"available"},{"row":"G","number":10,"status":"available"},{"row":"G","number":11,"status":"available"},{"row":"G","number":12,"status":"available"},{"row":"G","number":13,"status":"available"},{"row":"G","number":14,"status":"available"},{"row":"G","number":15,"status":"available"},{"row":"G","number":16,"status":"available"},{"row":"G","number":17,"status":"available"},{"row":"G","number":18,"status":"available"},{"row":"G","number":19,"status":"available"},{"row":"G","number":20,"status":"available"},{"row":"G","number":21,"status":"available"},{"row":"G","number":22,"status":"available"},{"row":"G","number":23,"status":"available"},{"row":"G","number":24,"status":"available"},{"row":"G","number":25,"status":"available"},{"row":"H","number":1,"status":"available"},{"row":"H","number":2,"status":"available"},{"row":"H","number":3,"status":"available"},{"row":"H","number":4,"status":"available"},{"row":"H","number":5,"status":"available"},{"row":"H","number":6,"status":"available"},{"row":"H","number":7,"status":"available"},{"row":"H","number":8,"status":"available"},{"row":"H","number":9,"status":"available"},{"row":"H","number":10,"status":"available"},{"row":"H","number":11,"status":"available"},{"row":"H","number":12,"status":"available"},{"row":"H","number":13,"status":"available"},{"row":"H","number":14,"status":"available"},{"row":"H","number":15,"status":"available"},{"row":"H","number":16,"status":"available"},{"row":"H","number":17,"status":"available"},{"row":"H","number":18,"status":"available"},{"row":"H","number":19,"status":"available"},{"row":"H","number":20,"status":"available"},{"row":"H","number":21,"status":"available"},{"row":"H","number":22,"status":"available"},{"row":"H","number":23,"status":"available"},{"row":"H","number":24,"status":"available"},{"row":"H","number":25,"status":"available"}],"_id":"6862bdd844798893da3ba5bc","createdAt":"2025-06-30T16:39:52.737Z","updatedAt":"2025-06-30T16:39:52.737Z","__v":0,"id":"6862bdd844798893da3ba5bc"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '9254', 'ETag': 'W/"2426-bWmZm0OO557zgQ/k24ORq2iWI9U"', 'Date': 'Mon, 30 Jun 2025 16:59:44 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"movie":"6862c28044798893da3ba658","theater":"6862c28044798893da3ba65b","datetime":"2025-06-28T16:00:00.000Z","fullPrice":24,"halfPrice":12,"seats":[{"row":"A","number":1,"status":"available"},{"row":"A","number":2,"status":"available"},{"row":"A","number":3,"status":"available"},{"row":"A","number":4,"status":"available"},{"row":"A","number":5,"status":"available"},{"row":"A","number":6,"status":"available"},{"row":"A","number":7,"status":"available"},{"row":"A","number":8,"status":"available"},{"row":"A","number":9,"status":"available"},{"row":"A","number":10,"status":"available"},{"row":"A","number":11,"status":"available"},{"row":"A","number":12,"status":"available"},{"row":"A","number":13,"status":"available"},{"row":"A","number":14,"status":"available"},{"row":"A","number":15,"status":"available"},{"row":"A","number":16,"status":"available"},{"row":"A","number":17,"status":"available"},{"row":"A","number":18,"status":"available"},{"row":"A","number":19,"status":"available"},{"row":"A","number":20,"status":"available"},{"row":"A","number":21,"status":"available"},{"row":"A","number":22,"status":"available"},{"row":"A","number":23,"status":"available"},{"row":"A","number":24,"status":"available"},{"row":"A","number":25,"status":"available"},{"row":"B","number":1,"status":"available"},{"row":"B","number":2,"status":"available"},{"row":"B","number":3,"status":"available"},{"row":"B","number":4,"status":"available"},{"row":"B","number":5,"status":"available"},{"row":"B","number":6,"status":"available"},{"row":"B","number":7,"status":"available"},{"row":"B","number":8,"status":"available"},{"row":"B","number":9,"status":"available"},{"row":"B","number":10,"status":"available"},{"row":"B","number":11,"status":"available"},{"row":"B","number":12,"status":"available"},{"row":"B","number":13,"status":"available"},{"row":"B","number":14,"status":"available"},{"row":"B","number":15,"status":"available"},{"row":"B","number":16,"status":"available"},{"row":"B","number":17,"status":"available"},{"row":"B","number":18,"status":"available"},{"row":"B","number":19,"status":"available"},{"row":"B","number":20,"status":"available"},{"row":"B","number":21,"status":"available"},{"row":"B","number":22,"status":"available"},{"row":"B","number":23,"status":"available"},{"row":"B","number":24,"status":"available"},{"row":"B","number":25,"status":"available"},{"row":"C","number":1,"status":"available"},{"row":"C","number":2,"status":"available"},{"row":"C","number":3,"status":"available"},{"row":"C","number":4,"status":"available"},{"row":"C","number":5,"status":"available"},{"row":"C","number":6,"status":"available"},{"row":"C","number":7,"status":"available"},{"row":"C","number":8,"status":"available"},{"row":"C","number":9,"status":"available"},{"row":"C","number":10,"status":"available"},{"row":"C","number":11,"status":"available"},{"row":"C","number":12,"status":"available"},{"row":"C","number":13,"status":"available"},{"row":"C","number":14,"status":"available"},{"row":"C","number":15,"status":"available"},{"row":"C","number":16,"status":"available"},{"row":"C","number":17,"status":"available"},{"row":"C","number":18,"status":"available"},{"row":"C","number":19,"status":"available"},{"row":"C","number":20,"status":"available"},{"row":"C","number":21,"status":"available"},{"row":"C","number":22,"status":"available"},{"row":"C","number":23,"status":"available"},{"row":"C","number":24,"status":"available"},{"row":"C","number":25,"status":"available"},{"row":"D","number":1,"status":"available"},{"row":"D","number":2,"status":"available"},{"row":"D","number":3,"status":"available"},{"row":"D","number":4,"status":"available"},{"row":"D","number":5,"status":"available"},{"row":"D","number":6,"status":"available"},{"row":"D","number":7,"status":"available"},{"row":"D","number":8,"status":"available"},{"row":"D","number":9,"status":"available"},{"row":"D","number":10,"status":"available"},{"row":"D","number":11,"status":"available"},{"row":"D","number":12,"status":"available"},{"row":"D","number":13,"status":"available"},{"row":"D","number":14,"status":"available"},{"row":"D","number":15,"status":"available"},{"row":"D","number":16,"status":"available"},{"row":"D","number":17,"status":"available"},{"row":"D","number":18,"status":"available"},{"row":"D","number":19,"status":"available"},{"row":"D","number":20,"status":"available"},{"row":"D","number":21,"status":"available"},{"row":"D","number":22,"status":"available"},{"row":"D","number":23,"status":"available"},{"row":"D","number":24,"status":"available"},{"row":"D","number":25,"status":"available"},{"row":"E","number":1,"status":"available"},{"row":"E","number":2,"status":"available"},{"row":"E","number":3,"status":"available"},{"row":"E","number":4,"status":"available"},{"row":"E","number":5,"status":"available"},{"row":"E","number":6,"status":"available"},{"row":"E","number":7,"status":"available"},{"row":"E","number":8,"status":"available"},{"row":"E","number":9,"status":"available"},{"row":"E","number":10,"status":"available"},{"row":"E","number":11,"status":"available"},{"row":"E","number":12,"status":"available"},{"row":"E","number":13,"status":"available"},{"row":"E","number":14,"status":"available"},{"row":"E","number":15,"status":"available"},{"row":"E","number":16,"status":"available"},{"row":"E","number":17,"status":"available"},{"row":"E","number":18,"status":"available"},{"row":"E","number":19,"status":"available"},{"row":"E","number":20,"status":"available"},{"row":"E","number":21,"status":"available"},{"row":"E","number":22,"status":"available"},{"row":"E","number":23,"status":"available"},{"row":"E","number":24,"status":"available"},{"row":"E","number":25,"status":"available"},{"row":"F","number":1,"status":"available"},{"row":"F","number":2,"status":"available"},{"row":"F","number":3,"status":"available"},{"row":"F","number":4,"status":"available"},{"row":"F","number":5,"status":"available"},{"row":"F","number":6,"status":"available"},{"row":"F","number":7,"status":"available"},{"row":"F","number":8,"status":"available"},{"row":"F","number":9,"status":"available"},{"row":"F","number":10,"status":"available"},{"row":"F","number":11,"status":"available"},{"row":"F","number":12,"status":"available"},{"row":"F","number":13,"status":"available"},{"row":"F","number":14,"status":"available"},{"row":"F","number":15,"status":"available"},{"row":"F","number":16,"status":"available"},{"row":"F","number":17,"status":"available"},{"row":"F","number":18,"status":"available"},{"row":"F","number":19,"status":"available"},{"row":"F","number":20,"status":"available"},{"row":"F","number":21,"status":"available"},{"row":"F","number":22,"status":"available"},{"row":"F","number":23,"status":"available"},{"row":"F","number":24,"status":"available"},{"row":"F","number":25,"status":"available"},{"row":"G","number":1,"status":"available"},{"row":"G","number":2,"status":"available"},{"row":"G","number":3,"status":"available"},{"row":"G","number":4,"status":"available"},{"row":"G","number":5,"status":"available"},{"row":"G","number":6,"status":"available"},{"row":"G","number":7,"status":"available"},{"row":"G","number":8,"status":"available"},{"row":"G","number":9,"status":"available"},{"row":"G","number":10,"status":"available"},{"row":"G","number":11,"status":"available"},{"row":"G","number":12,"status":"available"},{"row":"G","number":13,"status":"available"},{"row":"G","number":14,"status":"available"},{"row":"G","number":15,"status":"available"},{"row":"G","number":16,"status":"available"},{"row":"G","number":17,"status":"available"},{"row":"G","number":18,"status":"available"},{"row":"G","number":19,"status":"available"},{"row":"G","number":20,"status":"available"},{"row":"G","number":21,"status":"available"},{"row":"G","number":22,"status":"available"},{"row":"G","number":23,"status":"available"},{"row":"G","number":24,"status":"available"},{"row":"G","number":25,"status":"available"},{"row":"H","number":1,"status":"available"},{"row":"H","number":2,"status":"available"},{"row":"H","number":3,"status":"available"},{"row":"H","number":4,"status":"available"},{"row":"H","number":5,"status":"available"},{"row":"H","number":6,"status":"available"},{"row":"H","number":7,"status":"available"},{"row":"H","number":8,"status":"available"},{"row":"H","number":9,"status":"available"},{"row":"H","number":10,"status":"available"},{"row":"H","number":11,"status":"available"},{"row":"H","number":12,"status":"available"},{"row":"H","number":13,"status":"available"},{"row":"H","number":14,"status":"available"},{"row":"H","number":15,"status":"available"},{"row":"H","number":16,"status":"available"},{"row":"H","number":17,"status":"available"},{"row":"H","number":18,"status":"available"},{"row":"H","number":19,"status":"available"},{"row":"H","number":20,"status":"available"},{"row":"H","number":21,"status":"available"},{"row":"H","number":22,"status":"available"},{"row":"H","number":23,"status":"available"},{"row":"H","number":24,"status":"available"},{"row":"H","number":25,"status":"available"}],"_id":"6862c28044798893da3ba660","createdAt":"2025-06-30T16:59:44.431Z","updatedAt":"2025-06-30T16:59:44.431Z","__v":0,"id":"6862c28044798893da3ba660"}} 
  </msg>
-<msg time="2025-06-30T13:39:52.826993" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
+<msg time="2025-06-30T13:59:44.541942" level="INFO">${resposta} = &lt;Response [201]&gt;</msg>
 <var>${resposta}</var>
 <arg>alias=api-cinema</arg>
 <arg>url=/sessions</arg>
@@ -422,325 +376,297 @@
 <arg>expected_status=${STATUS_REQ}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.642343" elapsed="0.184702"/>
+<status status="PASS" start="2025-06-30T13:59:44.333043" elapsed="0.209175"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.828863" level="INFO">${RESPOSTA} = {'success': True, 'data': {'movie': '6862bdd844798893da3ba5b4', 'theater': '6862bdd844798893da3ba5b7', 'datetime': '2025-06-28T16:00:00.000Z', 'fullPrice': 24, 'halfPrice': 12, 'seats': [{'row': 'A', ...</msg>
+<msg time="2025-06-30T13:59:44.546390" level="INFO">${RESPOSTA} = {'success': True, 'data': {'movie': '6862c28044798893da3ba658', 'theater': '6862c28044798893da3ba65b', 'datetime': '2025-06-28T16:00:00.000Z', 'fullPrice': 24, 'halfPrice': 12, 'seats': [{'row': 'A', ...</msg>
 <arg>${RESPOSTA}</arg>
 <arg>${resposta.json()}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.827327" elapsed="0.001618"/>
+<status status="PASS" start="2025-06-30T13:59:44.542970" elapsed="0.003614"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.829838" level="INFO">{'success': True, 'data': {'movie': '6862bdd844798893da3ba5b4', 'theater': '6862bdd844798893da3ba5b7', 'datetime': '2025-06-28T16:00:00.000Z', 'fullPrice': 24, 'halfPrice': 12, 'seats': [{'row': 'A', 'number': 1, 'status': 'available'}, {'row': 'A', 'number': 2, 'status': 'available'}, {'row': 'A', 'number': 3, 'status': 'available'}, {'row': 'A', 'number': 4, 'status': 'available'}, {'row': 'A', 'number': 5, 'status': 'available'}, {'row': 'A', 'number': 6, 'status': 'available'}, {'row': 'A', 'number': 7, 'status': 'available'}, {'row': 'A', 'number': 8, 'status': 'available'}, {'row': 'A', 'number': 9, 'status': 'available'}, {'row': 'A', 'number': 10, 'status': 'available'}, {'row': 'A', 'number': 11, 'status': 'available'}, {'row': 'A', 'number': 12, 'status': 'available'}, {'row': 'A', 'number': 13, 'status': 'available'}, {'row': 'A', 'number': 14, 'status': 'available'}, {'row': 'A', 'number': 15, 'status': 'available'}, {'row': 'A', 'number': 16, 'status': 'available'}, {'row': 'A', 'number': 17, 'status': 'available'}, {'row': 'A', 'number': 18, 'status': 'available'}, {'row': 'A', 'number': 19, 'status': 'available'}, {'row': 'A', 'number': 20, 'status': 'available'}, {'row': 'A', 'number': 21, 'status': 'available'}, {'row': 'A', 'number': 22, 'status': 'available'}, {'row': 'A', 'number': 23, 'status': 'available'}, {'row': 'A', 'number': 24, 'status': 'available'}, {'row': 'A', 'number': 25, 'status': 'available'}, {'row': 'B', 'number': 1, 'status': 'available'}, {'row': 'B', 'number': 2, 'status': 'available'}, {'row': 'B', 'number': 3, 'status': 'available'}, {'row': 'B', 'number': 4, 'status': 'available'}, {'row': 'B', 'number': 5, 'status': 'available'}, {'row': 'B', 'number': 6, 'status': 'available'}, {'row': 'B', 'number': 7, 'status': 'available'}, {'row': 'B', 'number': 8, 'status': 'available'}, {'row': 'B', 'number': 9, 'status': 'available'}, {'row': 'B', 'number': 10, 'status': 'available'}, {'row': 'B', 'number': 11, 'status': 'available'}, {'row': 'B', 'number': 12, 'status': 'available'}, {'row': 'B', 'number': 13, 'status': 'available'}, {'row': 'B', 'number': 14, 'status': 'available'}, {'row': 'B', 'number': 15, 'status': 'available'}, {'row': 'B', 'number': 16, 'status': 'available'}, {'row': 'B', 'number': 17, 'status': 'available'}, {'row': 'B', 'number': 18, 'status': 'available'}, {'row': 'B', 'number': 19, 'status': 'available'}, {'row': 'B', 'number': 20, 'status': 'available'}, {'row': 'B', 'number': 21, 'status': 'available'}, {'row': 'B', 'number': 22, 'status': 'available'}, {'row': 'B', 'number': 23, 'status': 'available'}, {'row': 'B', 'number': 24, 'status': 'available'}, {'row': 'B', 'number': 25, 'status': 'available'}, {'row': 'C', 'number': 1, 'status': 'available'}, {'row': 'C', 'number': 2, 'status': 'available'}, {'row': 'C', 'number': 3, 'status': 'available'}, {'row': 'C', 'number': 4, 'status': 'available'}, {'row': 'C', 'number': 5, 'status': 'available'}, {'row': 'C', 'number': 6, 'status': 'available'}, {'row': 'C', 'number': 7, 'status': 'available'}, {'row': 'C', 'number': 8, 'status': 'available'}, {'row': 'C', 'number': 9, 'status': 'available'}, {'row': 'C', 'number': 10, 'status': 'available'}, {'row': 'C', 'number': 11, 'status': 'available'}, {'row': 'C', 'number': 12, 'status': 'available'}, {'row': 'C', 'number': 13, 'status': 'available'}, {'row': 'C', 'number': 14, 'status': 'available'}, {'row': 'C', 'number': 15, 'status': 'available'}, {'row': 'C', 'number': 16, 'status': 'available'}, {'row': 'C', 'number': 17, 'status': 'available'}, {'row': 'C', 'number': 18, 'status': 'available'}, {'row': 'C', 'number': 19, 'status': 'available'}, {'row': 'C', 'number': 20, 'status': 'available'}, {'row': 'C', 'number': 21, 'status': 'available'}, {'row': 'C', 'number': 22, 'status': 'available'}, {'row': 'C', 'number': 23, 'status': 'available'}, {'row': 'C', 'number': 24, 'status': 'available'}, {'row': 'C', 'number': 25, 'status': 'available'}, {'row': 'D', 'number': 1, 'status': 'available'}, {'row': 'D', 'number': 2, 'status': 'available'}, {'row': 'D', 'number': 3, 'status': 'available'}, {'row': 'D', 'number': 4, 'status': 'available'}, {'row': 'D', 'number': 5, 'status': 'available'}, {'row': 'D', 'number': 6, 'status': 'available'}, {'row': 'D', 'number': 7, 'status': 'available'}, {'row': 'D', 'number': 8, 'status': 'available'}, {'row': 'D', 'number': 9, 'status': 'available'}, {'row': 'D', 'number': 10, 'status': 'available'}, {'row': 'D', 'number': 11, 'status': 'available'}, {'row': 'D', 'number': 12, 'status': 'available'}, {'row': 'D', 'number': 13, 'status': 'available'}, {'row': 'D', 'number': 14, 'status': 'available'}, {'row': 'D', 'number': 15, 'status': 'available'}, {'row': 'D', 'number': 16, 'status': 'available'}, {'row': 'D', 'number': 17, 'status': 'available'}, {'row': 'D', 'number': 18, 'status': 'available'}, {'row': 'D', 'number': 19, 'status': 'available'}, {'row': 'D', 'number': 20, 'status': 'available'}, {'row': 'D', 'number': 21, 'status': 'available'}, {'row': 'D', 'number': 22, 'status': 'available'}, {'row': 'D', 'number': 23, 'status': 'available'}, {'row': 'D', 'number': 24, 'status': 'available'}, {'row': 'D', 'number': 25, 'status': 'available'}, {'row': 'E', 'number': 1, 'status': 'available'}, {'row': 'E', 'number': 2, 'status': 'available'}, {'row': 'E', 'number': 3, 'status': 'available'}, {'row': 'E', 'number': 4, 'status': 'available'}, {'row': 'E', 'number': 5, 'status': 'available'}, {'row': 'E', 'number': 6, 'status': 'available'}, {'row': 'E', 'number': 7, 'status': 'available'}, {'row': 'E', 'number': 8, 'status': 'available'}, {'row': 'E', 'number': 9, 'status': 'available'}, {'row': 'E', 'number': 10, 'status': 'available'}, {'row': 'E', 'number': 11, 'status': 'available'}, {'row': 'E', 'number': 12, 'status': 'available'}, {'row': 'E', 'number': 13, 'status': 'available'}, {'row': 'E', 'number': 14, 'status': 'available'}, {'row': 'E', 'number': 15, 'status': 'available'}, {'row': 'E', 'number': 16, 'status': 'available'}, {'row': 'E', 'number': 17, 'status': 'available'}, {'row': 'E', 'number': 18, 'status': 'available'}, {'row': 'E', 'number': 19, 'status': 'available'}, {'row': 'E', 'number': 20, 'status': 'available'}, {'row': 'E', 'number': 21, 'status': 'available'}, {'row': 'E', 'number': 22, 'status': 'available'}, {'row': 'E', 'number': 23, 'status': 'available'}, {'row': 'E', 'number': 24, 'status': 'available'}, {'row': 'E', 'number': 25, 'status': 'available'}, {'row': 'F', 'number': 1, 'status': 'available'}, {'row': 'F', 'number': 2, 'status': 'available'}, {'row': 'F', 'number': 3, 'status': 'available'}, {'row': 'F', 'number': 4, 'status': 'available'}, {'row': 'F', 'number': 5, 'status': 'available'}, {'row': 'F', 'number': 6, 'status': 'available'}, {'row': 'F', 'number': 7, 'status': 'available'}, {'row': 'F', 'number': 8, 'status': 'available'}, {'row': 'F', 'number': 9, 'status': 'available'}, {'row': 'F', 'number': 10, 'status': 'available'}, {'row': 'F', 'number': 11, 'status': 'available'}, {'row': 'F', 'number': 12, 'status': 'available'}, {'row': 'F', 'number': 13, 'status': 'available'}, {'row': 'F', 'number': 14, 'status': 'available'}, {'row': 'F', 'number': 15, 'status': 'available'}, {'row': 'F', 'number': 16, 'status': 'available'}, {'row': 'F', 'number': 17, 'status': 'available'}, {'row': 'F', 'number': 18, 'status': 'available'}, {'row': 'F', 'number': 19, 'status': 'available'}, {'row': 'F', 'number': 20, 'status': 'available'}, {'row': 'F', 'number': 21, 'status': 'available'}, {'row': 'F', 'number': 22, 'status': 'available'}, {'row': 'F', 'number': 23, 'status': 'available'}, {'row': 'F', 'number': 24, 'status': 'available'}, {'row': 'F', 'number': 25, 'status': 'available'}, {'row': 'G', 'number': 1, 'status': 'available'}, {'row': 'G', 'number': 2, 'status': 'available'}, {'row': 'G', 'number': 3, 'status': 'available'}, {'row': 'G', 'number': 4, 'status': 'available'}, {'row': 'G', 'number': 5, 'status': 'available'}, {'row': 'G', 'number': 6, 'status': 'available'}, {'row': 'G', 'number': 7, 'status': 'available'}, {'row': 'G', 'number': 8, 'status': 'available'}, {'row': 'G', 'number': 9, 'status': 'available'}, {'row': 'G', 'number': 10, 'status': 'available'}, {'row': 'G', 'number': 11, 'status': 'available'}, {'row': 'G', 'number': 12, 'status': 'available'}, {'row': 'G', 'number': 13, 'status': 'available'}, {'row': 'G', 'number': 14, 'status': 'available'}, {'row': 'G', 'number': 15, 'status': 'available'}, {'row': 'G', 'number': 16, 'status': 'available'}, {'row': 'G', 'number': 17, 'status': 'available'}, {'row': 'G', 'number': 18, 'status': 'available'}, {'row': 'G', 'number': 19, 'status': 'available'}, {'row': 'G', 'number': 20, 'status': 'available'}, {'row': 'G', 'number': 21, 'status': 'available'}, {'row': 'G', 'number': 22, 'status': 'available'}, {'row': 'G', 'number': 23, 'status': 'available'}, {'row': 'G', 'number': 24, 'status': 'available'}, {'row': 'G', 'number': 25, 'status': 'available'}, {'row': 'H', 'number': 1, 'status': 'available'}, {'row': 'H', 'number': 2, 'status': 'available'}, {'row': 'H', 'number': 3, 'status': 'available'}, {'row': 'H', 'number': 4, 'status': 'available'}, {'row': 'H', 'number': 5, 'status': 'available'}, {'row': 'H', 'number': 6, 'status': 'available'}, {'row': 'H', 'number': 7, 'status': 'available'}, {'row': 'H', 'number': 8, 'status': 'available'}, {'row': 'H', 'number': 9, 'status': 'available'}, {'row': 'H', 'number': 10, 'status': 'available'}, {'row': 'H', 'number': 11, 'status': 'available'}, {'row': 'H', 'number': 12, 'status': 'available'}, {'row': 'H', 'number': 13, 'status': 'available'}, {'row': 'H', 'number': 14, 'status': 'available'}, {'row': 'H', 'number': 15, 'status': 'available'}, {'row': 'H', 'number': 16, 'status': 'available'}, {'row': 'H', 'number': 17, 'status': 'available'}, {'row': 'H', 'number': 18, 'status': 'available'}, {'row': 'H', 'number': 19, 'status': 'available'}, {'row': 'H', 'number': 20, 'status': 'available'}, {'row': 'H', 'number': 21, 'status': 'available'}, {'row': 'H', 'number': 22, 'status': 'available'}, {'row': 'H', 'number': 23, 'status': 'available'}, {'row': 'H', 'number': 24, 'status': 'available'}, {'row': 'H', 'number': 25, 'status': 'available'}], '_id': '6862bdd844798893da3ba5bc', 'createdAt': '2025-06-30T16:39:52.737Z', 'updatedAt': '2025-06-30T16:39:52.737Z', '__v': 0, 'id': '6862bdd844798893da3ba5bc'}}</msg>
+<msg time="2025-06-30T13:59:44.547831" level="INFO">{'success': True, 'data': {'movie': '6862c28044798893da3ba658', 'theater': '6862c28044798893da3ba65b', 'datetime': '2025-06-28T16:00:00.000Z', 'fullPrice': 24, 'halfPrice': 12, 'seats': [{'row': 'A', 'number': 1, 'status': 'available'}, {'row': 'A', 'number': 2, 'status': 'available'}, {'row': 'A', 'number': 3, 'status': 'available'}, {'row': 'A', 'number': 4, 'status': 'available'}, {'row': 'A', 'number': 5, 'status': 'available'}, {'row': 'A', 'number': 6, 'status': 'available'}, {'row': 'A', 'number': 7, 'status': 'available'}, {'row': 'A', 'number': 8, 'status': 'available'}, {'row': 'A', 'number': 9, 'status': 'available'}, {'row': 'A', 'number': 10, 'status': 'available'}, {'row': 'A', 'number': 11, 'status': 'available'}, {'row': 'A', 'number': 12, 'status': 'available'}, {'row': 'A', 'number': 13, 'status': 'available'}, {'row': 'A', 'number': 14, 'status': 'available'}, {'row': 'A', 'number': 15, 'status': 'available'}, {'row': 'A', 'number': 16, 'status': 'available'}, {'row': 'A', 'number': 17, 'status': 'available'}, {'row': 'A', 'number': 18, 'status': 'available'}, {'row': 'A', 'number': 19, 'status': 'available'}, {'row': 'A', 'number': 20, 'status': 'available'}, {'row': 'A', 'number': 21, 'status': 'available'}, {'row': 'A', 'number': 22, 'status': 'available'}, {'row': 'A', 'number': 23, 'status': 'available'}, {'row': 'A', 'number': 24, 'status': 'available'}, {'row': 'A', 'number': 25, 'status': 'available'}, {'row': 'B', 'number': 1, 'status': 'available'}, {'row': 'B', 'number': 2, 'status': 'available'}, {'row': 'B', 'number': 3, 'status': 'available'}, {'row': 'B', 'number': 4, 'status': 'available'}, {'row': 'B', 'number': 5, 'status': 'available'}, {'row': 'B', 'number': 6, 'status': 'available'}, {'row': 'B', 'number': 7, 'status': 'available'}, {'row': 'B', 'number': 8, 'status': 'available'}, {'row': 'B', 'number': 9, 'status': 'available'}, {'row': 'B', 'number': 10, 'status': 'available'}, {'row': 'B', 'number': 11, 'status': 'available'}, {'row': 'B', 'number': 12, 'status': 'available'}, {'row': 'B', 'number': 13, 'status': 'available'}, {'row': 'B', 'number': 14, 'status': 'available'}, {'row': 'B', 'number': 15, 'status': 'available'}, {'row': 'B', 'number': 16, 'status': 'available'}, {'row': 'B', 'number': 17, 'status': 'available'}, {'row': 'B', 'number': 18, 'status': 'available'}, {'row': 'B', 'number': 19, 'status': 'available'}, {'row': 'B', 'number': 20, 'status': 'available'}, {'row': 'B', 'number': 21, 'status': 'available'}, {'row': 'B', 'number': 22, 'status': 'available'}, {'row': 'B', 'number': 23, 'status': 'available'}, {'row': 'B', 'number': 24, 'status': 'available'}, {'row': 'B', 'number': 25, 'status': 'available'}, {'row': 'C', 'number': 1, 'status': 'available'}, {'row': 'C', 'number': 2, 'status': 'available'}, {'row': 'C', 'number': 3, 'status': 'available'}, {'row': 'C', 'number': 4, 'status': 'available'}, {'row': 'C', 'number': 5, 'status': 'available'}, {'row': 'C', 'number': 6, 'status': 'available'}, {'row': 'C', 'number': 7, 'status': 'available'}, {'row': 'C', 'number': 8, 'status': 'available'}, {'row': 'C', 'number': 9, 'status': 'available'}, {'row': 'C', 'number': 10, 'status': 'available'}, {'row': 'C', 'number': 11, 'status': 'available'}, {'row': 'C', 'number': 12, 'status': 'available'}, {'row': 'C', 'number': 13, 'status': 'available'}, {'row': 'C', 'number': 14, 'status': 'available'}, {'row': 'C', 'number': 15, 'status': 'available'}, {'row': 'C', 'number': 16, 'status': 'available'}, {'row': 'C', 'number': 17, 'status': 'available'}, {'row': 'C', 'number': 18, 'status': 'available'}, {'row': 'C', 'number': 19, 'status': 'available'}, {'row': 'C', 'number': 20, 'status': 'available'}, {'row': 'C', 'number': 21, 'status': 'available'}, {'row': 'C', 'number': 22, 'status': 'available'}, {'row': 'C', 'number': 23, 'status': 'available'}, {'row': 'C', 'number': 24, 'status': 'available'}, {'row': 'C', 'number': 25, 'status': 'available'}, {'row': 'D', 'number': 1, 'status': 'available'}, {'row': 'D', 'number': 2, 'status': 'available'}, {'row': 'D', 'number': 3, 'status': 'available'}, {'row': 'D', 'number': 4, 'status': 'available'}, {'row': 'D', 'number': 5, 'status': 'available'}, {'row': 'D', 'number': 6, 'status': 'available'}, {'row': 'D', 'number': 7, 'status': 'available'}, {'row': 'D', 'number': 8, 'status': 'available'}, {'row': 'D', 'number': 9, 'status': 'available'}, {'row': 'D', 'number': 10, 'status': 'available'}, {'row': 'D', 'number': 11, 'status': 'available'}, {'row': 'D', 'number': 12, 'status': 'available'}, {'row': 'D', 'number': 13, 'status': 'available'}, {'row': 'D', 'number': 14, 'status': 'available'}, {'row': 'D', 'number': 15, 'status': 'available'}, {'row': 'D', 'number': 16, 'status': 'available'}, {'row': 'D', 'number': 17, 'status': 'available'}, {'row': 'D', 'number': 18, 'status': 'available'}, {'row': 'D', 'number': 19, 'status': 'available'}, {'row': 'D', 'number': 20, 'status': 'available'}, {'row': 'D', 'number': 21, 'status': 'available'}, {'row': 'D', 'number': 22, 'status': 'available'}, {'row': 'D', 'number': 23, 'status': 'available'}, {'row': 'D', 'number': 24, 'status': 'available'}, {'row': 'D', 'number': 25, 'status': 'available'}, {'row': 'E', 'number': 1, 'status': 'available'}, {'row': 'E', 'number': 2, 'status': 'available'}, {'row': 'E', 'number': 3, 'status': 'available'}, {'row': 'E', 'number': 4, 'status': 'available'}, {'row': 'E', 'number': 5, 'status': 'available'}, {'row': 'E', 'number': 6, 'status': 'available'}, {'row': 'E', 'number': 7, 'status': 'available'}, {'row': 'E', 'number': 8, 'status': 'available'}, {'row': 'E', 'number': 9, 'status': 'available'}, {'row': 'E', 'number': 10, 'status': 'available'}, {'row': 'E', 'number': 11, 'status': 'available'}, {'row': 'E', 'number': 12, 'status': 'available'}, {'row': 'E', 'number': 13, 'status': 'available'}, {'row': 'E', 'number': 14, 'status': 'available'}, {'row': 'E', 'number': 15, 'status': 'available'}, {'row': 'E', 'number': 16, 'status': 'available'}, {'row': 'E', 'number': 17, 'status': 'available'}, {'row': 'E', 'number': 18, 'status': 'available'}, {'row': 'E', 'number': 19, 'status': 'available'}, {'row': 'E', 'number': 20, 'status': 'available'}, {'row': 'E', 'number': 21, 'status': 'available'}, {'row': 'E', 'number': 22, 'status': 'available'}, {'row': 'E', 'number': 23, 'status': 'available'}, {'row': 'E', 'number': 24, 'status': 'available'}, {'row': 'E', 'number': 25, 'status': 'available'}, {'row': 'F', 'number': 1, 'status': 'available'}, {'row': 'F', 'number': 2, 'status': 'available'}, {'row': 'F', 'number': 3, 'status': 'available'}, {'row': 'F', 'number': 4, 'status': 'available'}, {'row': 'F', 'number': 5, 'status': 'available'}, {'row': 'F', 'number': 6, 'status': 'available'}, {'row': 'F', 'number': 7, 'status': 'available'}, {'row': 'F', 'number': 8, 'status': 'available'}, {'row': 'F', 'number': 9, 'status': 'available'}, {'row': 'F', 'number': 10, 'status': 'available'}, {'row': 'F', 'number': 11, 'status': 'available'}, {'row': 'F', 'number': 12, 'status': 'available'}, {'row': 'F', 'number': 13, 'status': 'available'}, {'row': 'F', 'number': 14, 'status': 'available'}, {'row': 'F', 'number': 15, 'status': 'available'}, {'row': 'F', 'number': 16, 'status': 'available'}, {'row': 'F', 'number': 17, 'status': 'available'}, {'row': 'F', 'number': 18, 'status': 'available'}, {'row': 'F', 'number': 19, 'status': 'available'}, {'row': 'F', 'number': 20, 'status': 'available'}, {'row': 'F', 'number': 21, 'status': 'available'}, {'row': 'F', 'number': 22, 'status': 'available'}, {'row': 'F', 'number': 23, 'status': 'available'}, {'row': 'F', 'number': 24, 'status': 'available'}, {'row': 'F', 'number': 25, 'status': 'available'}, {'row': 'G', 'number': 1, 'status': 'available'}, {'row': 'G', 'number': 2, 'status': 'available'}, {'row': 'G', 'number': 3, 'status': 'available'}, {'row': 'G', 'number': 4, 'status': 'available'}, {'row': 'G', 'number': 5, 'status': 'available'}, {'row': 'G', 'number': 6, 'status': 'available'}, {'row': 'G', 'number': 7, 'status': 'available'}, {'row': 'G', 'number': 8, 'status': 'available'}, {'row': 'G', 'number': 9, 'status': 'available'}, {'row': 'G', 'number': 10, 'status': 'available'}, {'row': 'G', 'number': 11, 'status': 'available'}, {'row': 'G', 'number': 12, 'status': 'available'}, {'row': 'G', 'number': 13, 'status': 'available'}, {'row': 'G', 'number': 14, 'status': 'available'}, {'row': 'G', 'number': 15, 'status': 'available'}, {'row': 'G', 'number': 16, 'status': 'available'}, {'row': 'G', 'number': 17, 'status': 'available'}, {'row': 'G', 'number': 18, 'status': 'available'}, {'row': 'G', 'number': 19, 'status': 'available'}, {'row': 'G', 'number': 20, 'status': 'available'}, {'row': 'G', 'number': 21, 'status': 'available'}, {'row': 'G', 'number': 22, 'status': 'available'}, {'row': 'G', 'number': 23, 'status': 'available'}, {'row': 'G', 'number': 24, 'status': 'available'}, {'row': 'G', 'number': 25, 'status': 'available'}, {'row': 'H', 'number': 1, 'status': 'available'}, {'row': 'H', 'number': 2, 'status': 'available'}, {'row': 'H', 'number': 3, 'status': 'available'}, {'row': 'H', 'number': 4, 'status': 'available'}, {'row': 'H', 'number': 5, 'status': 'available'}, {'row': 'H', 'number': 6, 'status': 'available'}, {'row': 'H', 'number': 7, 'status': 'available'}, {'row': 'H', 'number': 8, 'status': 'available'}, {'row': 'H', 'number': 9, 'status': 'available'}, {'row': 'H', 'number': 10, 'status': 'available'}, {'row': 'H', 'number': 11, 'status': 'available'}, {'row': 'H', 'number': 12, 'status': 'available'}, {'row': 'H', 'number': 13, 'status': 'available'}, {'row': 'H', 'number': 14, 'status': 'available'}, {'row': 'H', 'number': 15, 'status': 'available'}, {'row': 'H', 'number': 16, 'status': 'available'}, {'row': 'H', 'number': 17, 'status': 'available'}, {'row': 'H', 'number': 18, 'status': 'available'}, {'row': 'H', 'number': 19, 'status': 'available'}, {'row': 'H', 'number': 20, 'status': 'available'}, {'row': 'H', 'number': 21, 'status': 'available'}, {'row': 'H', 'number': 22, 'status': 'available'}, {'row': 'H', 'number': 23, 'status': 'available'}, {'row': 'H', 'number': 24, 'status': 'available'}, {'row': 'H', 'number': 25, 'status': 'available'}], '_id': '6862c28044798893da3ba660', 'createdAt': '2025-06-30T16:59:44.431Z', 'updatedAt': '2025-06-30T16:59:44.431Z', '__v': 0, 'id': '6862c28044798893da3ba660'}}</msg>
 <arg>${RESPOSTA}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.829162" elapsed="0.000934"/>
+<status status="PASS" start="2025-06-30T13:59:44.546971" elapsed="0.001175"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${RESPOSTA}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.830304" elapsed="0.017876"/>
+<status status="PASS" start="2025-06-30T13:59:44.548405" elapsed="0.040203"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.849857" level="INFO">${_id} = 6862bdd844798893da3ba5bc</msg>
+<msg time="2025-06-30T13:59:44.590482" level="INFO">${_id} = 6862c28044798893da3ba660</msg>
 <arg>${_id}</arg>
 <arg>${RESPOSTA}[data][_id]</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.848758" elapsed="0.001274"/>
+<status status="PASS" start="2025-06-30T13:59:44.589272" elapsed="0.001389"/>
 </kw>
-<status status="PASS" start="2025-06-30T13:39:52.639362" elapsed="0.210882"/>
+<status status="PASS" start="2025-06-30T13:59:44.325140" elapsed="0.265886"/>
 </kw>
-<kw name="Validar resposta de Cadastro de sessão com sucesso" owner="SessionsService">
-<kw name="Validar que o código response" owner="Validations">
-<kw name="Status Should Be" owner="RequestsLibrary">
-<arg>${status_sucesso}</arg>
-<doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.852872" elapsed="0.000613"/>
-</kw>
-<arg>201</arg>
-<status status="PASS" start="2025-06-30T13:39:52.851877" elapsed="0.001762"/>
-</kw>
-<kw name="Validar que a resposta contém success" owner="Validations">
-<kw name="Dictionary Should Contain Item" owner="Collections">
-<arg>${RESPOSTA}</arg>
-<arg>success</arg>
-<arg>${success}</arg>
-<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.854780" elapsed="0.000686"/>
-</kw>
-<arg>${True}</arg>
-<status status="PASS" start="2025-06-30T13:39:52.853903" elapsed="0.001812"/>
-</kw>
-<kw name="Validar que a resposta contém" owner="Validations">
-<kw name="Dictionary Should Contain Key" owner="Collections">
-<arg>${RESPOSTA}[data]</arg>
-<arg>${key}</arg>
-<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.856957" elapsed="0.000615"/>
-</kw>
-<arg>_id</arg>
-<status status="PASS" start="2025-06-30T13:39:52.856065" elapsed="0.001648"/>
-</kw>
-<kw name="Validar que a resposta contém dado" owner="Validations">
-<kw name="Dictionary Should Contain Item" owner="Collections">
-<arg>${RESPOSTA}[data]</arg>
-<arg>${key}</arg>
-<arg>${dado}</arg>
-<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.858821" elapsed="0.000634"/>
-</kw>
-<arg>movie</arg>
-<arg>${body}[movie]</arg>
-<status status="PASS" start="2025-06-30T13:39:52.857966" elapsed="0.001684"/>
-</kw>
-<kw name="Validar que a resposta contém dado" owner="Validations">
-<kw name="Dictionary Should Contain Item" owner="Collections">
-<arg>${RESPOSTA}[data]</arg>
-<arg>${key}</arg>
-<arg>${dado}</arg>
-<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.861808" elapsed="0.000805"/>
-</kw>
-<arg>theater</arg>
-<arg>${body}[theater]</arg>
-<status status="PASS" start="2025-06-30T13:39:52.860134" elapsed="0.002649"/>
-</kw>
-<kw name="Validar que a resposta contém dado" owner="Validations">
-<kw name="Dictionary Should Contain Item" owner="Collections">
-<arg>${RESPOSTA}[data]</arg>
-<arg>${key}</arg>
-<arg>${dado}</arg>
-<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.863960" elapsed="0.000632"/>
-</kw>
-<arg>datetime</arg>
-<arg>${body}[datetime]</arg>
-<status status="PASS" start="2025-06-30T13:39:52.863073" elapsed="0.001673"/>
-</kw>
-<kw name="Validar que a resposta contém dado" owner="Validations">
-<kw name="Dictionary Should Contain Item" owner="Collections">
-<arg>${RESPOSTA}[data]</arg>
-<arg>${key}</arg>
-<arg>${dado}</arg>
-<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.865920" elapsed="0.000611"/>
-</kw>
-<arg>fullPrice</arg>
-<arg>${body}[fullPrice]</arg>
-<status status="PASS" start="2025-06-30T13:39:52.865002" elapsed="0.001676"/>
-</kw>
-<kw name="Validar que a resposta contém dado" owner="Validations">
-<kw name="Dictionary Should Contain Item" owner="Collections">
-<arg>${RESPOSTA}[data]</arg>
-<arg>${key}</arg>
-<arg>${dado}</arg>
-<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.867781" elapsed="0.000615"/>
-</kw>
-<arg>halfPrice</arg>
-<arg>${body}[halfPrice]</arg>
-<status status="PASS" start="2025-06-30T13:39:52.866935" elapsed="0.001588"/>
-</kw>
-<kw name="Validar que a resposta contém" owner="Validations">
-<kw name="Dictionary Should Contain Key" owner="Collections">
-<arg>${RESPOSTA}[data]</arg>
-<arg>${key}</arg>
-<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.869521" elapsed="0.000544"/>
-</kw>
-<arg>seats</arg>
-<status status="PASS" start="2025-06-30T13:39:52.868760" elapsed="0.001426"/>
-</kw>
-<kw name="Validar que a resposta contém" owner="Validations">
-<kw name="Dictionary Should Contain Key" owner="Collections">
-<arg>${RESPOSTA}[data]</arg>
-<arg>${key}</arg>
-<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.871204" elapsed="0.000600"/>
-</kw>
-<arg>createdAt</arg>
-<status status="PASS" start="2025-06-30T13:39:52.870418" elapsed="0.001515"/>
-</kw>
-<status status="PASS" start="2025-06-30T13:39:52.850813" elapsed="0.021218"/>
-</kw>
-<kw name="Enviar requisição DELETE para /movies/_id" owner="FilmeService">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.874260" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${TOKEN}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.873633" elapsed="0.000680"/>
-</kw>
-<kw name="DELETE On Session" owner="RequestsLibrary">
-<msg time="2025-06-30T13:39:52.929619" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/movies/6862bdd844798893da3ba5b4 
- path_url=/api/v1/movies/6862bdd844798893da3ba5b4 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ', 'Content-Length': '0'} 
- body=None 
- </msg>
-<msg time="2025-06-30T13:39:52.929773" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/movies/6862bdd844798893da3ba5b4 
- status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-hADHoyMaFDqXJclxgYdNbQRmW6U"', 'Date': 'Mon, 30 Jun 2025 16:39:52 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"message":"Movie removed"} 
- </msg>
-<msg time="2025-06-30T13:39:52.929985" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
-<var>${resposta}</var>
-<arg>alias=api-cinema</arg>
-<arg>url=/movies/${_id}</arg>
-<arg>expected_status=${STATUS_REQ}</arg>
-<arg>headers=${headers}</arg>
-<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.874531" elapsed="0.055507"/>
-</kw>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.932197" level="INFO">${RESPOSTA} = {'success': True, 'message': 'Movie removed'}</msg>
-<arg>${RESPOSTA}</arg>
-<arg>${resposta.json()}</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.930398" elapsed="0.001940"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.933547" level="INFO">{'success': True, 'message': 'Movie removed'}</msg>
-<arg>${RESPOSTA}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.932850" elapsed="0.000785"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${RESPOSTA}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.933864" elapsed="0.000965"/>
-</kw>
-<arg>${_id_filme}</arg>
-<arg>${TOKEN_ADMIN}</arg>
-<status status="PASS" start="2025-06-30T13:39:52.872643" elapsed="0.062457"/>
+<status status="PASS" start="2025-06-30T13:59:44.129809" elapsed="0.461498"/>
 </kw>
 <kw name="Enviar requisição DELETE para /theaters/_id" owner="TeatroService">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.939823" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ'}</msg>
+<msg time="2025-06-30T13:59:44.596783" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE'}</msg>
 <var>${headers}</var>
 <arg>Authorization=Bearer ${TOKEN}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.937561" elapsed="0.002360"/>
+<status status="PASS" start="2025-06-30T13:59:44.596031" elapsed="0.000811"/>
 </kw>
 <kw name="DELETE On Session" owner="RequestsLibrary">
-<msg time="2025-06-30T13:39:52.995847" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/theaters/6862bdd844798893da3ba5b7 
- path_url=/api/v1/theaters/6862bdd844798893da3ba5b7 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ', 'Content-Length': '0'} 
+<msg time="2025-06-30T13:59:44.658318" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/theaters/6862c28044798893da3ba65b 
+ path_url=/api/v1/theaters/6862c28044798893da3ba65b 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg time="2025-06-30T13:39:52.996194" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/theaters/6862bdd844798893da3ba5b7 
+<msg time="2025-06-30T13:59:44.658517" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/theaters/6862c28044798893da3ba65b 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '44', 'ETag': 'W/"2c-4tDAm7NDORLuhe1byKnVNeIffY4"', 'Date': 'Mon, 30 Jun 2025 16:39:52 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '44', 'ETag': 'W/"2c-4tDAm7NDORLuhe1byKnVNeIffY4"', 'Date': 'Mon, 30 Jun 2025 16:59:44 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":true,"message":"Theater removed"} 
  </msg>
-<msg time="2025-06-30T13:39:52.996631" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<msg time="2025-06-30T13:59:44.658876" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
 <var>${resposta}</var>
 <arg>alias=api-cinema</arg>
 <arg>url=/theaters/${_id}</arg>
 <arg>expected_status=${STATUS_REQ}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.940312" elapsed="0.056413"/>
+<status status="PASS" start="2025-06-30T13:59:44.597061" elapsed="0.061914"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:52.999488" level="INFO">${RESPOSTA} = {'success': True, 'message': 'Theater removed'}</msg>
+<msg time="2025-06-30T13:59:44.662117" level="INFO">${RESPOSTA} = {'success': True, 'message': 'Theater removed'}</msg>
 <arg>${RESPOSTA}</arg>
 <arg>${resposta.json()}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:52.997301" elapsed="0.002414"/>
+<status status="PASS" start="2025-06-30T13:59:44.659677" elapsed="0.002632"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T13:39:53.001071" level="INFO">{'success': True, 'message': 'Theater removed'}</msg>
+<msg time="2025-06-30T13:59:44.664586" level="INFO">{'success': True, 'message': 'Theater removed'}</msg>
 <arg>${RESPOSTA}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T13:39:53.000204" elapsed="0.001011"/>
+<status status="PASS" start="2025-06-30T13:59:44.662807" elapsed="0.001944"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${RESPOSTA}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-30T13:39:53.001634" elapsed="0.001150"/>
+<status status="PASS" start="2025-06-30T13:59:44.665232" elapsed="0.001529"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-30T13:59:44.669622" level="INFO">${RESPOSTA_DELETE} = {'success': True, 'message': 'Theater removed'}</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<arg>${resposta}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-30T13:59:44.667226" elapsed="0.002534"/>
 </kw>
 <arg>${_id_teatro}</arg>
 <arg>${TOKEN_ADMIN}</arg>
-<status status="PASS" start="2025-06-30T13:39:52.935960" elapsed="0.067871"/>
+<status status="PASS" start="2025-06-30T13:59:44.594333" elapsed="0.075645"/>
+</kw>
+<kw name="Excluir filme, sessão e teatro" owner="TeatroService">
+<kw name="Enviar requisição DELETE para /movies/_id" owner="FilmeService">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-30T13:59:44.675351" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE'}</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-30T13:59:44.674156" elapsed="0.001305"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-06-30T13:59:44.732861" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/movies/6862c28044798893da3ba658 
+ path_url=/api/v1/movies/6862c28044798893da3ba658 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-30T13:59:44.733090" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/movies/6862c28044798893da3ba658 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42', 'ETag': 'W/"2a-hADHoyMaFDqXJclxgYdNbQRmW6U"', 'Date': 'Mon, 30 Jun 2025 16:59:44 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"message":"Movie removed"} 
+ </msg>
+<msg time="2025-06-30T13:59:44.733449" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/movies/${_id}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-30T13:59:44.676069" elapsed="0.057484"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-30T13:59:44.736142" level="INFO">${RESPOSTA} = {'success': True, 'message': 'Movie removed'}</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-30T13:59:44.734130" elapsed="0.002153"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-30T13:59:44.737451" level="INFO">{'success': True, 'message': 'Movie removed'}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-30T13:59:44.736693" elapsed="0.000896"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-30T13:59:44.738008" elapsed="0.009244"/>
+</kw>
+<arg>${_id_filme}</arg>
+<arg>${TOKEN_ADMIN}</arg>
+<status status="PASS" start="2025-06-30T13:59:44.672509" elapsed="0.075079"/>
+</kw>
+<kw name="Enviar requisição DELETE para /theaters/_id" owner="TeatroService">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-30T13:59:44.751957" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE'}</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${TOKEN}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-30T13:59:44.750942" elapsed="0.001371"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-06-30T13:59:44.797977" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/theaters/6862c28044798893da3ba65b 
+ path_url=/api/v1/theaters/6862c28044798893da3ba65b 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-30T13:59:44.798180" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/theaters/6862c28044798893da3ba65b 
+ status=404, reason=Not Found 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '47', 'ETag': 'W/"2f-KVXF32youtabRc/9Rp7Fmtl3UrM"', 'Date': 'Mon, 30 Jun 2025 16:59:44 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":false,"message":"Theater not found"} 
+ </msg>
+<msg time="2025-06-30T13:59:44.798601" level="INFO">${resposta} = &lt;Response [404]&gt;</msg>
+<var>${resposta}</var>
+<arg>alias=api-cinema</arg>
+<arg>url=/theaters/${_id}</arg>
+<arg>expected_status=${STATUS_REQ}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-30T13:59:44.752736" elapsed="0.045999"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-30T13:59:44.801367" level="INFO">${RESPOSTA} = {'success': False, 'message': 'Theater not found'}</msg>
+<arg>${RESPOSTA}</arg>
+<arg>${resposta.json()}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-30T13:59:44.799460" elapsed="0.002047"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-30T13:59:44.802588" level="INFO">{'success': False, 'message': 'Theater not found'}</msg>
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-30T13:59:44.801901" elapsed="0.000808"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-30T13:59:44.803098" elapsed="0.001559"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-30T13:59:44.806487" level="INFO">${RESPOSTA_DELETE} = {'success': False, 'message': 'Theater not found'}</msg>
+<arg>${RESPOSTA_DELETE}</arg>
+<arg>${resposta}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-30T13:59:44.805264" elapsed="0.001400"/>
+</kw>
+<arg>${_id_teatro}</arg>
+<arg>${TOKEN_ADMIN}</arg>
+<status status="PASS" start="2025-06-30T13:59:44.749110" elapsed="0.057844"/>
 </kw>
 <kw name="Enviar requisição DELETE para /sessions/_id" owner="SessionsService">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-06-30T13:39:53.006778" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ'}</msg>
+<msg time="2025-06-30T13:59:44.811992" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE'}</msg>
 <var>${headers}</var>
 <arg>Authorization=Bearer ${TOKEN_ADMIN}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-06-30T13:39:53.005589" elapsed="0.001293"/>
+<status status="PASS" start="2025-06-30T13:59:44.810094" elapsed="0.002013"/>
 </kw>
 <kw name="DELETE On Session" owner="RequestsLibrary">
-<msg time="2025-06-30T13:39:53.087568" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/sessions/6862bdd844798893da3ba5bc 
- path_url=/api/v1/sessions/6862bdd844798893da3ba5bc 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMTU5MiwiZXhwIjoxNzUxMzg3OTkyfQ.jSL2I3_MjrVcQnOL2D9zJcsNzS5FUIZi7E8MO0Tr9MQ', 'Content-Length': '0'} 
+<msg time="2025-06-30T13:59:44.898816" level="INFO">DELETE Request : url=http://localhost:3000/api/v1/sessions/6862c28044798893da3ba660 
+ path_url=/api/v1/sessions/6862c28044798893da3ba660 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjAyYjc1YWQxNmFiN2U2ZjA5NmZmOCIsImlhdCI6MTc1MTMwMjc4NCwiZXhwIjoxNzUxMzg5MTg0fQ.ssPbQ2DeJ5OEGJnv2NgiAql09tkvvpl6GR5G2lIhDOE', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg time="2025-06-30T13:39:53.087733" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/sessions/6862bdd844798893da3ba5bc 
+<msg time="2025-06-30T13:59:44.899029" level="INFO">DELETE Response : url=http://localhost:3000/api/v1/sessions/6862c28044798893da3ba660 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '44', 'ETag': 'W/"2c-NP/wO3eQyrmT4lAA509rsTHxBtA"', 'Date': 'Mon, 30 Jun 2025 16:39:53 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '44', 'ETag': 'W/"2c-NP/wO3eQyrmT4lAA509rsTHxBtA"', 'Date': 'Mon, 30 Jun 2025 16:59:44 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":true,"message":"Session removed"} 
  </msg>
-<msg time="2025-06-30T13:39:53.088025" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
+<msg time="2025-06-30T13:59:44.899391" level="INFO">${resposta} = &lt;Response [200]&gt;</msg>
 <var>${resposta}</var>
 <arg>alias=api-cinema</arg>
 <arg>url=/sessions/${_id}</arg>
 <arg>expected_status=${STATUS_REQ}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-06-30T13:39:53.007301" elapsed="0.080827"/>
+<status status="PASS" start="2025-06-30T13:59:44.812572" elapsed="0.086919"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-30T13:39:53.090417" level="INFO">${RESPOSTA_DELETE} = {'success': True, 'message': 'Session removed'}</msg>
+<msg time="2025-06-30T13:59:44.902333" level="INFO">${RESPOSTA_DELETE} = {'success': True, 'message': 'Session removed'}</msg>
 <arg>${RESPOSTA_DELETE}</arg>
 <arg>${resposta.json()}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-30T13:39:53.088469" elapsed="0.002091"/>
+<status status="PASS" start="2025-06-30T13:59:44.900040" elapsed="0.002453"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-06-30T13:39:53.091724" level="INFO">{'success': True, 'message': 'Session removed'}</msg>
+<msg time="2025-06-30T13:59:44.903758" level="INFO">{'success': True, 'message': 'Session removed'}</msg>
 <arg>${RESPOSTA_DELETE}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-06-30T13:39:53.090975" elapsed="0.000890"/>
+<status status="PASS" start="2025-06-30T13:59:44.902975" elapsed="0.001253"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${RESPOSTA_DELETE}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-06-30T13:39:53.092261" elapsed="0.002656"/>
+<status status="PASS" start="2025-06-30T13:59:44.905189" elapsed="0.002542"/>
 </kw>
 <arg>${_id}</arg>
-<status status="PASS" start="2025-06-30T13:39:53.004484" elapsed="0.090769"/>
+<status status="PASS" start="2025-06-30T13:59:44.807697" elapsed="0.100380"/>
 </kw>
-<msg time="2025-06-30T13:39:53.218145" level="INFO">Starting Browser process C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:55565</msg>
-<tag>CT028</tag>
+<status status="PASS" start="2025-06-30T13:59:44.670935" elapsed="0.237395"/>
+</kw>
+<kw name="Validar resposta de Exclusão de teatro com sessões ativas" owner="TeatroService">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<msg time="2025-06-30T13:59:44.915311" level="FAIL">InvalidResponse: {'success': True, 'message': 'Session removed'}</msg>
+<arg>409</arg>
+<arg>${RESPOSTA_DELETE}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="FAIL" start="2025-06-30T13:59:44.914106" elapsed="0.010894">InvalidResponse: {'success': True, 'message': 'Session removed'}</status>
+</kw>
+<status status="FAIL" start="2025-06-30T13:59:44.912136" elapsed="0.013862">InvalidResponse: {'success': True, 'message': 'Session removed'}</status>
+</kw>
+<msg time="2025-06-30T13:59:45.137278" level="INFO">Starting Browser process C:\Program Files\Python313\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:60948</msg>
+<tag>CT027</tag>
 <tag>media</tag>
-<tag>sessao</tag>
-<status status="PASS" start="2025-06-30T13:39:52.044515" elapsed="1.051897"/>
+<tag>teatro</tag>
+<status status="FAIL" start="2025-06-30T13:59:43.886448" elapsed="1.049544">InvalidResponse: {'success': True, 'message': 'Session removed'}</status>
 </test>
-<doc>Testes de sessão pela API.</doc>
-<status status="PASS" start="2025-06-30T13:39:47.343075" elapsed="10.010119"/>
+<doc>Testes de CRUD de teatros pela API.</doc>
+<status status="FAIL" start="2025-06-30T13:59:39.696954" elapsed="12.414169"/>
 </suite>
-<status status="PASS" start="2025-06-30T13:39:47.286410" elapsed="10.143996"/>
+<status status="FAIL" start="2025-06-30T13:59:39.694737" elapsed="12.677593"/>
+</suite>
+<status status="FAIL" start="2025-06-30T13:59:39.692251" elapsed="12.683580"/>
+</suite>
+<status status="FAIL" start="2025-06-30T13:59:39.641735" elapsed="12.738622"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">CT028</stat>
-<stat pass="1" fail="0" skip="0">media</stat>
-<stat pass="1" fail="0" skip="0">sessao</stat>
+<stat pass="0" fail="1" skip="0">CT027</stat>
+<stat pass="0" fail="1" skip="0">media</stat>
+<stat pass="0" fail="1" skip="0">teatro</stat>
 </tag>
 <suite>
-<stat name="Sessions" id="s1" pass="1" fail="0" skip="0">Sessions</stat>
-<stat name="Sessions" id="s1-s1" pass="1" fail="0" skip="0">Sessions.Sessions</stat>
+<stat name="Tests" id="s1" pass="0" fail="1" skip="0">Tests</stat>
+<stat name="Api" id="s1-s1" pass="0" fail="1" skip="0">Tests.Api</stat>
+<stat name="Theaters" id="s1-s1-s1" pass="0" fail="1" skip="0">Tests.Api.Theaters</stat>
+<stat name="Teatros" id="s1-s1-s1-s1" pass="0" fail="1" skip="0">Tests.Api.Theaters.Teatros</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-06-30T13:39:51.824571" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\ReservaService.resource' is empty.</msg>
-<msg time="2025-06-30T13:39:51.911932" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\pages\FilmesPage.resource' is empty.</msg>
-<msg time="2025-06-30T13:39:51.939750" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\pages\ReservasPage.resource' is empty.</msg>
+<msg time="2025-06-30T13:59:43.769559" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\services\ReservaService.resource' is empty.</msg>
+<msg time="2025-06-30T13:59:43.858869" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\pages\FilmesPage.resource' is empty.</msg>
+<msg time="2025-06-30T13:59:43.867059" level="WARN">Imported resource file 'C:\Users\maria\OneDrive\minha-pasta\Challenge-final\QAChallenge-final\Testes automatizados\resources\pages\ReservasPage.resource' is empty.</msg>
 </errors>
 </robot>

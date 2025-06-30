@@ -70,8 +70,29 @@ Enviar requisição DELETE para /theaters/_id
     Log    ${RESPOSTA}
     Log to Console    ${RESPOSTA}
 
+    Set Test Variable    ${RESPOSTA_DELETE}    ${resposta}
+
 Validar resposta de Exclusão de teatro com sucesso
     Validar que o código response    200
 
 Validar resposta de Registro de teatro inválido
     Validar que o código response    400
+
+Criar filme, teatro e sessão
+    Preparar massa de dados    movies.json    cadastro-valido
+    Enviar requisição POST para /movies    ${TOKEN_ADMIN}
+    Pegar id filme
+    Preparar massa de dados    theaters.json    cadastro-valido
+    Enviar requisição POST para /theaters    ${TOKEN_ADMIN}
+    Pegar id teatro
+    Preparar massa de dados    sessions.json    cadastro-valido
+    Adicionar ids    ${_id_filme}    ${_id_teatro}
+    Enviar requisição POST para /sessions
+
+Excluir filme, sessão e teatro
+    Enviar requisição DELETE para /movies/_id    ${_id_filme}    ${TOKEN_ADMIN}
+    Enviar requisição DELETE para /theaters/_id    ${_id_teatro}    ${TOKEN_ADMIN}
+    Enviar requisição DELETE para /sessions/_id    ${_id}
+
+Validar resposta de Exclusão de teatro com sessões ativas
+    Status Should Be    409    ${RESPOSTA_DELETE}
