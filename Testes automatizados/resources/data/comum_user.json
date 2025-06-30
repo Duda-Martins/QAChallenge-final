@@ -1,0 +1,10 @@
+{
+    "register-comum": {
+        "name": "Marlin",
+        "email": "marlin@example.com",
+        "password": "senhaqq1"
+    },
+    "promover-comum": {
+        "role": "admin"
+    }
+}

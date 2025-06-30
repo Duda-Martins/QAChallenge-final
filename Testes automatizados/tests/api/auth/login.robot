@@ -15,7 +15,7 @@ CT005 - Login com sucesso
     Preparar massa de dados    login.json    valido-login
     Enviar requisição POST para /auth/login
     Validar resposta Login de usuário com sucesso
-    Enviar requisição DELETE para /users/_id    ${RESPOSTA}[data][_id]
+    Enviar requisição DELETE para /users/_id    ${RESPOSTA}[data][_id]    ${TOKEN_ADMIN}
 
 CT006 - Login com senha incorreta
     [Tags]    CT006    login    alta
@@ -25,7 +25,7 @@ CT006 - Login com senha incorreta
     Logar usuario admin
     Preparar massa de dados    login.json    senha-errada-login
     Enviar requisição POST para /auth/login
-    Enviar requisição DELETE para /users/_id    ${_id}
+    Enviar requisição DELETE para /users/_id    ${_id}    ${TOKEN_ADMIN}
     Validar resposta Login de usuário com senha errada
 
 CT007 - Login com email não cadastrado

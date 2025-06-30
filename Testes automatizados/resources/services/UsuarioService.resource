@@ -5,7 +5,7 @@ Resource    ../common/Base.resource
 
 *** Keywords ***
 Enviar requisição PUT para /users/_id
-    [Arguments]    ${_id}
+    [Arguments]    ${_id}    ${TOKEN}
 
     Set Test Variable    ${_id}
 
@@ -34,9 +34,9 @@ Validar resposta Update de usuário com sucesso
     Validar que a resposta contém   createdAt
 
 Enviar requisição DELETE para /users/_id
-    [Arguments]    ${_id}
+    [Arguments]    ${_id}    ${TOKEN}
 
-    ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN_ADMIN}
+    ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN}
 
     ${resposta}  DELETE On Session
         ...          alias=api-cinema
@@ -52,3 +52,33 @@ Validar resposta Delete de usuário com sucesso
     Validar que o código response    200
     Dictionary Should Contain Item    ${RESPOSTA_DELETE}    success    ${True}
     Dictionary Should Contain Item    ${RESPOSTA_DELETE}    message    User deleted successfully
+
+Enviar requisição GET para /users
+    [Arguments]    ${TOKEN}
+
+    ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN}
+
+    ${resposta}  GET On Session
+        ...          alias=api-cinema
+        ...          url=/users
+        ...          expected_status=${STATUS_REQ}
+        ...          headers=${headers}
+
+    Set Test Variable    ${RESPOSTA}    ${resposta.json()}
+    Log    ${RESPOSTA}
+    Log to Console    ${RESPOSTA}
+
+Enviar requisição GET para /users/_id
+    [Arguments]    ${_id}    ${TOKEN}
+
+    ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN}
+
+    ${resposta}  GET On Session
+        ...          alias=api-cinema
+        ...          url=/users/${_id}
+        ...          expected_status=${STATUS_REQ}
+        ...          headers=${headers}
+
+    Set Test Variable    ${RESPOSTA}    ${resposta.json()}
+    Log    ${RESPOSTA}
+    Log to Console    ${RESPOSTA}

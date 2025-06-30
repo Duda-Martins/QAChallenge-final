@@ -13,7 +13,7 @@ CT001 - Registro de usuário com sucesso
     Enviar requisição POST para /auth/register
     Validar resposta Registro de usuário com sucesso
     Logar usuario admin
-    Enviar requisição DELETE para /users/_id    ${_id}
+    Enviar requisição DELETE para /users/_id    ${_id}    ${TOKEN_ADMIN}
 
 CT002 - Registro com e-mail duplicado
     [Tags]    CT002    cadastro    alta

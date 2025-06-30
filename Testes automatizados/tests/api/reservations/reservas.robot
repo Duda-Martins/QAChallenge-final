@@ -20,6 +20,6 @@ CT033 - Atualizar status de uma reserva (Admin)
     Enviar requisição PUT para /reservations
     Validar resposta de Edição de reserva com sucesso
 
+    Excluir filme, sessão e teatro
     Enviar requisição DELETE para /reservations/_id    ${_id_reserva}
     Validar resposta de Exclusão de reserva com sucesso
-    Excluir filme, sessão e teatro

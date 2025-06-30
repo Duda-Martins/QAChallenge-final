@@ -38,7 +38,7 @@ CT026 - Bloqueio de CRUD de teatro por usuário comum
     Enviar requisição DELETE para /theaters/_id    ${_id}    ${TOKEN_COMUM}
     Validar resposta rota não autorizada para usuário comum
     Logar usuario admin
-    Enviar requisição DELETE para /users/_id    ${_id_usuario}
+    Enviar requisição DELETE para /users/_id    ${_id_usuario}    ${TOKEN_ADMIN}
 
 CT027 - Bloqueio ao tentar excluir teatro com sessões ativas
     [Tags]    CT027    teatro    media

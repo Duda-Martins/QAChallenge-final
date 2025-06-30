@@ -38,4 +38,4 @@ CT023 - Bloqueio de CRUD de filme por usuário comum
     Enviar requisição DELETE para /movies/_id    ${_id}    ${TOKEN_COMUM}
     Validar resposta rota não autorizada para usuário comum
     Logar usuario admin
-    Enviar requisição DELETE para /users/_id    ${_id_usuario}
+    Enviar requisição DELETE para /users/_id    ${_id_usuario}    ${TOKEN_ADMIN}
