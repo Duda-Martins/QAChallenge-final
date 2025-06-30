@@ -18,6 +18,7 @@ Resource    ../services/FilmeService.resource
 Resource    ../services/ReservaService.resource
 Resource    ../services/TeatroService.resource
 Resource    ../services/UsuarioService.resource
+Resource    ../services/SessionsService.resource
 
 Resource    ../pages/FilmesPage.resource
 Resource    ../pages/ReservasPage.resource

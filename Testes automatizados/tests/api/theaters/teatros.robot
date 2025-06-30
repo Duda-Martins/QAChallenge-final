@@ -39,3 +39,4 @@ CT026 - Bloqueio de CRUD de teatro por usuário comum
     Validar resposta rota não autorizada para usuário comum
     Logar usuario admin
     Enviar requisição DELETE para /users/_id    ${_id_usuario}
+
