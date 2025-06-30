@@ -26,7 +26,7 @@ Enviar requisição POST para /sessions
     Set Test Variable    ${RESPOSTA}    ${resposta.json()}
     Log    ${RESPOSTA}
     Log to Console    ${RESPOSTA}
-    Set Test Variable    ${_id}    ${RESPOSTA}[data][_id]
+    Set Test Variable    ${_id_sessao}    ${RESPOSTA}[data][_id]
 
 Validar resposta de Cadastro de sessão com sucesso
     Validar que o código response           201
