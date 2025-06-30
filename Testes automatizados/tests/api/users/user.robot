@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Testes de deleção de usuário pela API.
+Documentation    Testes de gerenciamento de usuários pela API.
 
 Resource    ../../../resources/common/Base.resource
 

@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Testes de sessão pela API.
+Documentation    Testes de reservas pela API.
 
 Resource    ../../../resources/common/Base.resource
 

@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Keywords para o serviço de login de usuário na API.
+Documentation    Keywords para o serviço de CRUD de filmes na API.
 
 Resource    ../common/Base.resource
 
