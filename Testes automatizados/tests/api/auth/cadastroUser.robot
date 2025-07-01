@@ -20,8 +20,9 @@ CT002 - Registro com e-mail duplicado
     Preparar massa de dados    cadastro.json    valido
     Enviar requisição POST para /auth/register
     Validar resposta Registro de usuário com sucesso
+    Logar usuario admin
     Enviar requisição POST para /auth/register
-    Limpar usuário   ${body}[email]
+    Enviar requisição DELETE para /users/_id    ${_id}    ${TOKEN_ADMIN}
     Validar resposta de Registro de usuário duplicado
 
 CT003 - Registro com e-mail inválido

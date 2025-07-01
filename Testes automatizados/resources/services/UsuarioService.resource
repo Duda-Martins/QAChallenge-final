@@ -38,13 +38,13 @@ Enviar requisição DELETE para /users/_id
 
     ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN}
 
-    ${resposta}  DELETE On Session
+    ${resposta_delete}  DELETE On Session
         ...          alias=api-cinema
         ...          url=/users/${_id}
         ...          expected_status=${STATUS_REQ}
         ...          headers=${headers}
 
-    Set Test Variable    ${RESPOSTA_DELETE}    ${resposta.json()}
+    Set Test Variable    ${RESPOSTA_DELETE}    ${resposta_delete.json()}
     Log    ${RESPOSTA_DELETE}
     Log to Console    ${RESPOSTA_DELETE}
 

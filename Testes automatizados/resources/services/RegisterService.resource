@@ -11,6 +11,7 @@ Enviar requisição POST para /auth/register
         ...          json=${body}
         ...          expected_status=${STATUS_REQ}
 
+    Run Keyword And Ignore Error    Set Test Variable    ${resposta_para_status}    ${resposta}
     Set Test Variable    ${RESPOSTA}    ${resposta.json()}
     Log    ${RESPOSTA}
     Log to Console    ${RESPOSTA}
@@ -25,7 +26,7 @@ Validar resposta Registro de usuário com sucesso
     Validar que a resposta contém   token
 
 Validar resposta de Registro de usuário duplicado
-    Validar que o código response    400
+    Status Should Be    400    ${resposta_para_status}
     Validar que a resposta contém success    ${False}
 
 Validar resposta Registro de usuário com imput inválido

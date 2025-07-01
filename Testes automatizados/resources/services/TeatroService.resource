@@ -66,11 +66,11 @@ Enviar requisição DELETE para /theaters/_id
         ...          expected_status=${STATUS_REQ}
         ...          headers=${headers}
 
+    Set Test Variable    ${resposta_para_status}    ${resposta}
+
     Set Test Variable    ${RESPOSTA}    ${resposta.json()}
     Log    ${RESPOSTA}
     Log to Console    ${RESPOSTA}
-
-    Set Test Variable    ${RESPOSTA_DELETE}    ${resposta}
 
 Validar resposta de Exclusão de teatro com sucesso
     Validar que o código response    200
@@ -79,4 +79,4 @@ Validar resposta de Registro de teatro inválido
     Validar que o código response    400
 
 Validar resposta de Exclusão de teatro com sessões ativas
-    Status Should Be    409    ${RESPOSTA_DELETE}
+    Status Should Be    409    ${resposta_para_status}

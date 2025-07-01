@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Keywords de validações comuns para Ttodos os testes.
+Documentation    Keywords de validações comuns para todos os testes.
 
 Resource    Base.resource
 
