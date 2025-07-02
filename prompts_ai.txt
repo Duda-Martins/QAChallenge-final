@@ -1,0 +1,80 @@
+# PromptGenAI.txt
+
+📁 DOCUMENTAÇÃO DE REPOSITÓRIO QA
+
+🟣 Prompt:
+
+"Esse é o link do repositório [...] Quero documentar ele melhor (criar READMEs e coisas do tipo). A base para o README é que o projeto deve seguir a descrição do Challenge abaixo."
+
+🔎 Objetivo:
+Criar um README atrativo, técnico e voltado para recrutadores, focado na execução real do projeto.
+
+---
+
+📁 RELATÓRIO DE TESTES API
+
+🟣 Prompt:
+"Faça a tabela de resumo dos resultados com base no Test execution (excel) e na prioridade (mesmos casos do excel, mas com a prioridade):"
+
+"Adicionar gráficos de falhas vs. sucessos  
+Destacar os bugs em cores  
+Incluir um dashboard visual no Excel"
+
+🔎 Objetivo:
+Transformar os dados de execução manual e automatizada em um relatório visual e analítico, facilitando a apresentação de resultados e bugs encontrados.
+
+---
+
+📁 BUG REPORT — FALHA AO EXCLUIR RESERVA
+
+🟣 Prompt:
+"Bug Report Falha Senha:  
+CIN-69 Excluir uma reserva (Admin) – Failed  
+BUG012 – Divergência na mensagem de retorno ao excluir reserva  
+Destacar os bugs em cores"
+
+🔎 Objetivo:
+Formalizar e destacar falhas funcionais nas APIs, com detalhamento da divergência entre resposta esperada e obtida. Base para abertura de issues e rastreabilidade.
+
+---
+
+📁 PLANO DE TESTES CINEMA
+
+🟣 Prompt:
+"Quais desses testes eu devo automatizar?
+
+Mande a tabela (pelo chat)"
+
+"Atualizar a matriz de rastreabilidade"
+
+🔎 Objetivo:
+Refinar o plano de testes com base em requisitos atualizados, segmentando casos para cobrir caminhos felizes e negativos, com foco em clareza e rastreabilidade.
+
+---
+
+📁 MATRIZ DE RISCO API
+
+🟣 Prompt:
+"Análise Inicial  
+Requisitos: User Stories detalhadas e documentação Swagger  
+Riscos Identificados:  
+- Instabilidade do ambiente  
+- Falhas intermitentes nos endpoints  
+- Possíveis erros de validação de payload  
+- Falta de mensagens claras de erro  
+- Tratamento inconsistente de permissões"
+
+🔎 Objetivo:
+Elaborar uma análise de riscos para priorização de testes funcionais, considerando falhas técnicas e impacto no usuário final.
+
+---
+
+📎 Observações:
+
+Todos os prompts acima foram utilizados para construir o projeto de QA Challenge final, com apoio de IA para:
+
+✔ Estruturação de documentação técnica  
+✔ Elaboração e priorização de testes  
+✔ Criação de evidências e análises de bugs  
+✔ Automatização de validações com Robot Framework  
+✔ Melhoria contínua do repositório e entrega profissional
