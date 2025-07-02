@@ -40,7 +40,7 @@ Criar Sessão
 Preparar massa de dados
     [Arguments]    ${arquivo}    ${cenario}
     ${data}    Load Json From File
-    ...    resources/data/${arquivo}
+    ...    Testes automatizados/resources/data/${arquivo}
     ...    encoding=utf-8
 
     Set Test Variable    ${body}    ${data}[${cenario}]
