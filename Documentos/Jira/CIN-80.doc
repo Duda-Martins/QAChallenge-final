@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#CIN-80] BUG006: Pôsteres dos filmes não exibidos na página inicial</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://mrodriguesmariaeduarda-1748537468365.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [CIN-80]&nbsp;<a href="https://mrodriguesmariaeduarda-1748537468365.atlassian.net/browse/CIN-80">BUG006: Pôsteres dos filmes não exibidos na página inicial</a>
+            <span class="subText">
+               Criado: 01/jul/25                   &nbsp;Atualizado(a): 01/jul/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Tarefas pendentes</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Projeto:</b></td>
+        <td width="80%"><a href="https://mrodriguesmariaeduarda-1748537468365.atlassian.net/secure/BrowseProject.jspa?id=10033">cinema</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Componentes:</b></td>
+            <td>
+                            Nenhum
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Versões afetadas:</b></td>
+            <td>
+                            Nenhum
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Versões corrigidas:</b></td>
+            <td>
+                            Nenhum
+                </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Tipo:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Prioridade:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                High
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Relator:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5e9b09037bc0680c2cd12e21"
+                id="word_reporter_5e9b09037bc0680c2cd12e21"
+                href="https://mrodriguesmariaeduarda-1748537468365.atlassian.net/secure/ViewProfile.jspa?accountId=5e9b09037bc0680c2cd12e21">
+                    Maria Eduarda Martins Rodrigues
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Responsável:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5e9b09037bc0680c2cd12e21"
+                id="word_assignee_5e9b09037bc0680c2cd12e21"
+                href="https://mrodriguesmariaeduarda-1748537468365.atlassian.net/secure/ViewProfile.jspa?accountId=5e9b09037bc0680c2cd12e21">
+                    Maria Eduarda Martins Rodrigues
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolução:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Não resolvido(s)
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votos:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Categorias:</b>
+        </td>
+        <td id="labels-10472-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            Nenhum
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Estimativa de trabalho restante:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Desconhecido
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Tempo gasto:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Desconhecido
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Estimativa original:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Desconhecido
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10020-10472-value" class="value" bgcolor="#ffffff" width="80%">quadro Sprint 1</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Descrição</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <ol>
+	<li>Bug Report: Pôsteres dos filmes não exibidos na página inicial</li>
+</ol>
+
+
+<p>*<b>ID:</b>* BUG006<br/>
+*<b>ID Caso de Teste:</b>* CT014<br/>
+*<b>Título:</b>* Home exibe filmes sem imagens de pôster<br/>
+*<b>Gravidade:</b>* Alta<br/>
+*<b>Prioridade:</b>* Alta<br/>
+*<b>Status:</b>* Aberto<br/>
+*<b>Proprietário:</b>* <a href="https://mrodriguesmariaeduarda-1748537468365.atlassian.net/secure/ViewProfile.jspa?accountId=5e9b09037bc0680c2cd12e21" class="user-hover" rel="5e9b09037bc0680c2cd12e21" data-account-id="5e9b09037bc0680c2cd12e21" accountid="5e9b09037bc0680c2cd12e21" rel="noreferrer">Maria Eduarda Martins Rodrigues</a></p>
+
+<p>&#8212;</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>Issue discovered while executing<br/>
+*<b>Test Case:</b>* Exibir banner e lista de filmes na home<br/>
+*<b>Execution Date:</b>* 25/Jun/2025<br/>
+<span class="error">&#91;Open Execution&#93;</span>(<a href="https://mrodriguesmariaeduarda-1748537468365.atlassian.net/plugins/servlet/ac/com.soldevelo.apps.test_management_premium/test-case-execution?testExecutionId=1804299" class="external-link" rel="nofollow noreferrer">https://mrodriguesmariaeduarda-1748537468365.atlassian.net/plugins/servlet/ac/com.soldevelo.apps.test_management_premium/test-case-execution?testExecutionId=1804299</a>)</li>
+	</ol>
+	</li>
+</ol>
+
+
+<p>&#8212;</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>Reproduction steps<br/>
+*<b>Pré-condições:</b>*</li>
+	</ol>
+	</li>
+</ol>
+
+
+<ul>
+	<li>Filmes cadastrados previamente no sistema<br/>
+  *<b>Execução:</b>* Front-End</li>
+</ul>
+
+
+<p>1. Acessar a página inicial do Cinema App<br/>
+2. Observar a exibição dos filmes listados na interface</p>
+
+<p>&#8212;</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>Resultado Esperado</li>
+	</ol>
+	</li>
+</ol>
+
+
+<ul>
+	<li>Um banner superior visível</li>
+	<li>Lista de filmes exibindo:</li>
+</ul>
+
+
+<ul>
+	<li>Título</li>
+	<li>Duração</li>
+	<li>Data de lançamento</li>
+	<li>*<b>Imagem do pôster de cada filme</b>*</li>
+</ul>
+
+
+<p>&#8212;</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>Resultado Obtido</li>
+	</ol>
+	</li>
+</ol>
+
+
+<ul>
+	<li>Banner visível</li>
+	<li>Filmes listados com dados textuais corretamente exibidos</li>
+	<li>*<b>Imagem dos pôsteres não exibida</b>*</li>
+</ul>
+
+
+<ul>
+	<li>Mostrada apenas mensagem: “Imagem não disponível”</li>
+</ul>
+
+
+<p>&#8212;</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>Comentário<br/>
+As imagens dos filmes não estão sendo renderizadas corretamente na interface, mesmo com os dados dos filmes devidamente carregados. A falha pode estar na URL das imagens fornecida pela API, na ausência de arquivos válidos, ou em um problema na renderização pelo front-end (ex: caminho incorreto ou nome da propriedade errado no JSON).</li>
+	</ol>
+	</li>
+</ol>
+
+
+<p>&#8212;</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>Evidências</li>
+	</ol>
+	</li>
+</ol>
+
+
+<ul>
+	<li>Captura de tela `2025-06-25 154925.png`: mostra filmes Interstellar, The Avengers e Inception listados sem imagens de pôster, apenas com o placeholder “Imagem não disponível”.</li>
+</ul>
+
+
+<p>&#8212;</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>Impacto</li>
+	</ol>
+	</li>
+</ol>
+
+
+<ul>
+	<li>Prejudica a experiência do usuário final</li>
+	<li>Fere diretamente a US</li>
+	<li>Deixa a interface incompleta e visualmente empobrecida</li>
+	<li>Pode afetar testes de usabilidade e marketing</li>
+	<li>Indica possível problema de integração entre backend e frontend</li>
+</ul>
+
+
+<p>&#8212;</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>Insights e Melhorias</li>
+	</ol>
+	</li>
+</ol>
+
+
+<ul>
+	<li>Verificar se a propriedade do campo da imagem está correta na API e no frontend</li>
+	<li>Confirmar se as URLs dos pôsteres estão sendo realmente retornadas e válidas</li>
+	<li>Incluir fallback para imagem padrão apenas quando a URL estiver ausente, não para todos os filmes</li>
+</ul>
+
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+Gerado em Wed Jul 02 12:59:58 UTC 2025 por Maria Eduarda Martins Rodrigues usando JIRA 1001.0.0-SNAPSHOT#100286-rev:954e9e452cb84460b72a974aab214235167cd4a5.
+
+</body>
+</html>
