@@ -48,6 +48,7 @@ jobs:
       # Etapa 6: Faz upload dos relatórios HTML gerados para a aba de artefatos do GitHub
       # Assim você pode baixar e abrir os relatórios mesmo após a execução
       - name: Upload dos relatórios
+        if: always()  # mesmo que o job falhe
         uses: actions/upload-artifact@v4
         with:
           name: relatorios-robot      # Nome que será mostrado na aba "Artifacts"
