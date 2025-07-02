@@ -1,0 +1,22 @@
+{
+    "cadastro-valido": {
+        "name": "Teatro lindo",
+        "capacity": 200,
+        "type": "IMAX"
+    },
+    "edicao-valida": {
+        "capacity": 400
+    },
+    "cadastro-invalido": {
+        "capacity": 200,
+        "type": "IMAX"
+    },
+    "cadastro-usuario-comum": {
+        "name": "Teatro falso",
+        "capacity": 20,
+        "type": "IMAX"
+    },
+    "edicao-usuario-comum": {
+        "type": "Não existe."
+    }
+}

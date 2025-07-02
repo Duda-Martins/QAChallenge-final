@@ -1,0 +1,17 @@
+{
+    "valido": {
+        "name": "Lili",
+        "email": "lili@example.com",
+        "password": "senhaqq1"
+    },
+    "email-invalido": {
+        "name": "Natanael",
+        "email": "natanael.com",
+        "password": "senhaqq1"
+    },
+    "senha-invalida": {
+        "name": "Leonardo",
+        "email": "leonardo@example.com",
+        "password": "s"
+    }
+}

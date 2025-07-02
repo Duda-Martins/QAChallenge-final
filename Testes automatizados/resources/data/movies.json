@@ -1,0 +1,37 @@
+{
+    "cadastro-valido": {
+        "title": "How to Train Your Dragon",
+        "synopsis": "A young Viking named Hiccup aspires to follow his tribe's tradition of becoming a dragon slayer. But after finally capturing his first dragon, he finds that he no longer wants to kill it and instead befriends the creature.",
+        "director": "Dean DeBlois, Chris Sanders",
+        "genres": ["Animation", "Adventure", "Fantasy"],
+        "duration": 98,
+        "classification": "PG",
+        "poster": "your_dragon.jpg",
+        "releaseDate": "2010-03-26"
+    },
+    "edicao-valida": {
+        "poster": "how_to_train_your_dragon.jpg"
+    },
+    "cadastro-invalido": {
+        "synopsis": "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.",
+        "director": "John Lasseter",
+        "genres": ["Animation", "Adventure", "Comedy"],
+        "duration": 81,
+        "classification": 1,
+        "poster": "toy_story.jpg",
+        "releaseDate": "1995-11-22"
+    },
+    "cadastro-usuario-comum": {
+        "title": "Like Stars on Earth",
+        "synopsis": "An eight-year-old boy is thought to be a troublemaker, until a new art teacher has the patience and compassion to discover the real problems behind his struggles in school.",
+        "director": "Aamir Khan",
+        "genres": ["Drama", "Family"],
+        "duration": 165,
+        "classification": "PG",
+        "poster": "like_stars_on_earth.jpg",
+        "releaseDate": "2007-12-21"
+    },
+    "edicao-usuario-comum": {
+        "synopsis": "Um dos filmes mais lindos que eu já vi! Se estiver lendo isso, eu recomendo muito que assista esse filme."
+    }
+}

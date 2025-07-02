@@ -1,0 +1,21 @@
+{
+    "cadastro-valido": {
+        "session": "",
+        "seats": [
+            {
+                "row": "D",
+                "number": 4,
+                "type": "full"
+            },
+            {
+                "row": "D",
+                "number": 5,
+                "type": "full"
+            }
+        ],
+        "paymentMethod": "credit_card"
+    },
+    "edicao-valida": {
+        "status": "pending"
+    }
+}
