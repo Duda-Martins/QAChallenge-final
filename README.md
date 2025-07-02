@@ -210,3 +210,5 @@ Entre em contato comigo pelo [LinkedIn](www.linkedin.com/in/maria-eduarda-martin
 ## 📜 Licença
 
 MIT License © 2024 Maria Eduarda Martins Rodrigues
+
+<!-- Teste de pipeline -->
