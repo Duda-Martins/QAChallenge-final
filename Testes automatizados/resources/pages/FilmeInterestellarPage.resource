@@ -14,5 +14,5 @@ Validar página de detalhes do filme
     Wait For Elements State    css=.movie-detail-header .movie-poster img    visible    5
 
 Clicar em Selecionar Assentos
-    Sleep    2
+    Scroll To Element    xpath=//div[h3[@class='session-date' and text()='30/06/2025']]//div[contains(@class, 'session-card') and .//div[contains(@class, 'session-time') and contains(., '12:00')]]//a[contains(@class, 'session-button') and text()='Selecionar Assentos']
     Click    xpath=//div[h3[@class='session-date' and text()='30/06/2025']]//div[contains(@class, 'session-card') and .//div[contains(@class, 'session-time') and contains(., '12:00')]]//a[contains(@class, 'session-button') and text()='Selecionar Assentos']
