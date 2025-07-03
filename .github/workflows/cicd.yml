@@ -57,7 +57,7 @@ jobs:
       - name: Reportar bugs no Jira
         if: always()  # mesmo que o job falhe
         run: |
-          python .github/scripts/report_bugs.py
+          python .github/scripts/report_jira.py
         env:
           JIRA_USER_EMAIL: ${{ secrets.JIRA_EMAIL }}
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
