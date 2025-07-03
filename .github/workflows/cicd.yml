@@ -55,6 +55,7 @@ jobs:
           path: results/              # Pasta onde estão os relatórios
 
       - name: Reportar bugs no Jira
+        if: always()  # mesmo que o job falhe
         run: |
           python .github/scripts/report_bugs.py
         env:
