@@ -1,135 +1,83 @@
-name: CI – Robot + Allure + Jira
+name: CI - Robot Framework no Windows
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main, develop ]
+    branches: [main, develop]
 
 jobs:
   robot-tests:
     runs-on: windows-latest
-    permissions:
-      contents: write       # necessário para gh-pages
-      actions: write
 
     steps:
-      # 1) Clona o repositório
-      - name: Checkout
+      - name: 1. Clonar o repositório
         uses: actions/checkout@v3
 
-      # 2) Configura Python 3.11
-      - name: Setup Python
+      - name: 2. Instalar Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      # 3) Instala dependências + allure-robotframework
-      - name: Install dependencies
+      - name: 3. Atualizar pip e instalar dependências
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install allure-robotframework
 
-      # 4) Instala Java e Allure CLI
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '11'
-      - name: Install Allure CLI manually
+      - name: 4. Instalar listener do Allure para Robot
         run: |
-          curl -Lo allure.zip https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.zip
-          tar -xf allure.zip
-          echo "$(pwd)/allure-2.21.0/bin" >> $GITHUB_PATH
+          pip install allure-robotframework
+        # adiciona o listener `allure_robotframework` ao RF :contentReference[oaicite:0]{index=0}
 
-      # 5) Inicializa Browser para Robot Framework
-      - name: Init Playwright browsers
+      - name: 5. Inicializar o Browser (Playwright)
         run: rfbrowser init
 
-      # 6) Executa testes com listener Allure
-      - name: Run Robot Framework
+      - name: 6. Executar testes com Allure listener
         run: |
           robot \
             --listener allure_robotframework \
-            -d results/output \
+            -d results/robot           \ # relatórios padrão do Robot
+            --outputdir results/allure-results \
             "Testes automatizados/tests"
 
-      # 7) Gera relatório Allure
-      - name: Generate Allure report
-        if: always()
+      - name: 7. Configurar propriedades do Allure para Jira
         run: |
-          allure generate results/output/allure -o results/report --clean
+          mkdir -p results/allure-results
+          cat <<EOF > results/allure-results/allure.properties
+          # Link de issues no Jira
+          allure.link.issue.pattern=${{ secrets.JIRA_URL }}/browse/{}
+          # Link de casos de teste (TMS) no Jira
+          allure.link.tms.pattern=${{ secrets.JIRA_URL }}/browse/{}
+          # Exibir issues e TMS clicáveis
+          allure.issues.tracking.enabled=true
+          allure.tms.tracking.enabled=true
+          # Nome do ambiente
+          allure.report.environment=Ambiente de Testes - CI
+          # Localização do relatório
+          allure.localization=pt
+          EOF
 
-      # 8) Prepara e publica o relatório no GitHub Pages
-      - name: Prepare gh-pages branch
-        if: always()
+      - name: 8. Instalar Allure Commandline
         run: |
-          # Cria a branch gh-pages se não existir
-          if ! git ls-remote --exit-code origin gh-pages; then
-            git checkout --orphan gh-pages
-            git rm -rf .
-            git commit --allow-empty -m "Initializing gh-pages"
-            git push origin gh-pages
-          fi
-          # Faz checkout da gh-pages em 'pages'
-          git fetch origin gh-pages:gh-pages
-          git worktree add pages gh-pages
+          # Usa Chocolatey no Windows
+          choco install allure-commandline -y
+        # ou use scoop: `scoop install allure` :contentReference[oaicite:1]{index=1}
 
-      - name: Build Allure pages
-        if: always()
-        uses: simple-elf/allure-report-action@v1.7
-        with:
-          gh_pages: pages
-          allure_results: results/output/allure
-          allure_history: pages/history
-
-      - name: Publish to gh-pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: pages
-
-      # 9) Define e exibe a URL do relatório
-      - name: Set Report URL
-        if: always()
+      - name: 9. Gerar relatório Allure
         run: |
-          echo "REPORT_URL=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}" >> $GITHUB_OUTPUT
+          allure generate results/allure-results --clean -o results/allure-report
+        # gera HTML interativo em results/allure-report :contentReference[oaicite:2]{index=2}
 
-      - name: Show Report URL
-        if: always()
-        run: echo "✅ Relatório Allure disponível em ${{ steps.set_report_url.outputs.REPORT_URL }}"
-
-      # 10) Fallback: artefato do Allure
-      - name: Upload Allure report (artifact)
+      - name: 10. Upload de relatórios Robot
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report
-          path: results/report
+          name: relatorios-robot
+          path: results/robot
 
-      # 11) Autentica no Jira
-      - name: Jira - Login
+      - name: 11. Upload de relatório Allure
         if: always()
-        uses: atlassian/gajira-login@v3.0.0
+        uses: actions/upload-artifact@v4
         with:
-          jira-base-url: ${{ secrets.JIRA_URL }}
-          jira-user-email: ${{ secrets.JIRA_EMAIL }}
-          jira-api-token: ${{ secrets.JIRA_API_TOKEN }}
-
-      # 12) Cria issue no Jira se houver falha
-      - name: Jira - Create bug on failure
-        if: failure()
-        uses: atlassian/gajira-create@v3.0.0
-        with:
-          project-key: ${{ secrets.JIRA_PROJECT_KEY }}
-          issuetype: Bug
-          summary: >
-            [CI][Robot] Test suite failed – Run #${{ github.run_number }}
-          description: |
-            **Workflow:** ${{ github.workflow }}
-            **Run ID:** ${{ github.run_id }}
-            **Branch:** ${{ github.ref_name }}
-            **Relatório Allure:** ${{ steps.set_report_url.outputs.REPORT_URL }}
+          name: relatorio-allure
+          path: results/allure-report
