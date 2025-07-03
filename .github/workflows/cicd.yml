@@ -110,7 +110,7 @@ jobs:
       # 11) Autentica no Jira
       - name: Jira - Login
         if: always()
-        uses: atlassian/gajira-login@v2
+        uses: atlassian/gajira-login@v3.0.0
         with:
           jira-base-url: ${{ secrets.JIRA_URL }}
           jira-user-email: ${{ secrets.JIRA_EMAIL }}
@@ -119,7 +119,7 @@ jobs:
       # 12) Cria issue no Jira se houver falha
       - name: Jira - Create bug on failure
         if: failure()
-        uses: atlassian/gajira-create@v2
+        uses: atlassian/gajira-create@v3.0.0
         with:
           project-key: ${{ secrets.JIRA_PROJECT_KEY }}
           issuetype: Bug
