@@ -75,14 +75,6 @@ jobs:
           name: allure-report
           path: allure-report/
 
-      # Etapa 11: Upload dos relatórios HTML (duplicado, mas útil)
-      - name: Upload dos relatórios
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: relatorios-robot
-          path: results/
-
       # ⭐️ Etapa 12: Cria uma issue no Jira automaticamente se algum teste falhar
       - name: Criar issue no Jira se houver falha
         if: failure()  # Executa SOMENTE se o job falhar
