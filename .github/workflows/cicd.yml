@@ -71,28 +71,23 @@ jobs:
 
       # ⭐️ Etapa 12: Cria uma issue no Jira automaticamente se algum teste falhar
       - name: Criar issue no Jira se houver falha
-        if: failure()  # Executa SOMENTE se o job falhar
+        if: failure()
+        shell: bash
         run: |
           echo "Criando issue no Jira..."
 
-          # Monta título e descrição da issue
-          ISSUE_SUMMARY="🚨 Falha nos testes automatizados na branch ${{ github.ref_name }}"
-          ISSUE_DESCRIPTION="Um ou mais testes falharam no CI.\n\n🔗 [Ver execução no GitHub](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})\n\n📄 Commit: ${{ github.sha }}\n👤 Autor: ${{ github.actor }}"
+          ISSUE_SUMMARY="🚨 Falha nos testes na branch ${{ github.ref_name }}"
+          ISSUE_DESCRIPTION="🔗 [Ver execução](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})\n📄 Commit: ${{ github.sha }}\n👤 Autor: ${{ github.actor }}"
 
-          # Envia o POST para a API do Jira
           curl -X POST \
             -H "Authorization: Basic $(echo -n '${{ secrets.JIRA_EMAIL }}:${{ secrets.JIRA_API_TOKEN }}' | base64)" \
             -H "Content-Type: application/json" \
             "${{ secrets.JIRA_URL }}/rest/api/3/issue" \
             -d "{
               \"fields\": {
-                \"project\": {
-                  \"key\": \"${{ secrets.JIRA_PROJECT_KEY }}\"
-                },
+                \"project\": { \"key\": \"${{ secrets.JIRA_PROJECT_KEY }}\" },
                 \"summary\": \"$ISSUE_SUMMARY\",
                 \"description\": \"$ISSUE_DESCRIPTION\",
-                \"issuetype\": {
-                  \"name\": \"Bug\"
-                }
+                \"issuetype\": { \"name\": \"Bug\" }
               }
             }"
