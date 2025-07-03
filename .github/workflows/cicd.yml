@@ -46,8 +46,7 @@ jobs:
 
       # Etapa 7: Executa os testes Robot Framework + salva saída para Allure
       - name: Executar testes com Robot + Allure
-        run: robot --output results/output.xml --log results/log.html --report results/report.html --listener allure_robotframework;allure-results "Testes automatizados/tests"
-
+        run: robot --output results/output.xml --log results/log.html --report results/report.html --listener "allure_robotframework;allure-results" "Testes automatizados/tests"
 
       # Etapa 8: Gera o relatório Allure com base nos arquivos brutos gerados
       - name: Gerar relatório Allure
