@@ -1,0 +1,55 @@
+# # Nome do workflow (aparece na aba "Actions" do GitHub)
+# name: CI - Robot Framework no Windows
+
+# # Define os gatilhos para iniciar o workflow
+# on:
+#   push:                # Quando houver push para as branches abaixo
+#     branches: [main, develop]
+#   pull_request:        # Ou quando houver Pull Request para essas branches
+#     branches: [main, develop]
+
+# # Início do job chamado "robot-tests"
+# jobs:
+#   robot-tests:
+#     # Ambiente (runner) onde o job será executado: Windows
+#     runs-on: windows-latest
+
+#     # Lista de etapas (steps) que serão executadas em ordem
+#     steps:
+
+#       # Etapa 1: Clona o código do repositório na máquina virtual do GitHub
+#       - name: Clonar o repositório
+#         uses: actions/checkout@v3
+
+#       # Etapa 2: Instala a versão do Python necessária
+#       - name: Instalar Python
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: '3.11'
+
+#       # Etapa 3: Instala as dependências do projeto
+#       # pip install -r requirements.txt instala o Robot Framework e o que mais você precisar
+#       - name: Instalar dependências
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install -r requirements.txt
+
+#       # Etapa 4: Inicializa os navegadores do Robot Framework Browser
+#       # Isso baixa o Chromium, Firefox e WebKit via Playwright
+#       - name: Inicializar o Browser
+#         run: rfbrowser init
+
+#       # Etapa 5: Executa os testes da pasta "tests" e salva os relatórios na pasta "results"
+#       # Você pode mudar a pasta se seus testes estiverem em outro lugar
+#       - name: Rodar os testes
+#         run: |
+#           robot -d results "Testes automatizados/tests"
+
+#       # Etapa 6: Faz upload dos relatórios HTML gerados para a aba de artefatos do GitHub
+#       # Assim você pode baixar e abrir os relatórios mesmo após a execução
+#       - name: Upload dos relatórios
+#         if: always()  # mesmo que o job falhe
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: relatorios-robot      # Nome que será mostrado na aba "Artifacts"
+#           path: results/              # Pasta onde estão os relatórios

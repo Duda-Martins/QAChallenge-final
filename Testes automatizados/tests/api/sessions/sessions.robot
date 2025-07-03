@@ -7,7 +7,7 @@ Suite Setup     Criar Sessão
 
 *** Test Cases ***
 CT028 - Criar nova sessão de filme por Admin
-    [Tags]    CT028    sessao    media
+    [Tags]    CT028    sessao    media    allure.tms:CIN-63
     Logar usuario admin
     Preparar massa de dados    movies.json    cadastro-valido
     Enviar requisição POST para /movies    ${TOKEN_ADMIN}
@@ -22,5 +22,5 @@ CT028 - Criar nova sessão de filme por Admin
     Validar resposta de Cadastro de sessão com sucesso
 
     Enviar requisição DELETE para /movies/_id    ${_id_filme}    ${TOKEN_ADMIN}
-    Enviar requisição DELETE para /theaters/_id    ${_id_teatro}    ${TOKEN_ADMIN}
+    Enviar requisição DELETE para /theaters/_id    ${_id_teatro}    ${TOKEN_ADMIN}    ${False}
     Enviar requisição DELETE para /sessions/_id    ${_id_sessao}

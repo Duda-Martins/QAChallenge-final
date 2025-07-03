@@ -7,7 +7,7 @@ Suite Setup     Criar Sessão
 
 *** Test Cases ***
 CT037 - Excluir usuário sem reservas como admin
-    [Tags]    CT037    deleteUser    media
+    [Tags]    CT037    deleteUser    media    allure.tms:CIN-72
     Logar usuario admin
     Preparar massa de dados    delete_user.json    delete-register
     Enviar requisição POST para /auth/register
@@ -15,7 +15,7 @@ CT037 - Excluir usuário sem reservas como admin
     Validar resposta Delete de usuário com sucesso
 
 CT036 - Editar dados de um usuário para promovê-lo à admin
-    [Tags]    CT036    updateUser    alta
+    [Tags]    CT036    updateUser    alta    allure.tms:CIN-71
     Logar usuario admin
     Preparar massa de dados    update_user.json    update-register
     Enviar requisição POST para /auth/register
@@ -25,7 +25,7 @@ CT036 - Editar dados de um usuário para promovê-lo à admin
     Validar resposta Update de usuário com sucesso
 
 CT039 - Bloqueio de acesso aos endpoints de usuários por usuário comum
-    [Tags]    CT039    user    alta
+    [Tags]    CT039    user    alta    allure.tms:CIN-74
     Logar usuario comum
     Preparar massa de dados    comum_user.json    register-comum
     Enviar requisição POST para /auth/register
