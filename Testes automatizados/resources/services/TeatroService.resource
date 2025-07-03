@@ -56,7 +56,7 @@ Validar resposta de Edição de teatro com sucesso
     Validar que a resposta contém   createdAt
 
 Enviar requisição DELETE para /theaters/_id
-    [Arguments]    ${_id}    ${TOKEN}
+    [Arguments]    ${_id}    ${TOKEN}    ${guardar_resposta}
 
     ${headers}=    Create Dictionary    Authorization=Bearer ${TOKEN}
 
@@ -66,7 +66,8 @@ Enviar requisição DELETE para /theaters/_id
         ...          expected_status=${STATUS_REQ}
         ...          headers=${headers}
 
-    Set Test Variable    ${resposta_para_status}    ${resposta}
+    Run Keyword If    ${guardar_resposta} == ${True}
+    ...    Set Test Variable    ${resposta_para_status}    ${resposta}
 
     Set Test Variable    ${RESPOSTA}    ${resposta.json()}
     Log    ${RESPOSTA}

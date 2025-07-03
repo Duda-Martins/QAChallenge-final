@@ -16,7 +16,7 @@ CT024 - CRUD de teatro por Admin (sucesso)
     Preparar massa de dados    theaters.json    edicao-valida
     Enviar requisição PUT para /theaters/_id    ${_id}    ${TOKEN_ADMIN}
     Validar resposta de Edição de teatro com sucesso
-    Enviar requisição DELETE para /theaters/_id    ${_id}    ${TOKEN_ADMIN}
+    Enviar requisição DELETE para /theaters/_id    ${_id}    ${TOKEN_ADMIN}    ${False}
     Validar resposta de Exclusão de teatro com sucesso
 
 CT025 - Validação de payload inválido ao criar teatro
@@ -35,7 +35,7 @@ CT026 - Bloqueio de CRUD de teatro por usuário comum
     Preparar massa de dados    theaters.json    edicao-usuario-comum
     Enviar requisição PUT para /theaters/_id    ${_id}    ${TOKEN_COMUM}
     Validar resposta rota não autorizada para usuário comum
-    Enviar requisição DELETE para /theaters/_id    ${_id}    ${TOKEN_COMUM}
+    Enviar requisição DELETE para /theaters/_id    ${_id}    ${TOKEN_COMUM}    ${False}
     Validar resposta rota não autorizada para usuário comum
     Logar usuario admin
     Enviar requisição DELETE para /users/_id    ${_id_usuario}    ${TOKEN_ADMIN}
@@ -44,6 +44,6 @@ CT027 - Bloqueio ao tentar excluir teatro com sessões ativas
     [Tags]    CT027    teatro    media
     Logar usuario admin
     Criar filme, teatro e sessão
-    Enviar requisição DELETE para /theaters/_id    ${_id_teatro}    ${TOKEN_ADMIN}
+    Enviar requisição DELETE para /theaters/_id    ${_id_teatro}    ${TOKEN_ADMIN}    ${True}
     Excluir filme, sessão e teatro
     Validar resposta de Exclusão de teatro com sessões ativas
