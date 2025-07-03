@@ -33,6 +33,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install robotframework matplotlib
 
       # Etapa 4: Inicializa os navegadores do Robot Framework Browser
       # Isso baixa o Chromium, Firefox e WebKit via Playwright
@@ -62,3 +63,15 @@ jobs:
           JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
           JIRA_URL: ${{ secrets.JIRA_URL }}
+
+      - name: Gerar resumo visual dos testes
+        if: always()  # mesmo que o job falhe
+        run: python .github/scripts/gerar_resumo.py
+
+      - name: Upload do resumo e gráfico como artefatos
+        uses: actions/upload-artifact@v4
+        with:
+          name: resumo-dos-testes
+          path: |
+            resumo_testes.md
+            resumo_pizza.png
