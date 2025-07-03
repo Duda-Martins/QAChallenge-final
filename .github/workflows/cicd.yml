@@ -43,7 +43,7 @@ jobs:
       # Você pode mudar a pasta se seus testes estiverem em outro lugar
       - name: Rodar os testes
         run: |
-          robot -d results "Testes automatizados/tests"
+          xvfb-run robot -d results "Testes automatizados/tests"
 
       # Etapa 6: Faz upload dos relatórios HTML gerados para a aba de artefatos do GitHub
       # Assim você pode baixar e abrir os relatórios mesmo após a execução
