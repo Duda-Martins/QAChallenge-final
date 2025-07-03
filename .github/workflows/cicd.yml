@@ -69,6 +69,7 @@ jobs:
         run: python .github/scripts/gerar_resumo.py
 
       - name: Upload do resumo e gráfico como artefatos
+        if: always()  # mesmo que o job falhe
         uses: actions/upload-artifact@v4
         with:
           name: resumo-dos-testes
