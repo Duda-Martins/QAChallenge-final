@@ -14,6 +14,5 @@ Validar página de detalhes do filme
     Wait For Elements State    css=.movie-detail-header .movie-poster img    visible    5
 
 Clicar em Selecionar Assentos
-    Sleep    5
     Scroll To Element    xpath=//*[@id="root"]/main/div/div/div/div[2]/div[5]/div/div[1]/div/div[1]/a
     Click    xpath=//*[@id="root"]/main/div/div/div/div[2]/div[5]/div/div[1]/div/div[1]/a
