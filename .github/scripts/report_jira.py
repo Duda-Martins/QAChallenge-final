@@ -67,7 +67,7 @@ def buscar_testes_com_falha(suite):
         yield from buscar_testes_com_falha(subsuite)
 
 def main():
-    resultado = ExecutionResult('../../Testes automatizados/results/output.xml')
+    resultado = ExecutionResult('Testes automatizados/results/output.xml')
 
     print("[DEBUG] Suites encontradas:")
     for suite in resultado.suite.suites:
