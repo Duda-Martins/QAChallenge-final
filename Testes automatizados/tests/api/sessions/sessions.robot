@@ -22,5 +22,5 @@ CT028 - Criar nova sessão de filme por Admin
     Validar resposta de Cadastro de sessão com sucesso
 
     Enviar requisição DELETE para /movies/_id    ${_id_filme}    ${TOKEN_ADMIN}
-    Enviar requisição DELETE para /theaters/_id    ${_id_teatro}    ${TOKEN_ADMIN}
+    Enviar requisição DELETE para /theaters/_id    ${_id_teatro}    ${TOKEN_ADMIN}    ${False}
     Enviar requisição DELETE para /sessions/_id    ${_id_sessao}
