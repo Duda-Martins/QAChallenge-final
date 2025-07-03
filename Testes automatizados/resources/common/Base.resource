@@ -40,7 +40,7 @@ Criar Sessão
 Preparar massa de dados
     [Arguments]    ${arquivo}    ${cenario}
     ${data}    Load Json From File
-    ...    resources/data/${arquivo}
+    ...    Testes automatizados/resources/data/${arquivo}
     ...    encoding=utf-8
 
     Set Test Variable    ${body}    ${data}[${cenario}]
@@ -71,7 +71,7 @@ Criar filme, teatro e sessão
 
 Excluir filme, sessão e teatro
     Enviar requisição DELETE para /movies/_id    ${_id_filme}    ${TOKEN_ADMIN}
-    Enviar requisição DELETE para /theaters/_id    ${_id_teatro}    ${TOKEN_ADMIN}
+    Enviar requisição DELETE para /theaters/_id    ${_id_teatro}    ${TOKEN_ADMIN}    ${False}
     Enviar requisição DELETE para /sessions/_id    ${_id_sessao}
 
 Criar usuário
