@@ -53,3 +53,11 @@ jobs:
         with:
           name: relatorios-robot      # Nome que será mostrado na aba "Artifacts"
           path: results/              # Pasta onde estão os relatórios
+
+      - name: Reportar bugs no Jira
+        run: |
+          python .github/scripts/report_bugs.py
+        env:
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          JIRA_DOMAIN: ${{ secrets.JIRA_URL }}
