@@ -8,7 +8,7 @@ Test Teardown    Take Screenshot
 
 *** Test Cases ***
 CT018 - Fluxo de reserva com sucesso
-    [Tags]    CT018    reserva    alta    allure.issue:CIN-119    allure.tms:QALITY-CIN-53
+    [Tags]    CT018    reserva    alta    allure.tms:CIN-53
     Criar usuário
     Clicar em Sair
     Logar usuario
@@ -27,7 +27,7 @@ CT018 - Fluxo de reserva com sucesso
     Apagar usuário
 
 CT019 - Tentar reservar assentos ocupados
-    [Tags]    CT019    reserva    media    allure.issue:CIN-120    allure.tms:QALITY-CIN-54
+    [Tags]    CT019    reserva    media    allure.tms:CIN-54
     Criar usuário
     Clicar em Sair
     Logar usuario
@@ -49,7 +49,7 @@ CT019 - Tentar reservar assentos ocupados
     Apagar usuário
 
 CT020 - Histórico de reservas
-    [Tags]    CT020    reserva    alta    allure.issue:CIN-121    allure.tms:QALITY-CIN-55
+    [Tags]    CT020    reserva    alta    allure.tms:CIN-55
     Criar usuário
     Clicar em Sair
     Logar usuario

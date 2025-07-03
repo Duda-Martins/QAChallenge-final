@@ -1,55 +1,112 @@
-# Nome do workflow (aparece na aba "Actions" do GitHub)
-name: CI - Robot Framework no Windows
+# Nome do workflow (como aparecerá na aba "Actions" do GitHub)
+name: CI - Robot Framework com Allure e Relatório Padrão
 
-# Define os gatilhos para iniciar o workflow
+# Quando esse workflow deve ser executado:
 on:
-  push:                # Quando houver push para as branches abaixo
+  push:                  # Ao realizar push para as branches abaixo
     branches: [main, develop]
-  pull_request:        # Ou quando houver Pull Request para essas branches
+  pull_request:          # Ao criar Pull Request para as branches abaixo
     branches: [main, develop]
+  workflow_dispatch:     # Permite executar manualmente via botão "Run workflow" no GitHub
 
-# Início do job chamado "robot-tests"
+# Definição do job principal chamado "robot-tests"
 jobs:
   robot-tests:
-    # Ambiente (runner) onde o job será executado: Windows
-    runs-on: windows-latest
+    runs-on: windows-latest  # Usa uma máquina virtual Windows mais recente
 
-    # Lista de etapas (steps) que serão executadas em ordem
     steps:
-
-      # Etapa 1: Clona o código do repositório na máquina virtual do GitHub
+      # Etapa 1: Clona o repositório na VM do GitHub
       - name: Clonar o repositório
         uses: actions/checkout@v3
 
-      # Etapa 2: Instala a versão do Python necessária
+      # Etapa 2: Instala o Python 3.11
       - name: Instalar Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      # Etapa 3: Instala as dependências do projeto
-      # pip install -r requirements.txt instala o Robot Framework e o que mais você precisar
+      # Etapa 3: Instala dependências do projeto (Robot Framework, Browser, etc)
       - name: Instalar dependências
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Etapa 4: Inicializa os navegadores do Robot Framework Browser
-      # Isso baixa o Chromium, Firefox e WebKit via Playwright
+      # Etapa 4: Instala o Allure CLI (linha de comando)
+      - name: Instalar Allure CLI
+        run: npm install -g allure-commandline
+
+      # Etapa 5: Inicializa os browsers usados pelo Robot Framework Browser
       - name: Inicializar o Browser
         run: rfbrowser init
 
-      # Etapa 5: Executa os testes da pasta "tests" e salva os relatórios na pasta "results"
-      # Você pode mudar a pasta se seus testes estiverem em outro lugar
-      - name: Rodar os testes
-        run: |
-          robot -d results "Testes automatizados/tests"
+      # Etapa 6: Define tamanho de tela (opcional, evita bugs visuais)
+      - name: Definir viewport
+        run: echo "viewport fixo para testes visuais"
+        shell: bash
 
-      # Etapa 6: Faz upload dos relatórios HTML gerados para a aba de artefatos do GitHub
-      # Assim você pode baixar e abrir os relatórios mesmo após a execução
-      - name: Upload dos relatórios
-        if: always()  # mesmo que o job falhe
+      # Etapa 7: Executa os testes Robot Framework + salva saída para Allure
+      - name: Executar testes com Robot + Allure
+        run: |
+          robot \
+            --output results/output.xml \
+            --log results/log.html \
+            --report results/report.html \
+            --listener allure_robotframework;allure-results \
+            "Testes automatizados/tests"
+
+      # Etapa 8: Gera o relatório Allure com base nos arquivos brutos gerados
+      - name: Gerar relatório Allure
+        run: |
+          allure generate allure-results -o allure-report --clean
+
+      # Etapa 9: Salva o relatório padrão do Robot Framework como artefato
+      - name: Salvar relatório padrão do Robot
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: relatorios-robot      # Nome que será mostrado na aba "Artifacts"
-          path: results/              # Pasta onde estão os relatórios
+          name: robot-report
+          path: results/
+
+      # Etapa 10: Salva o relatório Allure como artefato também
+      - name: Salvar relatório como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report/
+
+      # Etapa 11: Upload dos relatórios HTML (duplicado, mas útil)
+      - name: Upload dos relatórios
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios-robot
+          path: results/
+
+      # ⭐️ Etapa 12: Cria uma issue no Jira automaticamente se algum teste falhar
+      - name: Criar issue no Jira se houver falha
+        if: failure()  # Executa SOMENTE se o job falhar
+        run: |
+          echo "Criando issue no Jira..."
+
+          # Monta título e descrição da issue
+          ISSUE_SUMMARY="🚨 Falha nos testes automatizados na branch ${{ github.ref_name }}"
+          ISSUE_DESCRIPTION="Um ou mais testes falharam no CI.\n\n🔗 [Ver execução no GitHub](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})\n\n📄 Commit: ${{ github.sha }}\n👤 Autor: ${{ github.actor }}"
+
+          # Envia o POST para a API do Jira
+          curl -X POST \
+            -H "Authorization: Basic $(echo -n '${{ secrets.JIRA_EMAIL }}:${{ secrets.JIRA_API_TOKEN }}' | base64)" \
+            -H "Content-Type: application/json" \
+            "${{ secrets.JIRA_URL }}/rest/api/3/issue" \
+            -d "{
+              \"fields\": {
+                \"project\": {
+                  \"key\": \"${{ secrets.JIRA_PROJECT_KEY }}\"
+                },
+                \"summary\": \"$ISSUE_SUMMARY\",
+                \"description\": \"$ISSUE_DESCRIPTION\",
+                \"issuetype\": {
+                  \"name\": \"Bug\"
+                }
+              }
+            }"
