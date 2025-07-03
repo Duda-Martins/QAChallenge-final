@@ -37,8 +37,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '11'
-      - name: Install Allure CLI
-        run: choco install allure.commandline --version 2.21.0 -y
+      - name: Install Allure CLI manually
+        run: |
+          curl -Lo allure.zip https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.zip
+          tar -xf allure.zip
+          echo "$(pwd)/allure-2.21.0/bin" >> $GITHUB_PATH
 
       # 5) Inicializa Browser para Robot Framework
       - name: Init Playwright browsers
