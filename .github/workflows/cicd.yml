@@ -1,83 +1,55 @@
-name: CI - Robot Framework no Windows
+# # Nome do workflow (aparece na aba "Actions" do GitHub)
+# name: CI - Robot Framework no Windows
 
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main, develop]
+# # Define os gatilhos para iniciar o workflow
+# on:
+#   push:                # Quando houver push para as branches abaixo
+#     branches: [main, develop]
+#   pull_request:        # Ou quando houver Pull Request para essas branches
+#     branches: [main, develop]
 
-jobs:
-  robot-tests:
-    runs-on: windows-latest
+# # Início do job chamado "robot-tests"
+# jobs:
+#   robot-tests:
+#     # Ambiente (runner) onde o job será executado: Windows
+#     runs-on: windows-latest
 
-    steps:
-      - name: 1. Clonar o repositório
-        uses: actions/checkout@v3
+#     # Lista de etapas (steps) que serão executadas em ordem
+#     steps:
 
-      - name: 2. Instalar Python 3.11
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+#       # Etapa 1: Clona o código do repositório na máquina virtual do GitHub
+#       - name: Clonar o repositório
+#         uses: actions/checkout@v3
 
-      - name: 3. Atualizar pip e instalar dependências
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+#       # Etapa 2: Instala a versão do Python necessária
+#       - name: Instalar Python
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: '3.11'
 
-      - name: 4. Instalar listener do Allure para Robot
-        run: |
-          pip install allure-robotframework
-        # adiciona o listener `allure_robotframework` ao RF :contentReference[oaicite:0]{index=0}
+#       # Etapa 3: Instala as dependências do projeto
+#       # pip install -r requirements.txt instala o Robot Framework e o que mais você precisar
+#       - name: Instalar dependências
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install -r requirements.txt
 
-      - name: 5. Inicializar o Browser (Playwright)
-        run: rfbrowser init
+#       # Etapa 4: Inicializa os navegadores do Robot Framework Browser
+#       # Isso baixa o Chromium, Firefox e WebKit via Playwright
+#       - name: Inicializar o Browser
+#         run: rfbrowser init
 
-      - name: 6. Executar testes com Allure listener
-        run: |
-          robot \
-            --listener allure_robotframework \
-            -d results/robot           \ # relatórios padrão do Robot
-            --outputdir results/allure-results \
-            "Testes automatizados/tests"
+#       # Etapa 5: Executa os testes da pasta "tests" e salva os relatórios na pasta "results"
+#       # Você pode mudar a pasta se seus testes estiverem em outro lugar
+#       - name: Rodar os testes
+#         run: |
+#           robot -d results "Testes automatizados/tests"
 
-      - name: 7. Configurar propriedades do Allure para Jira
-        run: |
-          mkdir -p results/allure-results
-          cat <<EOF > results/allure-results/allure.properties
-          # Link de issues no Jira
-          allure.link.issue.pattern=${{ secrets.JIRA_URL }}/browse/{}
-          # Link de casos de teste (TMS) no Jira
-          allure.link.tms.pattern=${{ secrets.JIRA_URL }}/browse/{}
-          # Exibir issues e TMS clicáveis
-          allure.issues.tracking.enabled=true
-          allure.tms.tracking.enabled=true
-          # Nome do ambiente
-          allure.report.environment=Ambiente de Testes - CI
-          # Localização do relatório
-          allure.localization=pt
-          EOF
-
-      - name: 8. Instalar Allure Commandline
-        run: |
-          # Usa Chocolatey no Windows
-          choco install allure-commandline -y
-        # ou use scoop: `scoop install allure` :contentReference[oaicite:1]{index=1}
-
-      - name: 9. Gerar relatório Allure
-        run: |
-          allure generate results/allure-results --clean -o results/allure-report
-        # gera HTML interativo em results/allure-report :contentReference[oaicite:2]{index=2}
-
-      - name: 10. Upload de relatórios Robot
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: relatorios-robot
-          path: results/robot
-
-      - name: 11. Upload de relatório Allure
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: relatorio-allure
-          path: results/allure-report
+#       # Etapa 6: Faz upload dos relatórios HTML gerados para a aba de artefatos do GitHub
+#       # Assim você pode baixar e abrir os relatórios mesmo após a execução
+#       - name: Upload dos relatórios
+#         if: always()  # mesmo que o job falhe
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: relatorios-robot      # Nome que será mostrado na aba "Artifacts"
+#           path: results/              # Pasta onde estão os relatórios
