@@ -175,21 +175,21 @@ pip install -r requirements.txt
 2. **Testes de API**
 
 ```bash
-cd Testes\ automatizados
+cd "Testes automatizados"
 robot -d results tests/api
 ```
 
 3. **Testes de Frontend**
 
 ```bash
-cd Testes\ automatizados
+cd "Testes automatizados"
 robot -d results tests/frontend
 ```
 
 4. **Todos os testes**
 
 ```bash
-cd Testes\ automatizados
+cd "Testes automatizados"
 robot -d results tests/frontend
 ```
 
