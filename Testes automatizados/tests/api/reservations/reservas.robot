@@ -7,7 +7,7 @@ Suite Setup     Criar Sessão
 
 *** Test Cases ***
 CT033 - Atualizar status de uma reserva (Admin)
-    [Tags]    CT033    reserva    media    allure.tms:CIN-68
+    [Tags]    CT033    reserva    media
     Logar usuario admin
     Criar filme, teatro e sessão
 

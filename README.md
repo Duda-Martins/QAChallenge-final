@@ -281,6 +281,7 @@ Essas duas funcionalidades eliminam tarefas manuais, aumentam a rastreabilidade 
 | `feature/testes-postman` | Testes manuais via Postman             |
 | `feature/automacao`      | Casos automatizados Robot              |
 | `feature/plano-testes`   | Plano e matriz de testes               |
+| `feature/cicd`           | Implemntação da pipeline e inovações   |
 
 ---
 

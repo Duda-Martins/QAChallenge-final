@@ -7,7 +7,7 @@ Suite Setup     Criar Sessão
 
 *** Test Cases ***
 CT028 - Criar nova sessão de filme por Admin
-    [Tags]    CT028    sessao    media    allure.tms:CIN-63
+    [Tags]    CT028    sessao    media
     Logar usuario admin
     Preparar massa de dados    movies.json    cadastro-valido
     Enviar requisição POST para /movies    ${TOKEN_ADMIN}
