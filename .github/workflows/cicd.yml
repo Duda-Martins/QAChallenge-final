@@ -65,6 +65,5 @@ jobs:
         with:
           name: resumo-resultados-grafico
           path: |
-            "Testes automatizados/results/"
             resumo_testes.md
             resumo_pizza.png
