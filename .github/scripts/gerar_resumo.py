@@ -74,7 +74,7 @@ def gerar_resumo_visual(path_output="Testes automatizados/results/output.xml", a
                 f.write(f"## {icone} Prioridade: {prioridade.capitalize()}\n\n")
                 for test in testes_por_prioridade[prioridade]:
                     status = "✅" if test.status == "PASS" else "❌"
-                    f.write(f"{status} {test.name}\n")
+                    f.write(f"{status} {test.name}\n\n")
                 f.write("\n---\n\n")
 
     print(f"[OK] Resumo salvo em: {arquivo_saida}")
