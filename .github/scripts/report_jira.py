@@ -92,6 +92,7 @@ def main():
             esperado, obtido = extrair_esperado_obtido(erro)
 
             resumo = f"Bug Report: {erro[:70]}"
+            resumo = resumo.replace('\n', ' - ')
 
             descricao = f"""**ID Caso de Teste:** {case_id}  
 **Título:** {nome}  
