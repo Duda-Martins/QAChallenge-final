@@ -44,7 +44,7 @@ jobs:
       # Você pode mudar a pasta se seus testes estiverem em outro lugar
       - name: Rodar os testes
         run: |
-          xvfb-run robot -d results "Testes automatizados/tests"
+          xvfb-run robot -d "Testes automatizados/results" "Testes automatizados/tests"
 
       - name: Reportar bugs no Jira
         if: always()  # mesmo que o job falhe
